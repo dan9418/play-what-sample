@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Sample.css";
-import { ViewDriver, Fretboard, Keyboard } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
+import { ViewDriver, Fretboard, Keyboard, TheoryEngine, Concepts } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
 
 export class Sample extends React.Component {
 
@@ -14,7 +14,25 @@ export class Sample extends React.Component {
                 <ViewDriver />
 
                 <Fretboard
-                    notes={[]}
+                    notes={
+                        TheoryEngine.parseIntervals(
+                            {
+                                degree: {
+                                    id: 'C',
+                                    name: 'C',
+                                    value: 1,
+                                    index: 0
+                                },
+                                accidental: {
+                                    id: 'natural',
+                                    name: '♮',
+                                    offset: 0
+                                },
+                                octave: 4
+                            },
+                            Concepts.Chords.maj.intervals,
+                            {}
+                        )}
                     config={{
                         noteLabel: {
                             id: 'name',
