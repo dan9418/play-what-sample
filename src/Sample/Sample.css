@@ -1,11 +1,15 @@
 .sample-container {
     text-align: center;
-	margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #CCC;
+    background-color: #DDD;
+}
+
+.sample-container pre {
+    padding: 10px;
+    background-color: #EEE;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: 16px;
+    margin-top: 20px;
 }
