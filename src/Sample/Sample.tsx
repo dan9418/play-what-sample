@@ -7,6 +7,7 @@ import { SwitchInput } from "./Inputs/SwitchInput/SwitchInput";
 import { EnumDropdownInput } from "./Inputs/EnumDropdownInput/EnumDropdownInput";
 import { BooleanInput } from "./Inputs/BooleanInput/BooleanInput";
 import { KeyCenterInput } from "./Inputs/KeyCenterInput/KeyCenterInput";
+import { ConceptInput } from "./Inputs/ConceptInput/ConceptInput";
 
 export class Sample extends React.Component<any, any> {
 
@@ -23,6 +24,11 @@ export class Sample extends React.Component<any, any> {
                         {
                             inputId: 'keyCenter',
                             inputComponent: KeyCenterInput,
+                            nested: true
+                        },
+                        {
+                            inputId: 'concept',
+                            inputComponent: ConceptInput,
                             nested: true
                         },
                         {
