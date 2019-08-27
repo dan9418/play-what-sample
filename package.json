@@ -16,12 +16,18 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "style-loader": "^1.0.0",
+    "typescript": "^3.5.3",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7"
   },
   "dependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^9.0.1",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "ts-loader": "^6.0.4"
   },
   "babel": {
     "presets": [

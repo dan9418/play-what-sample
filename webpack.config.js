@@ -1,27 +1,29 @@
-let config = {
-    entry: "./src/index.js",
-    mode: "development",
-    output: {
-        filename: "./sample.js"
-    },
-    resolve: {
-        symlinks: true
-    },
-    module: {
-        rules: [
-            {
-                test: /\.m?js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: "babel-loader"
-                }
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
-            },
+var path = require('path');
+var config = {
+  mode: 'development',
+  entry: ['./src/index.tsx'],
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: 'play-what-sample.js'
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: [
+          path.resolve(__dirname, 'node_modules')
         ]
-    }
-}
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      }
+    ]
+  }
+};
 
 module.exports = config;
