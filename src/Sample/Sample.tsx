@@ -5,6 +5,7 @@ import { DemoBox } from "./DemoBox/DemoBox";
 import { NumericInput } from "./Inputs/NumericInput/NumericInput";
 import { SwitchInput } from "./Inputs/SwitchInput/SwitchInput";
 import { EnumDropdownInput } from "./Inputs/EnumDropdownInput/EnumDropdownInput";
+import { BooleanInput } from "./Inputs/BooleanInput/BooleanInput";
 
 export class Sample extends React.Component<any, any> {
 
@@ -52,7 +53,7 @@ export class Sample extends React.Component<any, any> {
                             }
                         },
                         {
-                            inputComponent: SwitchInput,
+                            inputComponent: BooleanInput,
                             inputId: 'filterOctave'
                         },
                         {

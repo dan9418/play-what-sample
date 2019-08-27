@@ -1,7 +1,5 @@
 .button-input {
     display: inline-block;
-    background-color: #999;
-    color: white;
     line-height: 20px;
     height: 20px;
     width: 20px;
@@ -16,28 +14,20 @@
 }
 
 .button-input:hover {
-    background-color: #888;
     cursor: pointer;
 }
 
 .button-input.active {
-    background-color: #FF5A09;
 }
 
 .button-input.readonly {
-    cursor: auto;
-    font-weight: bold;
-    background-color: #999;
+
 }
 
 .button-input.disabled {
-    background-color: #AAA;
-    color: #DDD;
-    cursor: auto;
+
 }
 
 .button-input.disabled:hover {
-    background-color: #AAA;
-    color: #DDD;
-    cursor: auto;
+
 }
