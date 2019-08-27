@@ -6,6 +6,7 @@ import { NumericInput } from "./Inputs/NumericInput/NumericInput";
 import { SwitchInput } from "./Inputs/SwitchInput/SwitchInput";
 import { EnumDropdownInput } from "./Inputs/EnumDropdownInput/EnumDropdownInput";
 import { BooleanInput } from "./Inputs/BooleanInput/BooleanInput";
+import { KeyCenterInput } from "./Inputs/KeyCenterInput/KeyCenterInput";
 
 export class Sample extends React.Component<any, any> {
 
@@ -21,28 +22,8 @@ export class Sample extends React.Component<any, any> {
                     inputs={[
                         {
                             inputId: 'keyCenter',
-                            children: [
-                                {
-                                    inputComponent: EnumDropdownInput,
-                                    inputId: 'degree',
-                                    props: {
-                                        label: 'DEGREE',
-                                        enum: DEGREE
-                                    }
-                                },
-                                {
-                                    inputComponent: EnumDropdownInput,
-                                    inputId: 'accidental',
-                                    props: {
-                                        label: 'ACCIDENTAL',
-                                        enum: ACCIDENTAL
-                                    }
-                                },
-                                {
-                                    inputComponent: NumericInput,
-                                    inputId: 'octave'
-                                },
-                            ]
+                            inputComponent: KeyCenterInput,
+                            nested: true
                         },
                         {
                             inputComponent: EnumDropdownInput,

@@ -2,10 +2,26 @@ import './DemoBox.css';
 import { Fretboard, Keyboard, DEGREE, ACCIDENTAL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 import React = require('react');
 
+interface PropProps extends React.PropsWithChildren<any> {
+    label: string;
+    nested?: boolean;
+}
+
+export function Prop(props: PropProps) {
+    return (
+        <div className='prop'>
+            <div className='prop-label'>{props.label}</div>
+            <div className='prop-bracket'>{'={'}</div>
+            <div className={props.nested ? 'prop-input-nested' : 'prop-input'}>{props.children}</div>
+            <div className='prop-bracket'>{'}'}</div>
+        </div>
+    );
+}
+
 type InputDef = {
-    inputComponent?: any;
-    children?: InputDef[];
     inputId: string;
+    inputComponent: any;
+    nested?: boolean;
     props?: any;
 }
 
@@ -21,20 +37,10 @@ export class DemoBox extends React.Component<DemoBoxProps, any> {
         this.state = this.props.defaults;
     }
 
-    setValue = (idChain: string[], value: any) => {
-        // TODO
-        if(idChain.length === 1) {
-            let update = {};
-            update[idChain[0]] = value;
-            this.setState(update);
-        }
-        else if(idChain.length === 2) {
-            let test = {...this.state[idChain[0]]};
-            test[idChain[1]] = value;
-            let update = {};
-            update[idChain[0]] = test;
-            this.setState(update);
-        }
+    setValue = (property: string, value: any) => {
+        let update = {};
+        update[property] = value;
+        this.setState(update);
     }
 
     getInput = (input: InputDef, parentIds: string[]) => {
@@ -42,19 +48,14 @@ export class DemoBox extends React.Component<DemoBoxProps, any> {
         let idChain = [...parentIds, input.inputId]
         return (
             <div className='prop' key={input.inputId}>
-                <div className='prop-label'>{input.inputId}</div>
-                <div className='prop-bracket'>{'={'}</div>
-                {
-                    Input ?
-                        <Input
-                            {...this.state}
-                            {...input.props}
-                            value={idChain.reduce((p, prop) => { return p[prop] }, this.state)}
-                            setValue={(value: any) => this.setValue(idChain, value)}
-                        /> :
-                        this.getInputs(input.children, idChain)
-                }
-                <div className='prop-bracket'>{'}'}</div>
+                <Prop label={input.inputId} nested={input.nested}>
+                    <Input
+                        {...this.state}
+                        {...input.props}
+                        value={this.state[input.inputId]}
+                        setValue={(value: any) => this.setValue(input.inputId, value)}
+                    />
+                </Prop>
             </div>
         );
     }

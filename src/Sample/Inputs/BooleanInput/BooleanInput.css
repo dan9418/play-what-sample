@@ -1,25 +1,3 @@
-.boolean-input {
+.key-center-input {
   display: inline-block;
-  height: 20px;
-  cursor: pointer;
-}
-
-.true, .false {
-  display: inline-block;
-}
-
-.boolean-input.true .true {
-  font-weight: bold;
-}
-
-.boolean-input.true .false {
-  font-weight: normal;
-}
-
-.boolean-input.false .true {
-  font-weight: normal;
-}
-
-.boolean-input.false .false {
-  font-weight: bold;
 }

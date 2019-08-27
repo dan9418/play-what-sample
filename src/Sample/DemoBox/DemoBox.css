@@ -29,6 +29,10 @@
     display: inline-block;
 }
 
-/*.bracket-nested {
+.prop-input {
+    display: inline-block;
+}
+
+.prop-input-nested {
     display: block;
-}*/
+}
