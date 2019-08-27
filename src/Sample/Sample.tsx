@@ -3,6 +3,7 @@ import { Fretboard, Keyboard, DEGREE, ACCIDENTAL, TheoryEngine, INTERVAL_PAIR, I
 import React = require("react");
 import { DemoBox } from "./DemoBox/DemoBox";
 import { NumericInput } from "./Inputs/NumericInput/NumericInput";
+import { SwitchInput } from "./Inputs/SwitchInput/SwitchInput";
 
 export class Sample extends React.Component<any, any> {
 
@@ -15,9 +16,26 @@ export class Sample extends React.Component<any, any> {
             <div className="sample-container">
 
                 <DemoBox
-                    inputComponent={NumericInput}
-                    inputId='keyHigh'
-                    defaults={{ keyHigh: 24 }}
+                    inputs={[
+                        {
+                            inputComponent: SwitchInput,
+                            inputId: 'filterOctave'
+                        },
+                        {
+                            inputComponent: NumericInput,
+                            inputId: 'keyLow'
+                        },
+                        {
+                            inputComponent: NumericInput,
+                            inputId: 'keyHigh'
+                        }
+                    ]}
+
+                    defaults={{
+                        filterOctave: true,
+                        keyLow: 0,
+                        keyHigh: 24
+                    }}
                 ></DemoBox>
 
                 <h1>Play What?</h1>
