@@ -4,7 +4,7 @@ import React = require("react");
 import { DemoBox } from "./DemoBox/DemoBox";
 import { NumericInput } from "./Inputs/NumericInput/NumericInput";
 import { SwitchInput } from "./Inputs/SwitchInput/SwitchInput";
-import { NoteLabelInput } from "./Inputs/NoteLabelInput";
+import { EnumDropdownInput } from "./Inputs/EnumDropdownInput/EnumDropdownInput";
 
 export class Sample extends React.Component<any, any> {
 
@@ -22,14 +22,34 @@ export class Sample extends React.Component<any, any> {
                             inputId: 'keyCenter',
                             children: [
                                 {
+                                    inputComponent: EnumDropdownInput,
+                                    inputId: 'degree',
+                                    props: {
+                                        label: 'DEGREE',
+                                        enum: DEGREE
+                                    }
+                                },
+                                {
+                                    inputComponent: EnumDropdownInput,
+                                    inputId: 'accidental',
+                                    props: {
+                                        label: 'ACCIDENTAL',
+                                        enum: ACCIDENTAL
+                                    }
+                                },
+                                {
                                     inputComponent: NumericInput,
                                     inputId: 'octave'
                                 },
                             ]
                         },
                         {
-                            inputComponent: NoteLabelInput,
-                            inputId: 'noteLabel'
+                            inputComponent: EnumDropdownInput,
+                            inputId: 'noteLabel',
+                            props: {
+                                label: 'NOTE_LABEL',
+                                enum: NOTE_LABEL
+                            }
                         },
                         {
                             inputComponent: SwitchInput,

@@ -6,6 +6,7 @@ type InputDef = {
     inputComponent?: any;
     children?: InputDef[];
     inputId: string;
+    props?: any;
 }
 
 type DemoBoxProps = {
@@ -47,6 +48,7 @@ export class DemoBox extends React.Component<DemoBoxProps, any> {
                     Input ?
                         <Input
                             {...this.state}
+                            {...input.props}
                             value={idChain.reduce((p, prop) => { return p[prop] }, this.state)}
                             setValue={(value: any) => this.setValue(idChain, value)}
                         /> :
