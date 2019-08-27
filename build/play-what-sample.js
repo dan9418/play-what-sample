@@ -97,6 +97,39 @@ eval("module.exports =\r\n/******/ (function(modules) { // webpackBootstrap\r\n/
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Sample/DemoBox/DemoBox.css":
+/*!******************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Sample/DemoBox/DemoBox.css ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".demo-box {\\r\\n    display: inline-block;\\r\\n    margin: 10px;\\r\\n}\\r\\n\\r\\n.demo-box-pre {\\r\\n    text-align: left;\\r\\n    background-color: #f6f8fa;\\r\\n    border-radius: 3px;\\r\\n    overflow: auto;\\r\\n    padding: 16px;\\r\\n}\\r\\n\\r\\n.demo-box, .demo-box * {\\r\\n    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;\\r\\n    font-size: 20px;\\r\\n    line-height: 20px;\\r\\n}\\r\\n\\r\\n.demo-box-prop {\\r\\n    display: inline-block;\\r\\n    margin-left: 20px;\\r\\n}\\r\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Sample/DemoBox/DemoBox.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Sample/Inputs/ButtonInput/ButtonInput.css":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Sample/Inputs/ButtonInput/ButtonInput.css ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".button-input {\\r\\n    display: inline-block;\\r\\n    background-color: #999;\\r\\n    color: white;\\r\\n    line-height: 20px;\\r\\n    height: 20px;\\r\\n    width: 20px;\\r\\n    font-size: 12px;\\r\\n    vertical-align: top;\\r\\n    text-align: center;\\r\\n\\r\\n    -webkit-user-select: none; /* Safari */        \\r\\n\\t-moz-user-select: none; /* Firefox */\\r\\n\\t-ms-user-select: none; /* IE10+/Edge */\\r\\n\\tuser-select: none; /* Standard */\\r\\n}\\r\\n\\r\\n.button-input:hover {\\r\\n    background-color: #888;\\r\\n    cursor: pointer;\\r\\n}\\r\\n\\r\\n.button-input.active {\\r\\n    background-color: #FF5A09;\\r\\n}\\r\\n\\r\\n.button-input.readonly {\\r\\n    cursor: auto;\\r\\n    font-weight: bold;\\r\\n    background-color: #999;\\r\\n}\\r\\n\\r\\n.button-input.disabled {\\r\\n    background-color: #AAA;\\r\\n    color: #DDD;\\r\\n    cursor: auto;\\r\\n}\\r\\n\\r\\n.button-input.disabled:hover {\\r\\n    background-color: #AAA;\\r\\n    color: #DDD;\\r\\n    cursor: auto;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Sample/Inputs/ButtonInput/ButtonInput.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Sample/Inputs/NumericInput/NumericInput.css":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Sample/Inputs/NumericInput/NumericInput.css ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n\\r\\n.numeric-input {\\r\\n  height: 20px;\\r\\n  display: inline-block;\\r\\n  text-align: center;\\r\\n}\\r\\n\\r\\n.numeric-input .up {\\r\\n  border-radius: 0 5px 5px 0;\\r\\n}\\r\\n\\r\\n.numeric-input .down {\\r\\n  border-radius: 5px 0 0 5px;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Sample/Inputs/NumericInput/NumericInput.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Sample/Sample.css":
 /*!*********************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Sample/Sample.css ***!
@@ -104,7 +137,7 @@ eval("module.exports =\r\n/******/ (function(modules) { // webpackBootstrap\r\n/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".sample-container {\\r\\n    text-align: center;\\r\\n    background-color: #DDD;\\r\\n}\\r\\n\\r\\n.sample-container pre {\\r\\n    padding: 10px;\\r\\n    background-color: #EEE;\\r\\n    max-width: 600px;\\r\\n    margin: auto;\\r\\n    border-radius: 10px;\\r\\n    font-family: monospace;\\r\\n    font-size: 16px;\\r\\n    margin-top: 20px;\\r\\n    text-align: left;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Sample/Sample.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".sample-container {\\r\\n    text-align: center;\\r\\n    max-width: 800px;\\r\\n    margin: auto;\\r\\n    border: 1px solid #d1d5da;\\r\\n    border-radius: 3px;\\r\\n    background-color: #FFF;\\r\\n    padding: 32px;\\r\\n    font-size: 16px\\r\\n}\\r\\n\\r\\n.sample-container pre {\\r\\n    padding: 10px;\\r\\n    background-color: #EEE;\\r\\n    max-width: 600px;\\r\\n    margin: auto;\\r\\n    border-radius: 10px;\\r\\n    font-family: monospace;\\r\\n    font-size: 16px;\\r\\n    margin-top: 20px;\\r\\n    text-align: left;\\r\\n}\\r\\n\\r\\nh1, h2 {\\r\\n    border-bottom: 1px solid #eaecef;\\r\\n    padding-bottom: .3em;\\r\\n    font-weight: 600;\\r\\n    line-height: 1.25;\\r\\n    margin-bottom: 16px;\\r\\n    margin-top: 24px;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Sample/Sample.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -115,7 +148,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"html, body {\\r\\n    margin: 0;\\r\\n    padding: 0;\\r\\n}\\r\\n\\r\\nh1, h2, h3, h4, h5, h6 {\\r\\n    margin: 0;\\r\\n    padding: 10px;\\r\\n}\\r\\n\\r\\np {\\r\\n    max-width: 700px;\\r\\n    margin: auto;\\r\\n    font-size: 16px;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/index.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"html, body {\\r\\n    margin: 0;\\r\\n    padding: 5px;\\r\\n    background-color: #f6f8fa;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/index.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -275,6 +308,75 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 
 /***/ }),
 
+/***/ "./src/Sample/DemoBox/DemoBox.css":
+/*!****************************************!*\
+  !*** ./src/Sample/DemoBox/DemoBox.css ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!./DemoBox.css */ \"./node_modules/css-loader/dist/cjs.js!./src/Sample/DemoBox/DemoBox.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/Sample/DemoBox/DemoBox.css?");
+
+/***/ }),
+
+/***/ "./src/Sample/DemoBox/DemoBox.tsx":
+/*!****************************************!*\
+  !*** ./src/Sample/DemoBox/DemoBox.tsx ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__webpack_require__(/*! ./DemoBox.css */ \"./src/Sample/DemoBox/DemoBox.css\");\r\nconst play_what_alpha_1 = __webpack_require__(/*! C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha */ \"../play-what-alpha/build/play-what-alpha.js\");\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nclass DemoBox extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.setValue = (property, value) => {\r\n            let update = {};\r\n            update[property] = value;\r\n            this.setState(update);\r\n        };\r\n        this.state = this.props.defaults;\r\n    }\r\n    render() {\r\n        let Input = this.props.inputComponent;\r\n        return (React.createElement(\"div\", { className: \"demo-box\" },\r\n            React.createElement(\"div\", { className: \"demo-box-pre\" },\r\n                React.createElement(\"div\", { className: \"demo-box-text\" }, '<Keyboard'),\r\n                React.createElement(\"div\", { className: \"demo-box-prop\" }, this.props.inputId),\r\n                '={',\r\n                React.createElement(Input, Object.assign({}, this.state, { value: this.state[this.props.inputId], setValue: (value) => this.setValue(this.props.inputId, value) })),\r\n                '}',\r\n                React.createElement(\"div\", { className: \"demo-box-text\" }, '/>')),\r\n            React.createElement(play_what_alpha_1.Keyboard, Object.assign({}, this.state))));\r\n    }\r\n}\r\nexports.DemoBox = DemoBox;\r\n\n\n//# sourceURL=webpack:///./src/Sample/DemoBox/DemoBox.tsx?");
+
+/***/ }),
+
+/***/ "./src/Sample/Inputs/ButtonInput/ButtonInput.css":
+/*!*******************************************************!*\
+  !*** ./src/Sample/Inputs/ButtonInput/ButtonInput.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./ButtonInput.css */ \"./node_modules/css-loader/dist/cjs.js!./src/Sample/Inputs/ButtonInput/ButtonInput.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/Sample/Inputs/ButtonInput/ButtonInput.css?");
+
+/***/ }),
+
+/***/ "./src/Sample/Inputs/ButtonInput/ButtonInput.tsx":
+/*!*******************************************************!*\
+  !*** ./src/Sample/Inputs/ButtonInput/ButtonInput.tsx ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./ButtonInput.css */ \"./src/Sample/Inputs/ButtonInput/ButtonInput.css\");\r\nclass ButtonInput extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.render = () => {\r\n            let classes = ['button-input', this.props.className || ''];\r\n            if (this.props.active) {\r\n                classes.push('active');\r\n            }\r\n            else if (!this.props.action) {\r\n                classes.push('readonly');\r\n            }\r\n            if (this.props.disabled) {\r\n                classes.push('disabled');\r\n            }\r\n            return (React.createElement(\"div\", { className: classes.join(' '), onClick: this.props.action }, this.props.character));\r\n        };\r\n    }\r\n}\r\nexports.ButtonInput = ButtonInput;\r\n\n\n//# sourceURL=webpack:///./src/Sample/Inputs/ButtonInput/ButtonInput.tsx?");
+
+/***/ }),
+
+/***/ "./src/Sample/Inputs/NumericInput/NumericInput.css":
+/*!*********************************************************!*\
+  !*** ./src/Sample/Inputs/NumericInput/NumericInput.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!./NumericInput.css */ \"./node_modules/css-loader/dist/cjs.js!./src/Sample/Inputs/NumericInput/NumericInput.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/Sample/Inputs/NumericInput/NumericInput.css?");
+
+/***/ }),
+
+/***/ "./src/Sample/Inputs/NumericInput/NumericInput.tsx":
+/*!*********************************************************!*\
+  !*** ./src/Sample/Inputs/NumericInput/NumericInput.tsx ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./NumericInput.css */ \"./src/Sample/Inputs/NumericInput/NumericInput.css\");\r\nconst ButtonInput_1 = __webpack_require__(/*! ../ButtonInput/ButtonInput */ \"./src/Sample/Inputs/ButtonInput/ButtonInput.tsx\");\r\nclass NumericInput extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.canSubtract = () => {\r\n            return (typeof this.props.min === 'undefined') || (this.props.value > this.props.min);\r\n        };\r\n        this.canAdd = () => {\r\n            return (typeof this.props.max === 'undefined') || (this.props.value < this.props.max);\r\n        };\r\n        this.render = () => {\r\n            return (React.createElement(\"div\", { className: 'numeric-input' },\r\n                React.createElement(ButtonInput_1.ButtonInput, { active: false, disabled: !this.canSubtract(), action: () => { if (this.canSubtract())\r\n                        this.props.setValue(this.props.value - 1); }, className: 'down', character: '-' }),\r\n                React.createElement(ButtonInput_1.ButtonInput, { active: false, action: null, character: this.props.value }),\r\n                React.createElement(ButtonInput_1.ButtonInput, { active: false, disabled: !this.canAdd(), action: () => { if (this.canAdd())\r\n                        this.props.setValue(this.props.value + 1); }, className: 'up', character: '+' })));\r\n        };\r\n    }\r\n}\r\nexports.NumericInput = NumericInput;\r\n\n\n//# sourceURL=webpack:///./src/Sample/Inputs/NumericInput/NumericInput.tsx?");
+
+/***/ }),
+
 /***/ "./src/Sample/Sample.css":
 /*!*******************************!*\
   !*** ./src/Sample/Sample.css ***!
@@ -294,7 +396,7 @@ eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__webpack_require__(/*! ./Sample.css */ \"./src/Sample/Sample.css\");\r\nconst play_what_alpha_1 = __webpack_require__(/*! C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha */ \"../play-what-alpha/build/play-what-alpha.js\");\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nclass Sample extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n    }\r\n    render() {\r\n        return (React.createElement(\"div\", { className: \"sample-container\" },\r\n            React.createElement(\"h1\", null, \"Play What?\"),\r\n            React.createElement(\"p\", null, \"Play What is a configurable, extensible music theory visualization tool and React component library.\"),\r\n            React.createElement(\"h2\", null, \"What does it do?\"),\r\n            React.createElement(\"p\", null, \"Play What provides a simple API for visualizing virtually any harmonic music theory concept. Simply provide the key, concept, and configuration to one of the built-in viewer components and Play What will generate the properties of the respective notes and display them however they've been configured.\"),\r\n            React.createElement(\"h2\", null, \"That still doens't make sense. Can you show me?\"),\r\n            React.createElement(\"p\", null, \"Currently, Play What provides two viewer components out-of-the-box: a keyboard and a fretboard. Without providing any custom configuration, they will render as follows:\"),\r\n            React.createElement(\"pre\", null, \"<Fretboard/>\"),\r\n            React.createElement(play_what_alpha_1.Fretboard, null),\r\n            React.createElement(\"pre\", null, \"<Keyboard/>\"),\r\n            React.createElement(play_what_alpha_1.Keyboard, null),\r\n            React.createElement(\"p\", null, \"To apply a music theory concept to a viewer, simply provide one via props. There are built-in presets for chords, scales, modes, roman numerals, and interval pairs. A complete list can be found in the documentation. By default, the notes are labeled with their respective interval and color-coded by degree.\"),\r\n            React.createElement(\"pre\", null, `<Keyboard\r\n    concept={{intervals: CHORD.Maj.intervals}}\r\n/>`),\r\n            React.createElement(play_what_alpha_1.Keyboard, { concept: { intervals: play_what_alpha_1.CHORD.Maj.intervals } }),\r\n            React.createElement(\"h3\", null, \"Modifying a Concept\"),\r\n            React.createElement(\"p\", null, \"By default, concepts are assumed to be in the key of C in the octave of Middle C. To change the key, provide a value for the keyCenter prop.\"),\r\n            React.createElement(\"pre\", null, `<Keyboard\r\n                    keyCenter={{ degree: DEGREE.G, accidental: ACCIDENTAL.Flat, octave: 5 }}\r\n                    concept={{ intervals: CHORD.Maj.intervals }}\r\n                />`),\r\n            React.createElement(play_what_alpha_1.Keyboard, { keyCenter: { degree: play_what_alpha_1.DEGREE.G, accidental: play_what_alpha_1.ACCIDENTAL.Flat, octave: 5 }, concept: { intervals: play_what_alpha_1.CHORD.Maj.intervals } }),\r\n            React.createElement(\"p\", null, \"There is also support for chordal inversions and melodic inversions.\"),\r\n            React.createElement(\"pre\", null, `<Keyboard\r\n    keyCenter={{ degree: DEGREE.C, accidental: ACCIDENTAL.Natural, octave: 5 }}\r\n    concept={{ intervals: CHORD.Maj.intervals, intervalOptions: { chordInversion: 1 } }}\r\n/>`),\r\n            React.createElement(play_what_alpha_1.Keyboard, { keyCenter: { degree: play_what_alpha_1.DEGREE.C, accidental: play_what_alpha_1.ACCIDENTAL.Natural, octave: 5 }, concept: { intervals: play_what_alpha_1.CHORD.Maj.intervals, intervalOptions: { chordInversion: 1 } } }),\r\n            React.createElement(\"pre\", null, `<Keyboard\r\n    keyCenter={{ degree: DEGREE.C, accidental: ACCIDENTAL.Natural, octave: 5 }}\r\n    concept={{ intervals: CHORD.Maj.intervals, intervalOptions: { melodicInversion: true } }}\r\n/>`),\r\n            React.createElement(play_what_alpha_1.Keyboard, { keyCenter: { degree: play_what_alpha_1.DEGREE.C, accidental: play_what_alpha_1.ACCIDENTAL.Natural, octave: 5 }, concept: { intervals: play_what_alpha_1.CHORD.Maj.intervals, intervalOptions: { melodicInversion: true } } }),\r\n            React.createElement(\"h3\", null, \"Configuring Viewers\"),\r\n            React.createElement(\"p\", null, \"Each viewer also its own API for modifying how concepts are displayed. A complete list of all the props and values is available in the documentation.\")));\r\n    }\r\n}\r\nexports.Sample = Sample;\r\n\n\n//# sourceURL=webpack:///./src/Sample/Sample.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__webpack_require__(/*! ./Sample.css */ \"./src/Sample/Sample.css\");\r\nconst play_what_alpha_1 = __webpack_require__(/*! C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha */ \"../play-what-alpha/build/play-what-alpha.js\");\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nconst DemoBox_1 = __webpack_require__(/*! ./DemoBox/DemoBox */ \"./src/Sample/DemoBox/DemoBox.tsx\");\r\nconst NumericInput_1 = __webpack_require__(/*! ./Inputs/NumericInput/NumericInput */ \"./src/Sample/Inputs/NumericInput/NumericInput.tsx\");\r\nclass Sample extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n    }\r\n    render() {\r\n        return (React.createElement(\"div\", { className: \"sample-container\" },\r\n            React.createElement(DemoBox_1.DemoBox, { inputComponent: NumericInput_1.NumericInput, inputId: 'keyHigh', defaults: { keyHigh: 24 } }),\r\n            React.createElement(\"h1\", null, \"Play What?\"),\r\n            React.createElement(\"p\", null, \"Play What is a configurable, extensible music theory visualization tool and React component library.\"),\r\n            React.createElement(\"p\", null, \"It provides a simple API for visualizing virtually any harmonic music theory concept. Just provide the key, concept, and (optional) configuration to one of the built-in viewer components and Play What will generate the properties of the respective notes and display them however they've been configured.\"),\r\n            React.createElement(\"h2\", null, \"Usage\"),\r\n            React.createElement(\"p\", null, \"Currently, Play What provides two viewer components out-of-the-box: a keyboard and a fretboard. Without providing any custom configuration, they will render as follows:\"),\r\n            React.createElement(\"pre\", null, \"<Fretboard/>\"),\r\n            React.createElement(play_what_alpha_1.Fretboard, null),\r\n            React.createElement(\"pre\", null, \"<Keyboard/>\"),\r\n            React.createElement(play_what_alpha_1.Keyboard, null),\r\n            React.createElement(\"p\", null, \"To apply a music theory concept to a viewer, simply provide one via props. There are built-in presets for chords, scales, modes, roman numerals, and interval pairs. A complete list can be found in the documentation. By default, the notes are labeled with their respective interval and color-coded by degree.\"),\r\n            React.createElement(\"pre\", null, `<Keyboard\r\n    concept={{intervals: CHORD.Maj.intervals}}\r\n/>`),\r\n            React.createElement(play_what_alpha_1.Keyboard, { concept: { intervals: play_what_alpha_1.CHORD.Maj.intervals } }),\r\n            React.createElement(\"h3\", null, \"Modifying a Concept\"),\r\n            React.createElement(\"p\", null, \"By default, concepts are assumed to be in the key of C in the octave of Middle C. To change the key, provide a value for the keyCenter prop.\"),\r\n            React.createElement(\"pre\", null, `<Keyboard\r\n                    keyCenter={{ degree: DEGREE.G, accidental: ACCIDENTAL.Flat, octave: 5 }}\r\n                    concept={{ intervals: CHORD.Maj.intervals }}\r\n                />`),\r\n            React.createElement(play_what_alpha_1.Keyboard, { keyCenter: { degree: play_what_alpha_1.DEGREE.G, accidental: play_what_alpha_1.ACCIDENTAL.Flat, octave: 5 }, concept: { intervals: play_what_alpha_1.CHORD.Maj.intervals } }),\r\n            React.createElement(\"p\", null, \"There is also support for chordal inversions and melodic inversions.\"),\r\n            React.createElement(\"pre\", null, `<Keyboard\r\n    keyCenter={{ degree: DEGREE.C, accidental: ACCIDENTAL.Natural, octave: 5 }}\r\n    concept={{ intervals: CHORD.Maj.intervals, intervalOptions: { chordInversion: 1 } }}\r\n/>`),\r\n            React.createElement(play_what_alpha_1.Keyboard, { keyCenter: { degree: play_what_alpha_1.DEGREE.C, accidental: play_what_alpha_1.ACCIDENTAL.Natural, octave: 5 }, concept: { intervals: play_what_alpha_1.CHORD.Maj.intervals, intervalOptions: { chordInversion: 1 } } }),\r\n            React.createElement(\"pre\", null, `<Keyboard\r\n    keyCenter={{ degree: DEGREE.C, accidental: ACCIDENTAL.Natural, octave: 5 }}\r\n    concept={{ intervals: CHORD.Maj.intervals, intervalOptions: { melodicInversion: true } }}\r\n/>`),\r\n            React.createElement(play_what_alpha_1.Keyboard, { keyCenter: { degree: play_what_alpha_1.DEGREE.C, accidental: play_what_alpha_1.ACCIDENTAL.Natural, octave: 5 }, concept: { intervals: play_what_alpha_1.CHORD.Maj.intervals, intervalOptions: { melodicInversion: true } } }),\r\n            React.createElement(\"h3\", null, \"Configuring Viewers\"),\r\n            React.createElement(\"p\", null, \"Each viewer also its own API for modifying how concepts are displayed. A complete list of all the props and values is available in the documentation.\")));\r\n    }\r\n}\r\nexports.Sample = Sample;\r\n\n\n//# sourceURL=webpack:///./src/Sample/Sample.tsx?");
 
 /***/ }),
 

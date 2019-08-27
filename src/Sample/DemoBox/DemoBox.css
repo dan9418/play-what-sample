@@ -1,16 +1,22 @@
-.sample-container {
-    text-align: center;
-    background-color: #DDD;
+.demo-box {
+    margin: 10px;
 }
 
-.sample-container pre {
-    padding: 10px;
-    background-color: #EEE;
-    max-width: 600px;
-    margin: auto;
-    border-radius: 10px;
-    font-family: monospace;
-    font-size: 16px;
-    margin-top: 20px;
+.demo-box-pre {
     text-align: left;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    overflow: auto;
+    padding: 16px;
+}
+
+.demo-box, .demo-box * {
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.demo-box-prop {
+    display: inline-block;
+    margin-left: 20px;
 }

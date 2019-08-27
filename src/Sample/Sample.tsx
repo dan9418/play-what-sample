@@ -1,6 +1,8 @@
 import "./Sample.css";
 import { Fretboard, Keyboard, DEGREE, ACCIDENTAL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
 import React = require("react");
+import { DemoBox } from "./DemoBox/DemoBox";
+import { NumericInput } from "./Inputs/NumericInput/NumericInput";
 
 export class Sample extends React.Component<any, any> {
 
@@ -11,17 +13,22 @@ export class Sample extends React.Component<any, any> {
     render() {
         return (
             <div className="sample-container">
+
+                <DemoBox
+                    inputComponent={NumericInput}
+                    inputId='keyHigh'
+                    defaults={{ keyHigh: 24 }}
+                ></DemoBox>
+
                 <h1>Play What?</h1>
 
                 <p>Play What is a configurable, extensible music theory visualization tool and React component library.</p>
 
-                <h2>What does it do?</h2>
-
-                <p>Play What provides a simple API for visualizing virtually any harmonic music theory concept.
-                    Simply provide the key, concept, and configuration to one of the built-in viewer components and
+                <p>It provides a simple API for visualizing virtually any harmonic music theory concept.
+                    Just provide the key, concept, and (optional) configuration to one of the built-in viewer components and
                     Play What will generate the properties of the respective notes and display them however they've been configured.</p>
 
-                <h2>That still doens't make sense. Can you show me?</h2>
+                <h2>Usage</h2>
 
                 <p>Currently, Play What provides two viewer components out-of-the-box: a keyboard and a fretboard.
                     Without providing any custom configuration, they will render as follows:</p>

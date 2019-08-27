@@ -1,6 +1,12 @@
 .sample-container {
     text-align: center;
-    background-color: #DDD;
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    background-color: #FFF;
+    padding: 32px;
+    font-size: 16px
 }
 
 .sample-container pre {
@@ -13,4 +19,13 @@
     font-size: 16px;
     margin-top: 20px;
     text-align: left;
+}
+
+h1, h2 {
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: .3em;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    margin-top: 24px;
 }
