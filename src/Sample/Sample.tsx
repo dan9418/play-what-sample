@@ -1,9 +1,10 @@
 import "./Sample.css";
-import { Fretboard, Keyboard, DEGREE, ACCIDENTAL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
+import { Fretboard, Keyboard, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
 import React = require("react");
 import { DemoBox } from "./DemoBox/DemoBox";
 import { NumericInput } from "./Inputs/NumericInput/NumericInput";
 import { SwitchInput } from "./Inputs/SwitchInput/SwitchInput";
+import { NoteLabelInput } from "./Inputs/NoteLabelInput";
 
 export class Sample extends React.Component<any, any> {
 
@@ -17,6 +18,10 @@ export class Sample extends React.Component<any, any> {
 
                 <DemoBox
                     inputs={[
+                        {
+                            inputComponent: NoteLabelInput,
+                            inputId: 'noteLabel'
+                        },
                         {
                             inputComponent: SwitchInput,
                             inputId: 'filterOctave'
@@ -32,6 +37,8 @@ export class Sample extends React.Component<any, any> {
                     ]}
 
                     defaults={{
+                        concept: { intervals: CHORD.Maj.intervals },
+                        noteLabel: NOTE_LABEL.None,
                         filterOctave: true,
                         keyLow: 0,
                         keyHigh: 24

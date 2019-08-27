@@ -6,6 +6,7 @@ type InputDef = {
     inputComponent: any;
     inputId: string;
     nested?: boolean;
+    props?: any;
 }
 
 type DemoBoxProps = {
