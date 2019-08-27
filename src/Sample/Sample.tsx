@@ -19,6 +19,15 @@ export class Sample extends React.Component<any, any> {
                 <DemoBox
                     inputs={[
                         {
+                            inputId: 'keyCenter',
+                            children: [
+                                {
+                                    inputComponent: NumericInput,
+                                    inputId: 'octave'
+                                },
+                            ]
+                        },
+                        {
                             inputComponent: NoteLabelInput,
                             inputId: 'noteLabel'
                         },
@@ -35,8 +44,8 @@ export class Sample extends React.Component<any, any> {
                             inputId: 'keyHigh'
                         }
                     ]}
-
                     defaults={{
+                        keyCenter: { degree: DEGREE.C, accidental: ACCIDENTAL.Natural, octave: 4 },
                         concept: { intervals: CHORD.Maj.intervals },
                         noteLabel: NOTE_LABEL.None,
                         filterOctave: true,

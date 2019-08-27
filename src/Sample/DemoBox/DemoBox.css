@@ -10,13 +10,25 @@
     padding: 16px;
 }
 
-.demo-box, .demo-box * {
+.demo-box-pre, .demo-box-pre * {
     font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
     font-size: 20px;
     line-height: 20px;
 }
 
-.demo-box-prop {
-    display: inline-block;
+.prop {
+    display: block;
     margin-left: 20px;
 }
+
+.prop-label {
+    display: inline-block;
+}
+
+.prop-bracket {
+    display: inline-block;
+}
+
+/*.bracket-nested {
+    display: block;
+}*/
