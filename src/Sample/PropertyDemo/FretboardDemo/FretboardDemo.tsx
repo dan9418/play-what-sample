@@ -12,6 +12,8 @@ export enum FretboardProp {
     keyCenter = 'keyCenter',
     concept = 'concept',
     filterOctave = 'filterOctave',
+    showDots = 'showDots',
+    showFretNumbers = 'showFretNumbers',
     noteLabel = 'noteLabel',
     fretLow = 'fretLow',
     fretHigh = 'fretHigh'
@@ -19,7 +21,7 @@ export enum FretboardProp {
 
 type FretboardDemoProps = {
     customProps: FretboardProps;
-    showProps: FretboardProp[];
+    showProps?: FretboardProp[];
 }
 
 export class FretboardDemo extends React.Component<FretboardDemoProps, FretboardProps> {
@@ -36,7 +38,7 @@ export class FretboardDemo extends React.Component<FretboardDemoProps, Fretboard
     }
 
     showProp = (prop: FretboardProp) => {
-        return this.props.showProps.indexOf(prop) !== -1;
+        return (this.props.showProps) ? (this.props.showProps.indexOf(prop) !== -1) : true;
     }
 
     render() {
@@ -72,6 +74,20 @@ export class FretboardDemo extends React.Component<FretboardDemoProps, Fretboard
                             <BooleanInput
                                 value={this.state[FretboardProp.filterOctave]}
                                 setValue={(value: any) => this.setValue(FretboardProp.filterOctave, value)}
+                            />
+                        </Property>}
+                    {this.showProp(FretboardProp.showDots) &&
+                        <Property label={FretboardProp.showDots}>
+                            <BooleanInput
+                                value={this.state[FretboardProp.showDots]}
+                                setValue={(value: any) => this.setValue(FretboardProp.showDots, value)}
+                            />
+                        </Property>}
+                    {this.showProp(FretboardProp.showFretNumbers) &&
+                        <Property label={FretboardProp.showFretNumbers}>
+                            <BooleanInput
+                                value={this.state[FretboardProp.showFretNumbers]}
+                                setValue={(value: any) => this.setValue(FretboardProp.showFretNumbers, value)}
                             />
                         </Property>}
                     {this.showProp(FretboardProp.fretLow) &&

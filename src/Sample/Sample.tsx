@@ -16,12 +16,10 @@ export class Sample extends React.Component<any, any> {
 
                 <FretboardDemo
                     customProps={{}}
-                    showProps={[FretboardProp.keyCenter]}
                 />
 
                 <KeyboardDemo
                     customProps={{}}
-                    showProps={[KeyboardProp.keyCenter]}
                 />
 
                 <h1>Play What?</h1>

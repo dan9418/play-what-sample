@@ -19,7 +19,7 @@ export enum KeyboardProp {
 
 type KeyboardDemoProps = {
     customProps: KeyboardProps;
-    showProps: KeyboardProp[];
+    showProps?: KeyboardProp[];
 }
 
 export class KeyboardDemo extends React.Component<KeyboardDemoProps, KeyboardProps> {
@@ -36,7 +36,7 @@ export class KeyboardDemo extends React.Component<KeyboardDemoProps, KeyboardPro
     }
 
     showProp = (prop: KeyboardProp) => {
-        return this.props.showProps.indexOf(prop) !== -1;
+        return (this.props.showProps) ? (this.props.showProps.indexOf(prop) !== -1) : true;
     }
 
     render() {
