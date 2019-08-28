@@ -1,0 +1,21 @@
+
+.prop {
+    display: block;
+    margin-left: 20px;
+}
+
+.prop-label {
+    display: inline-block;
+}
+
+.prop-bracket {
+    display: inline-block;
+}
+
+.prop-input {
+    display: inline-block;
+}
+
+.prop-input-nested {
+    display: block;
+}

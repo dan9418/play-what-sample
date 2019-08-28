@@ -1,0 +1,17 @@
+.keyboard-demo {
+    margin: 10px;
+}
+
+.keyboard-demo-pre {
+    text-align: left;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    overflow: auto;
+    padding: 16px;
+}
+
+.keyboard-demo-pre, .keyboard-demo-pre * {
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+    font-size: 16px;
+    line-height: 20px;
+}

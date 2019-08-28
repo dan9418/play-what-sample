@@ -1,17 +1,13 @@
 import * as React from "react";
 import "./ConceptInput.css";
 import { InputProps } from "../Input.config";
-import { Prop } from "../../DemoBox/DemoBox";
 import { EnumDropdownInput } from "../EnumDropdownInput/EnumDropdownInput";
 
 import { KeyCenter, Fretboard, Keyboard, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, ROMAN_NUMERAL, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
 import { NumericInput } from "../NumericInput/NumericInput";
 import { BooleanInput } from "../BooleanInput/BooleanInput";
 import { DropdownInput } from "../DropdownInput/DropdownInput";
-
-export interface ConceptInputProps extends InputProps {
-    concept: any;
-}
+import { Prop } from "../../Prop/Prop";
 
 function setIntervals(setValue: (value) => void, concept: any, value: any) {
     let conceptCopy = { ...concept };
@@ -55,7 +51,7 @@ const INTERVAL_PRESETS = [
     }
 ]
 
-export class ConceptInput extends React.Component<ConceptInputProps, any> {
+export class ConceptInput extends React.Component<InputProps, any> {
 
     constructor(props) {
         super(props);

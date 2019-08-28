@@ -1,7 +1,7 @@
 import "./Sample.css";
 import { Fretboard, Keyboard, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
 import React = require("react");
-import { DemoBox } from "./DemoBox/DemoBox";
+import { KeyboardDemo } from "./KeyboardDemo/KeyboardDemo";
 import { NumericInput } from "./Inputs/NumericInput/NumericInput";
 import { SwitchInput } from "./Inputs/SwitchInput/SwitchInput";
 import { EnumDropdownInput } from "./Inputs/EnumDropdownInput/EnumDropdownInput";
@@ -19,39 +19,7 @@ export class Sample extends React.Component<any, any> {
         return (
             <div className="sample-container">
 
-                <DemoBox
-                    inputs={[
-                        {
-                            inputId: 'keyCenter',
-                            inputComponent: KeyCenterInput,
-                            nested: true
-                        },
-                        {
-                            inputId: 'concept',
-                            inputComponent: ConceptInput,
-                            nested: true
-                        },
-                        {
-                            inputComponent: EnumDropdownInput,
-                            inputId: 'noteLabel',
-                            props: {
-                                label: 'NOTE_LABEL',
-                                enum: NOTE_LABEL
-                            }
-                        },
-                        {
-                            inputComponent: BooleanInput,
-                            inputId: 'filterOctave'
-                        },
-                        {
-                            inputComponent: NumericInput,
-                            inputId: 'keyLow'
-                        },
-                        {
-                            inputComponent: NumericInput,
-                            inputId: 'keyHigh'
-                        }
-                    ]}
+                <KeyboardDemo
                     defaults={{
                         keyCenter: { degree: DEGREE.C, accidental: ACCIDENTAL.Natural, octave: 4 },
                         concept: { intervals: CHORD.Maj.intervals },
@@ -60,7 +28,7 @@ export class Sample extends React.Component<any, any> {
                         keyLow: 0,
                         keyHigh: 24
                     }}
-                ></DemoBox>
+                ></KeyboardDemo>
 
                 <h1>Play What?</h1>
 
@@ -151,7 +119,7 @@ export class Sample extends React.Component<any, any> {
 
 
 
-            </div>
+            </div >
         )
     }
 }
