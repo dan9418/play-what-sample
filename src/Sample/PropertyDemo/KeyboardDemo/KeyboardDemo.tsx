@@ -35,26 +35,30 @@ export class KeyboardDemo extends React.Component<KeyboardDemoProps, KeyboardPro
         this.setState(update);
     }
 
+    showProp = (prop: KeyboardProp) => {
+        return this.props.showProps.indexOf(prop) !== -1;
+    }
+
     render() {
         return (
             <div className='keyboard-demo'>
                 <div className='keyboard-demo-pre'>
                     <div className='keyboard-demo-text'>{'<Keyboard'}</div>
-                    {this.props.showProps.indexOf(KeyboardProp.keyCenter) !== -1 &&
+                    {this.showProp(KeyboardProp.keyCenter) &&
                         <Property label={KeyboardProp.keyCenter} nested={true}>
                             <KeyCenterInput
                                 value={this.state[KeyboardProp.keyCenter]}
                                 setValue={(value: any) => this.setValue(KeyboardProp.keyCenter, value)}
                             />
                         </Property>}
-                    {this.props.showProps.indexOf(KeyboardProp.concept) !== -1 &&
+                    {this.showProp(KeyboardProp.concept) &&
                         <Property label={KeyboardProp.concept} nested={true}>
                             <ConceptInput
                                 value={this.state[KeyboardProp.concept]}
                                 setValue={(value: any) => this.setValue(KeyboardProp.concept, value)}
                             />
                         </Property>}
-                    {this.props.showProps.indexOf(KeyboardProp.noteLabel) !== -1 &&
+                    {this.showProp(KeyboardProp.noteLabel) &&
                         <Property label={KeyboardProp.noteLabel}>
                             <EnumDropdownInput
                                 value={this.state[KeyboardProp.noteLabel]}
@@ -63,21 +67,21 @@ export class KeyboardDemo extends React.Component<KeyboardDemoProps, KeyboardPro
                                 enum={NOTE_LABEL}
                             />
                         </Property>}
-                    {this.props.showProps.indexOf(KeyboardProp.filterOctave) !== -1 &&
+                    {this.showProp(KeyboardProp.filterOctave) &&
                         <Property label={KeyboardProp.filterOctave}>
                             <BooleanInput
                                 value={this.state[KeyboardProp.filterOctave]}
                                 setValue={(value: any) => this.setValue(KeyboardProp.filterOctave, value)}
                             />
                         </Property>}
-                    {this.props.showProps.indexOf(KeyboardProp.keyLow) !== -1 &&
+                    {this.showProp(KeyboardProp.keyLow) &&
                         <Property label={KeyboardProp.keyLow}>
                             <NumericInput
                                 value={this.state[KeyboardProp.keyLow]}
                                 setValue={(value: any) => this.setValue(KeyboardProp.keyLow, value)}
                             />
                         </Property>}
-                    {this.props.showProps.indexOf(KeyboardProp.keyHigh) !== -1 &&
+                    {this.showProp(KeyboardProp.keyHigh) &&
                         <Property label={KeyboardProp.keyHigh}>
                             <NumericInput
                                 value={this.state[KeyboardProp.keyHigh]}
