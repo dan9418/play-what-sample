@@ -1,13 +1,7 @@
 import "./Sample.css";
 import { Fretboard, Keyboard, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
 import React = require("react");
-import { KeyboardDemo } from "./KeyboardDemo/KeyboardDemo";
-import { NumericInput } from "./Inputs/NumericInput/NumericInput";
-import { SwitchInput } from "./Inputs/SwitchInput/SwitchInput";
-import { EnumDropdownInput } from "./Inputs/EnumDropdownInput/EnumDropdownInput";
-import { BooleanInput } from "./Inputs/BooleanInput/BooleanInput";
-import { KeyCenterInput } from "./Inputs/KeyCenterInput/KeyCenterInput";
-import { ConceptInput } from "./Inputs/ConceptInput/ConceptInput";
+import { KeyboardDemo, KeyboardProp } from "./PropertyDemo/KeyboardDemo/KeyboardDemo";
 
 export class Sample extends React.Component<any, any> {
 
@@ -20,15 +14,9 @@ export class Sample extends React.Component<any, any> {
             <div className="sample-container">
 
                 <KeyboardDemo
-                    defaults={{
-                        keyCenter: { degree: DEGREE.C, accidental: ACCIDENTAL.Natural, octave: 4 },
-                        concept: { intervals: CHORD.Maj.intervals },
-                        noteLabel: NOTE_LABEL.None,
-                        filterOctave: true,
-                        keyLow: 0,
-                        keyHigh: 24
-                    }}
-                ></KeyboardDemo>
+                    customProps={{}}
+                    showProps={[KeyboardProp.keyCenter]}
+                />
 
                 <h1>Play What?</h1>
 

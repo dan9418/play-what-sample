@@ -1,13 +1,13 @@
 import * as React from "react";
 import "./ConceptInput.css";
-import { InputProps } from "../Input.config";
-import { EnumDropdownInput } from "../EnumDropdownInput/EnumDropdownInput";
+import { InputProps } from "../../Inputs/Input.config";
+import { EnumDropdownInput } from "../../Inputs/EnumDropdownInput/EnumDropdownInput";
 
 import { KeyCenter, Fretboard, Keyboard, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, ROMAN_NUMERAL, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
-import { NumericInput } from "../NumericInput/NumericInput";
-import { BooleanInput } from "../BooleanInput/BooleanInput";
-import { DropdownInput } from "../DropdownInput/DropdownInput";
-import { Prop } from "../../Prop/Prop";
+import { NumericInput } from "../../Inputs/NumericInput/NumericInput";
+import { BooleanInput } from "../../Inputs/BooleanInput/BooleanInput";
+import { DropdownInput } from "../../Inputs/DropdownInput/DropdownInput";
+import { Property } from "../Property/Property";
 
 function setIntervals(setValue: (value) => void, concept: any, value: any) {
     let conceptCopy = { ...concept };
@@ -72,7 +72,7 @@ export class ConceptInput extends React.Component<InputProps, any> {
     render = () => {
         return (
             <div className='concept-input'>
-                <Prop label='intervals'>
+                <Property label='intervals'>
                     <select
                         defaultValue={INTERVAL_PRESETS[this.state.conceptIndex].id}
                         onChange={(event) => { this.setState({ conceptIndex: event.target.selectedIndex }); }}>
@@ -85,25 +85,25 @@ export class ConceptInput extends React.Component<InputProps, any> {
                         setValue={(value) => setIntervals(this.props.setValue, this.props.value, value.intervals)}
                     />
                     .intervals
-                </Prop>
-                <Prop label='intervalOptions' nested={true}>
+                </Property>
+                <Property label='intervalOptions' nested={true}>
                     <div>
-                        <Prop label='chordInversion'>
+                        <Property label='chordInversion'>
                             <NumericInput
                                 value={this.props.value.intervalOptions && this.props.value.intervalOptions.chordInversion || 0}
                                 setValue={(value) => setIntervalOptions(this.props.setValue, this.props.value, 'chordInversion', value)}
                                 min={0}
                                 max={this.props.value.intervals && this.props.value.intervals.length - 1}
                             />
-                        </Prop>
-                        <Prop label='melodicInversion'>
+                        </Property>
+                        <Property label='melodicInversion'>
                             <BooleanInput
                                 value={this.props.value.intervalOptions && this.props.value.intervalOptions.melodicInversion}
                                 setValue={(value) => setIntervalOptions(this.props.setValue, this.props.value, 'melodicInversion', value)}
                             />
-                        </Prop>
+                        </Property>
                     </div>
-                </Prop>
+                </Property>
 
             </div>
         );

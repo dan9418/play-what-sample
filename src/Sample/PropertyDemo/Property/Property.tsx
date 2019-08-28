@@ -1,12 +1,12 @@
 import React = require("react");
-import "./Prop.css";
+import "./Property.css";
 
-interface PropProps extends React.PropsWithChildren<any> {
+interface PropertyProps extends React.PropsWithChildren<any> {
     label: string;
     nested?: boolean;
 }
 
-export function Prop(props: PropProps) {
+export function Property(props: PropertyProps) {
     return (
         <div className='prop'>
             <div className='prop-label'>{props.label}</div>
