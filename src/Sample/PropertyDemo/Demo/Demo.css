@@ -1,0 +1,17 @@
+.demo {
+    margin: 10px;
+}
+
+.demo-pre {
+    text-align: left;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    overflow: auto;
+    padding: 16px;
+}
+
+.demo-pre, .demo-pre * {
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+    font-size: 16px;
+    line-height: 20px;
+}

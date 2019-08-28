@@ -3,6 +3,7 @@ import { Fretboard, Keyboard, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTE
 import React = require("react");
 import { KeyboardDemo, KeyboardProp } from "./PropertyDemo/KeyboardDemo/KeyboardDemo";
 import { FretboardDemo, FretboardProp } from "./PropertyDemo/FretboardDemo/FretboardDemo";
+import { Demo, VIEWERS } from "./PropertyDemo/Demo/Demo";
 
 export class Sample extends React.Component<any, any> {
 
@@ -13,6 +14,10 @@ export class Sample extends React.Component<any, any> {
     render() {
         return (
             <div className="sample-container">
+
+                <Demo
+                    viewers={VIEWERS}
+                />
 
                 <FretboardDemo
                     customProps={{}}
