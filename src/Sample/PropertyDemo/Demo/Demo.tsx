@@ -1,126 +1,8 @@
 import './Demo.css';
 import { Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS, NOTE_LABEL } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 import React = require('react');
-import { KeyCenterInput } from '../KeyCenterProperties/KeyCenterProperties';
-import { ConceptInput } from '../ConceptProperties/ConceptProperties';
-import { EnumDropdownInput } from '../../Inputs/EnumDropdownInput/EnumDropdownInput';
-import { BooleanInput } from '../../Inputs/BooleanInput/BooleanInput';
-import { NumericInput } from '../../Inputs/NumericInput/NumericInput';
 import { Property } from '../Property/Property';
-import { FretboardStringProperties } from '../FretboardStringProperties/FretboardStringProperties';
-
-interface PropertyDefinition {
-    id: string;
-    nested?: boolean;
-    array?: boolean;
-    component: any;
-    props?: any;
-}
-
-const KEYBOARD_PROPS: PropertyDefinition[] = [
-    {
-        id: 'keyCenter',
-        nested: true,
-        component: KeyCenterInput,
-    },
-    {
-        id: 'concept',
-        nested: true,
-        component: ConceptInput,
-    },
-    {
-        id: 'noteLabel',
-        component: EnumDropdownInput,
-        props: {
-            label: 'NOTE_LABEL',
-            enum: NOTE_LABEL
-        }
-    },
-    {
-        id: 'filterOctave',
-        component: BooleanInput
-    },
-    {
-        id: 'keyLow',
-        component: NumericInput
-    },
-    {
-        id: 'keyHigh',
-        component: NumericInput
-    }
-];
-
-const FRETBOARD_PROPS: PropertyDefinition[] = [
-    {
-        id: 'keyCenter',
-        nested: true,
-        component: KeyCenterInput,
-    },
-    {
-        id: 'concept',
-        nested: true,
-        component: ConceptInput,
-    },
-    {
-        id: 'noteLabel',
-        component: EnumDropdownInput,
-        props: {
-            label: 'NOTE_LABEL',
-            enum: NOTE_LABEL
-        }
-    },
-    {
-        id: 'filterOctave',
-        component: BooleanInput
-    },
-    {
-        id: 'fretLow',
-        component: NumericInput
-    },
-    {
-        id: 'fretHigh',
-        component: NumericInput
-    },
-    {
-        id: 'showDots',
-        component: BooleanInput
-    },
-    {
-        id: 'showFretNumbers',
-        component: BooleanInput
-    },
-    {
-        id: 'strings',
-        component: FretboardStringProperties,
-        nested: true,
-        array: true
-    }
-];
-
-type ViewerDefinition = {
-    id: string;
-    name: string;
-    component: any;
-    defaultProps: KeyboardProps;
-    inputs: PropertyDefinition[];
-}
-
-export const VIEWERS: ViewerDefinition[] = [
-    {
-        id: 'keyboard',
-        name: 'Keyboard',
-        component: Keyboard,
-        defaultProps: DEFAULT_KEYBOARD_PROPS,
-        inputs: KEYBOARD_PROPS
-    },
-    {
-        id: 'fretboard',
-        name: 'Fretboard',
-        component: Fretboard,
-        defaultProps: DEFAULT_FRETBOARD_PROPS,
-        inputs: FRETBOARD_PROPS
-    }
-];
+import { ViewerDefinition, PropertyDefinition } from '../../Sample';
 
 type DemoProps = {
     viewers: ViewerDefinition[];
@@ -139,14 +21,10 @@ export class Demo extends React.Component<DemoProps, KeyboardProps> {
         this.setState(update);
     }
 
-    /*showProp = (prop: DemoProp) => {
-        return (this.props.showProps) ? (this.props.showProps.indexOf(prop) !== -1) : true;
-    }*/
-
     getInput = (input: PropertyDefinition) => {
         let Input = input.component;
         return (
-            <Property label={input.id} nested={input.nested} array={input.array}>
+            <Property key={input.id} label={input.id} nested={input.nested} array={input.array}>
                 <Input
                     {...input.props}
                     value={this.state[input.id]}

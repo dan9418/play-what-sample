@@ -1,7 +1,88 @@
 import "./Sample.css";
-import { Fretboard, Keyboard, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
+import { Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
 import React = require("react");
-import { Demo, VIEWERS } from "./PropertyDemo/Demo/Demo";
+import { Demo } from "./PropertyDemo/Demo/Demo";
+import { KeyCenterInput } from "./PropertyDemo/KeyCenterProperties/KeyCenterProperties";
+import { ConceptInput } from "./PropertyDemo/ConceptProperties/ConceptProperties";
+import { EnumDropdownInput } from "./Inputs/EnumDropdownInput/EnumDropdownInput";
+import { BooleanInput } from "./Inputs/BooleanInput/BooleanInput";
+import { NumericInput } from "./Inputs/NumericInput/NumericInput";
+import { FretboardStringProperties } from "./PropertyDemo/FretboardStringProperties/FretboardStringProperties";
+
+/* General */
+
+export interface PropertyDefinition {
+    id: string;
+    nested?: boolean;
+    array?: boolean;
+    component: any;
+    props?: any;
+}
+
+export const VIEWER_PROPS: { [id: string]: PropertyDefinition } = {
+    keyCenter: {
+        id: 'keyCenter',
+        nested: true,
+        component: KeyCenterInput,
+    },
+    concept: {
+        id: 'concept',
+        nested: true,
+        component: ConceptInput,
+    },
+    noteLabel: {
+        id: 'noteLabel',
+        component: EnumDropdownInput,
+        props: {
+            label: 'NOTE_LABEL',
+            enum: NOTE_LABEL
+        }
+    },
+    filterOctave: {
+        id: 'filterOctave',
+        component: BooleanInput
+    },
+    keyLow: {
+        id: 'keyLow',
+        component: NumericInput
+    },
+    keyHigh: {
+        id: 'keyHigh',
+        component: NumericInput
+    },
+    fretLow: {
+        id: 'fretLow',
+        component: NumericInput
+    },
+    fretHigh: {
+        id: 'fretHigh',
+        component: NumericInput
+    },
+    showDots: {
+        id: 'showDots',
+        component: BooleanInput
+    },
+    showFretNumbers: {
+        id: 'showFretNumbers',
+        component: BooleanInput
+    },
+    strings: {
+        id: 'strings',
+        component: FretboardStringProperties,
+        nested: true,
+        array: true
+    }
+};
+
+export type ViewerDefinition = {
+    id: string;
+    name: string;
+    component: any;
+    defaultProps: any;
+    inputs: PropertyDefinition[];
+}
+
+/* Sample */
 
 export class Sample extends React.Component<any, any> {
 
@@ -14,7 +95,47 @@ export class Sample extends React.Component<any, any> {
             <div className="sample-container">
 
                 <Demo
-                    viewers={VIEWERS}
+                    viewers={[
+                        {
+                            id: 'keyboard',
+                            name: 'Keyboard',
+                            component: Keyboard,
+                            defaultProps: DEFAULT_KEYBOARD_PROPS,
+                            inputs: [
+                                VIEWER_PROPS.keyCenter,
+                                VIEWER_PROPS.concept
+                            ]
+                        },
+                        {
+                            id: 'fretboard',
+                            name: 'Fretboard',
+                            component: Fretboard,
+                            defaultProps: DEFAULT_FRETBOARD_PROPS,
+                            inputs: [
+                                VIEWER_PROPS.keyCenter,
+                                VIEWER_PROPS.concept
+                            ]
+                        }
+                    ]}
+                />
+
+                <Demo
+                    viewers={[
+                        {
+                            id: 'keyboard',
+                            name: 'Keyboard',
+                            component: Keyboard,
+                            defaultProps: DEFAULT_KEYBOARD_PROPS,
+                            inputs: []
+                        },
+                        {
+                            id: 'fretboard',
+                            name: 'Fretboard',
+                            component: Fretboard,
+                            defaultProps: DEFAULT_FRETBOARD_PROPS,
+                            inputs: []
+                        }
+                    ]}
                 />
 
                 <h1>Play What?</h1>
