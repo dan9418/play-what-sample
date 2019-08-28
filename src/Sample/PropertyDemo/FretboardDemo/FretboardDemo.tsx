@@ -7,6 +7,7 @@ import { EnumDropdownInput } from '../../Inputs/EnumDropdownInput/EnumDropdownIn
 import { BooleanInput } from '../../Inputs/BooleanInput/BooleanInput';
 import { NumericInput } from '../../Inputs/NumericInput/NumericInput';
 import { Property } from '../Property/Property';
+import { FretboardStringProperties } from '../FretboardStringProperties/FretboardStringProperties';
 
 export enum FretboardProp {
     keyCenter = 'keyCenter',
@@ -16,7 +17,8 @@ export enum FretboardProp {
     showFretNumbers = 'showFretNumbers',
     noteLabel = 'noteLabel',
     fretLow = 'fretLow',
-    fretHigh = 'fretHigh'
+    fretHigh = 'fretHigh',
+    strings = 'strings'
 }
 
 type FretboardDemoProps = {
@@ -102,6 +104,14 @@ export class FretboardDemo extends React.Component<FretboardDemoProps, Fretboard
                             <NumericInput
                                 value={this.state[FretboardProp.fretHigh]}
                                 setValue={(value: any) => this.setValue(FretboardProp.fretHigh, value)}
+                            />
+                        </Property>}
+                    {this.showProp(FretboardProp.strings) &&
+                        <Property label={FretboardProp.strings} nested={true} array={true}>
+                            <FretboardStringProperties
+                                {...this.state}
+                                value={this.state[FretboardProp.strings]}
+                                setValue={(value: any) => this.setValue(FretboardProp.strings, value)}
                             />
                         </Property>}
                     <div className='keyboard-demo-text'>{'/>'}</div>
