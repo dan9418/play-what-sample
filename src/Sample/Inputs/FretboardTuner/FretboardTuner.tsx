@@ -21,31 +21,31 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
         this.props.setValue(mergedConfig);
     }
 
-    toggleInterval = (interval: Interval, filteredIntervals: Interval[], stringIndex: number) => {
+    toggleInterval = (interval: Interval, unfilteredIntervals: Interval[], stringIndex: number) => {
         let newIntervals: boolean | Interval[] = false;
 
         // If currently in "off" state, add all other intervals
-        if (!filteredIntervals) {
+        if (!unfilteredIntervals) {
             newIntervals = this.props.conceptIntervals.filter((x) => { return x.id !== interval.id; });
         }
         // If interval is already filtered, remove it
-        else if (this.isIntervalFiltered(interval, filteredIntervals)) {
-            newIntervals = filteredIntervals.filter((x) => { return x.id !== interval.id; });
+        else if (this.isIntervalFiltered(interval, unfilteredIntervals)) {
+            newIntervals = unfilteredIntervals.filter((x) => { return x.id !== interval.id; });
         }
         // Otherwise, add it
         else {
-            newIntervals = [...filteredIntervals];
+            newIntervals = [...unfilteredIntervals];
             newIntervals.push(interval);
             // If all intervals are now filtered, set to "off" state for efficiency
             if (newIntervals.length === this.props.conceptIntervals.length)
                 newIntervals = false;
         }
-        this.setValue(stringIndex, 'filteredIntervals', newIntervals);
+        this.setValue(stringIndex, 'unfilteredIntervals', newIntervals);
     }
 
-    isIntervalFiltered = (interval: Interval, filteredIntervals: Interval[]): boolean => {
+    isIntervalFiltered = (interval: Interval, unfilteredIntervals: Interval[]): boolean => {
         // If in "off" state, no intervals are filtered. Otherwise, check for existence in array.
-        return 'undefined' !== typeof filteredIntervals.find((filterInteval) => { return filterInteval.id === interval.id; });
+        return 'undefined' !== typeof unfilteredIntervals.find((filterInteval) => { return filterInteval.id === interval.id; });
     }
 
     getHeaderRow = () => {
@@ -60,7 +60,7 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
     getStringTuner = (stringConfig: FretboardStringConfig, stringIndex: number) => {
         let items = [
             <td key='num' className='string-number'>{stringIndex + 1}</td>,
-            <td key='tuner'><NumericInput value={stringConfig.openPosition} setValue={(value) => { this.setValue(stringIndex, 'openPosition', value); }} /></td>
+            <td key='tuner'><NumericInput value={stringConfig.tuning} setValue={(value) => { this.setValue(stringIndex, 'tuning', value); }} /></td>
         ];
         for (let i = 0; i < this.props.conceptIntervals.length; i++) {
             let interval = this.props.conceptIntervals[i];
@@ -68,8 +68,8 @@ export class FretboardTuner extends React.Component<FretboardTunerProps, null> {
                 <td key={interval.id}>
                     {<input
                         type='checkbox'
-                        checked={!stringConfig.filteredIntervals || this.isIntervalFiltered(interval, stringConfig.filteredIntervals)}
-                        onChange={() => { this.toggleInterval(interval, stringConfig.filteredIntervals, stringIndex); }}
+                        checked={!stringConfig.unfilteredIntervals || this.isIntervalFiltered(interval, stringConfig.unfilteredIntervals)}
+                        onChange={() => { this.toggleInterval(interval, stringConfig.unfilteredIntervals, stringIndex); }}
                     />}
                 </td>
             );
