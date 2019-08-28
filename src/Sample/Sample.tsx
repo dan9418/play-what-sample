@@ -1,8 +1,6 @@
 import "./Sample.css";
 import { Fretboard, Keyboard, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
 import React = require("react");
-import { KeyboardDemo, KeyboardProp } from "./PropertyDemo/KeyboardDemo/KeyboardDemo";
-import { FretboardDemo, FretboardProp } from "./PropertyDemo/FretboardDemo/FretboardDemo";
 import { Demo, VIEWERS } from "./PropertyDemo/Demo/Demo";
 
 export class Sample extends React.Component<any, any> {
@@ -17,14 +15,6 @@ export class Sample extends React.Component<any, any> {
 
                 <Demo
                     viewers={VIEWERS}
-                />
-
-                <FretboardDemo
-                    customProps={{}}
-                />
-
-                <KeyboardDemo
-                    customProps={{}}
                 />
 
                 <h1>Play What?</h1>
