@@ -11,12 +11,18 @@
 
 .prop-bracket {
     display: inline-block;
-    font-weight: bold;
+    font-weight: normal;
     margin: 0px 2px;
+    color: #555;
 }
 
 .prop-input {
     display: inline-block;
+    color: darkmagenta;
+}
+
+.prop-input * {
+    color: darkmagenta;
 }
 
 .prop-input-nested {

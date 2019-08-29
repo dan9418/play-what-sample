@@ -14,14 +14,20 @@
     font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
     font-size: 16px;
     line-height: 20px;
+    font-weight: bold;
 }
 
-.demo-text {
+.demo-angle-bracket {
     display: inline-block;
-    font-weight: bold;
+    font-weight: normal;
     margin: 0px 2px;
+    color: #555;
 }
 
 .demo-comment {
     color: green;
+}
+
+.demo-component {
+    color: lightcoral;
 }

@@ -63,16 +63,16 @@ export class Demo extends React.Component<DemoProps, KeyboardProps> {
         return (
             <div className='demo'>
                 <div className='demo-pre'>
-                {this.props.comment && <div className='demo-comment'>{'//' + this.props.comment}</div>}
-                    <div className='demo-text'>{'<'}
-                        <select
-                            defaultValue={this.props.viewers[this.state.viewerIndex].id}
-                            onChange={(event) => { this.changeViewer(event.target.selectedIndex) }}>
-                            {this.getViewerOptions()}
-                        </select>
-                    </div>
+                    {this.props.comment && <div className='demo-comment'>{'//' + this.props.comment}</div>}
+                    <div className='demo-angle-bracket'>{'<'}</div>
+                    <select
+                        className='demo-component'
+                        defaultValue={this.props.viewers[this.state.viewerIndex].id}
+                        onChange={(event) => { this.changeViewer(event.target.selectedIndex) }}>
+                        {this.getViewerOptions()}
+                    </select>
                     {this.getInputs(viewer.inputs)}
-                    <div className='demo-text'>{'/>'}</div>
+                    <div className='demo-angle-bracket'>{'/>'}</div>
                 </div>
                 <Viewer {...this.state} />
             </div>
