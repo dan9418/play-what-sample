@@ -1,13 +1,13 @@
-import "./Sample.css";
-import { Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
-import React = require("react");
-import { Demo } from "./PropertyDemo/Demo/Demo";
-import { KeyCenterInput } from "./PropertyDemo/KeyCenterProperties/KeyCenterProperties";
-import { IntervalsInput } from "./PropertyDemo/ConceptProperties/ConceptProperties";
-import { EnumDropdownInput } from "./Inputs/EnumDropdownInput/EnumDropdownInput";
-import { BooleanInput } from "./Inputs/BooleanInput/BooleanInput";
-import { NumericInput } from "./Inputs/NumericInput/NumericInput";
-import { FretboardStringProperties } from "./PropertyDemo/FretboardStringProperties/FretboardStringProperties";
+import './Sample.css';
+import { Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
+import React = require('react');
+import { Demo } from './PropertyDemo/Demo/Demo';
+import { KeyCenterInput } from './PropertyDemo/KeyCenterProperties/KeyCenterProperties';
+import { IntervalsInput } from './PropertyDemo/ConceptProperties/ConceptProperties';
+import { EnumDropdownInput } from './Inputs/EnumDropdownInput/EnumDropdownInput';
+import { BooleanInput } from './Inputs/BooleanInput/BooleanInput';
+import { NumericInput } from './Inputs/NumericInput/NumericInput';
+import { FretboardStringProperties } from './PropertyDemo/FretboardStringProperties/FretboardStringProperties';
 
 /* General */
 
@@ -99,7 +99,7 @@ export class Sample extends React.Component<any, any> {
 
     render() {
         return (
-            <div className="sample-container">
+            <div className='sample-container'>
 
                 <h1>Play What?</h1>
 
@@ -109,10 +109,19 @@ export class Sample extends React.Component<any, any> {
                     Just provide the key, concept, and (optional) configuration to one of the built-in viewer components and
                     Play What will generate the properties of the respective notes and display them however they've been configured.</p>
 
-                <h2>Usage</h2>
+                <h2>Getting started</h2>
 
-                <p>Currently, Play What provides two viewer components out-of-the-box: a keyboard and a fretboard.
-                    Without providing any custom configuration, they will render as follows:</p>
+                <h3>Installation</h3>
+
+                <p>Play What is available as an npm package and can be installed via the command-line:</p>
+
+                <div className='command-line'>npm install play-what</div>
+
+                <h3>Include Component</h3>
+
+                <p>Import a component from 'play-what' to use it in your project.
+                    Play What currently provides two viewer components out-of-the-box, 'Keyboard' and 'Fretboard'.
+                    Each component will render with default configuration if no props are provided.</p>
 
                 <Demo
                     comment='Select viewer here'
@@ -134,9 +143,14 @@ export class Sample extends React.Component<any, any> {
                     ]}
                 />
 
-                <p>To apply a music theory concept to a viewer, simply provide one via props.
+                <h2>Configuring Components</h2>
+
+                <p>To apply a music theory concept to a viewer, simply provide a value to the intervals prop.
+                    For an explanation of musical interval or concepts, please see the <a href=''>music theory appendix</a>.</p>
+                <p>
                     There are built-in presets for chords, scales, modes, roman numerals, and interval pairs.
-                    A complete list can be found in the documentation. By default, the notes are labeled with their respective interval and color-coded by degree.</p>
+                    A complete list can be found in the <a href=''>reference section</a>.
+                    By default, notes are labeled with their respective interval and colored by degree.</p>
 
                 <Demo
                     viewers={[
@@ -165,7 +179,8 @@ export class Sample extends React.Component<any, any> {
 
                 <h3>Modifying a Concept</h3>
 
-                <p>By default, concepts are assumed to be in the key of C in the octave of Middle C. To change the key, provide a value for the keyCenter prop.</p>
+                <p>By default, intervals are relative to the <a href=''>key</a> of C in the octave of <a href=''>Middle C</a>.
+                To change the key, provide a value for the keyCenter prop.</p>
 
                 <Demo
                     viewers={[
@@ -195,7 +210,9 @@ export class Sample extends React.Component<any, any> {
                     ]}
                 />
 
-                <p>There is also support for chordal inversions and melodic inversions.</p>
+                <h4>Inversions</h4>
+
+                <p>There is also support for chordal and melodic inversions.</p>
 
                 <Demo
                     viewers={[
@@ -208,8 +225,6 @@ export class Sample extends React.Component<any, any> {
                                 keyCenter: { degree: DEGREE.F, accidental: ACCIDENTAL.Sharp, octave: 4 }
                             }),
                             inputs: [
-                                VIEWER_PROPS.keyCenter,
-                                VIEWER_PROPS.intervals,
                                 VIEWER_PROPS.chordInversion,
                                 VIEWER_PROPS.melodicInversion
                             ]
@@ -220,10 +235,41 @@ export class Sample extends React.Component<any, any> {
                             component: Fretboard,
                             defaultProps: DEFAULT_FRETBOARD_PROPS,
                             inputs: [
-                                VIEWER_PROPS.keyCenter,
-                                VIEWER_PROPS.intervals,
                                 VIEWER_PROPS.chordInversion,
                                 VIEWER_PROPS.melodicInversion
+                            ]
+                        }
+                    ]}
+                />
+
+                <h3>Configuring How Notes Are Displayed</h3>
+
+                <p>Components also accept props to specify how to display the provided notes.
+                    For example, notes can be labeled or shown idependent of the provided octave.</p>
+
+                <Demo
+                    viewers={[
+                        {
+                            id: 'keyboard',
+                            name: 'Keyboard',
+                            component: Keyboard,
+                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
+                                intervals: CHORD.Maj.intervals,
+                                keyCenter: { degree: DEGREE.F, accidental: ACCIDENTAL.Sharp, octave: 4 }
+                            }),
+                            inputs: [
+                                VIEWER_PROPS.noteLabel,
+                                VIEWER_PROPS.filterOctave
+                            ]
+                        },
+                        {
+                            id: 'fretboard',
+                            name: 'Fretboard',
+                            component: Fretboard,
+                            defaultProps: DEFAULT_FRETBOARD_PROPS,
+                            inputs: [
+                                VIEWER_PROPS.noteLabel,
+                                VIEWER_PROPS.filterOctave
                             ]
                         }
                     ]}
@@ -231,7 +277,61 @@ export class Sample extends React.Component<any, any> {
 
                 <h3>Configuring Viewers</h3>
 
-                <p>Each viewer also its own API for modifying how concepts are displayed. A complete list of all the props and values is available in the documentation.</p>
+                <p>Each viewer also its own API for modifying the viewer itself.
+                    See the <a href=''>reference section</a> for a complete list.</p>
+
+                <Demo
+                    viewers={[
+                        {
+                            id: 'keyboard',
+                            name: 'Keyboard',
+                            component: Keyboard,
+                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
+                                intervals: CHORD.Maj.intervals,
+                                keyCenter: { degree: DEGREE.F, accidental: ACCIDENTAL.Sharp, octave: 4 }
+                            }),
+                            inputs: [
+                                VIEWER_PROPS.keyLow,
+                                VIEWER_PROPS.keyHigh
+                            ]
+                        },
+                        {
+                            id: 'fretboard',
+                            name: 'Fretboard',
+                            component: Fretboard,
+                            defaultProps: DEFAULT_FRETBOARD_PROPS,
+                            inputs: [
+                                VIEWER_PROPS.fretLow,
+                                VIEWER_PROPS.fretHigh,
+                                VIEWER_PROPS.showDots,
+                                VIEWER_PROPS.showFretNumbers,
+                                VIEWER_PROPS.strings
+                            ]
+                        }
+                    ]}
+                />
+
+                <h2>Reference</h2>
+
+                <h3>Constants</h3>
+
+                <h4>Degree</h4>
+
+                <h4>Accidental</h4>
+
+                <h4>Note Label</h4>
+
+                <h3>Keyboard</h3>
+
+                <h3>Fretboard</h3>
+
+                <h3>Theory Engine</h3>
+
+                <h2>Music Theory Appendix</h2>
+
+                <h2>Create Your Own Component</h2>
+
+                <h2>Examples</h2>
 
             </div >
         )
