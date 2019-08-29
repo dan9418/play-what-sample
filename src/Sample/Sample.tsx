@@ -3,7 +3,7 @@ import { Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRE
 import React = require("react");
 import { Demo } from "./PropertyDemo/Demo/Demo";
 import { KeyCenterInput } from "./PropertyDemo/KeyCenterProperties/KeyCenterProperties";
-import { ConceptInput } from "./PropertyDemo/ConceptProperties/ConceptProperties";
+import { IntervalsInput } from "./PropertyDemo/ConceptProperties/ConceptProperties";
 import { EnumDropdownInput } from "./Inputs/EnumDropdownInput/EnumDropdownInput";
 import { BooleanInput } from "./Inputs/BooleanInput/BooleanInput";
 import { NumericInput } from "./Inputs/NumericInput/NumericInput";
@@ -25,10 +25,17 @@ export const VIEWER_PROPS: { [id: string]: PropertyDefinition } = {
         nested: true,
         component: KeyCenterInput,
     },
-    concept: {
-        id: 'concept',
-        nested: true,
-        component: ConceptInput,
+    intervals: {
+        id: 'intervals',
+        component: IntervalsInput,
+    },
+    chordInversion: {
+        id: 'chordInversion',
+        component: NumericInput
+    },
+    melodicInversion: {
+        id: 'melodicInversion',
+        component: BooleanInput
     },
     noteLabel: {
         id: 'noteLabel',
@@ -94,50 +101,6 @@ export class Sample extends React.Component<any, any> {
         return (
             <div className="sample-container">
 
-                <Demo
-                    viewers={[
-                        {
-                            id: 'keyboard',
-                            name: 'Keyboard',
-                            component: Keyboard,
-                            defaultProps: DEFAULT_KEYBOARD_PROPS,
-                            inputs: [
-                                VIEWER_PROPS.keyCenter,
-                                VIEWER_PROPS.concept
-                            ]
-                        },
-                        {
-                            id: 'fretboard',
-                            name: 'Fretboard',
-                            component: Fretboard,
-                            defaultProps: DEFAULT_FRETBOARD_PROPS,
-                            inputs: [
-                                VIEWER_PROPS.keyCenter,
-                                VIEWER_PROPS.concept
-                            ]
-                        }
-                    ]}
-                />
-
-                <Demo
-                    viewers={[
-                        {
-                            id: 'keyboard',
-                            name: 'Keyboard',
-                            component: Keyboard,
-                            defaultProps: DEFAULT_KEYBOARD_PROPS,
-                            inputs: []
-                        },
-                        {
-                            id: 'fretboard',
-                            name: 'Fretboard',
-                            component: Fretboard,
-                            defaultProps: DEFAULT_FRETBOARD_PROPS,
-                            inputs: []
-                        }
-                    ]}
-                />
-
                 <h1>Play What?</h1>
 
                 <p>Play What is a configurable, extensible music theory visualization tool and React component library.</p>
@@ -151,15 +114,120 @@ export class Sample extends React.Component<any, any> {
                 <p>Currently, Play What provides two viewer components out-of-the-box: a keyboard and a fretboard.
                     Without providing any custom configuration, they will render as follows:</p>
 
+                <Demo
+                    comment='Select viewer here'
+                    viewers={[
+                        {
+                            id: 'keyboard',
+                            name: 'Keyboard',
+                            component: Keyboard,
+                            defaultProps: DEFAULT_KEYBOARD_PROPS,
+                            inputs: []
+                        },
+                        {
+                            id: 'fretboard',
+                            name: 'Fretboard',
+                            component: Fretboard,
+                            defaultProps: DEFAULT_FRETBOARD_PROPS,
+                            inputs: []
+                        }
+                    ]}
+                />
+
                 <p>To apply a music theory concept to a viewer, simply provide one via props.
                     There are built-in presets for chords, scales, modes, roman numerals, and interval pairs.
                     A complete list can be found in the documentation. By default, the notes are labeled with their respective interval and color-coded by degree.</p>
+
+                <Demo
+                    viewers={[
+                        {
+                            id: 'keyboard',
+                            name: 'Keyboard',
+                            component: Keyboard,
+                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
+                                intervals: CHORD.Maj.intervals
+                            }),
+                            inputs: [
+                                VIEWER_PROPS.intervals
+                            ]
+                        },
+                        {
+                            id: 'fretboard',
+                            name: 'Fretboard',
+                            component: Fretboard,
+                            defaultProps: DEFAULT_FRETBOARD_PROPS,
+                            inputs: [
+                                VIEWER_PROPS.intervals
+                            ]
+                        }
+                    ]}
+                />
 
                 <h3>Modifying a Concept</h3>
 
                 <p>By default, concepts are assumed to be in the key of C in the octave of Middle C. To change the key, provide a value for the keyCenter prop.</p>
 
+                <Demo
+                    viewers={[
+                        {
+                            id: 'keyboard',
+                            name: 'Keyboard',
+                            component: Keyboard,
+                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
+                                intervals: CHORD.Maj.intervals,
+                                keyCenter: { degree: DEGREE.F, accidental: ACCIDENTAL.Sharp, octave: 4 }
+                            }),
+                            inputs: [
+                                VIEWER_PROPS.keyCenter,
+                                VIEWER_PROPS.intervals
+                            ]
+                        },
+                        {
+                            id: 'fretboard',
+                            name: 'Fretboard',
+                            component: Fretboard,
+                            defaultProps: DEFAULT_FRETBOARD_PROPS,
+                            inputs: [
+                                VIEWER_PROPS.keyCenter,
+                                VIEWER_PROPS.intervals
+                            ]
+                        }
+                    ]}
+                />
+
                 <p>There is also support for chordal inversions and melodic inversions.</p>
+
+                <Demo
+                    viewers={[
+                        {
+                            id: 'keyboard',
+                            name: 'Keyboard',
+                            component: Keyboard,
+                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
+                                intervals: CHORD.Maj.intervals,
+                                keyCenter: { degree: DEGREE.F, accidental: ACCIDENTAL.Sharp, octave: 4 }
+                            }),
+                            inputs: [
+                                VIEWER_PROPS.keyCenter,
+                                VIEWER_PROPS.intervals,
+                                VIEWER_PROPS.chordInversion,
+                                VIEWER_PROPS.melodicInversion
+                            ]
+                        },
+                        {
+                            id: 'fretboard',
+                            name: 'Fretboard',
+                            component: Fretboard,
+                            defaultProps: DEFAULT_FRETBOARD_PROPS,
+                            inputs: [
+                                VIEWER_PROPS.keyCenter,
+                                VIEWER_PROPS.intervals,
+                                VIEWER_PROPS.chordInversion,
+                                VIEWER_PROPS.melodicInversion
+                            ]
+                        }
+                    ]}
+                />
 
                 <h3>Configuring Viewers</h3>
 

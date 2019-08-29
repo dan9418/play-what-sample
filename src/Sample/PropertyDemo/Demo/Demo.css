@@ -18,4 +18,10 @@
 
 .demo-text {
     display: inline-block;
+    font-weight: bold;
+    margin: 0px 2px;
+}
+
+.demo-comment {
+    color: green;
 }

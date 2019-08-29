@@ -5,6 +5,7 @@ import { Property } from '../Property/Property';
 import { ViewerDefinition, PropertyDefinition } from '../../Sample';
 
 type DemoProps = {
+    comment?: string;
     viewers: ViewerDefinition[];
 }
 
@@ -62,6 +63,7 @@ export class Demo extends React.Component<DemoProps, KeyboardProps> {
         return (
             <div className='demo'>
                 <div className='demo-pre'>
+                {this.props.comment && <div className='demo-comment'>{'//' + this.props.comment}</div>}
                     <div className='demo-text'>{'<'}
                         <select
                             defaultValue={this.props.viewers[this.state.viewerIndex].id}

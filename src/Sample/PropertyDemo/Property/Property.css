@@ -6,10 +6,13 @@
 
 .prop-label {
     display: inline-block;
+    color: darkblue;
 }
 
 .prop-bracket {
     display: inline-block;
+    font-weight: bold;
+    margin: 0px 2px;
 }
 
 .prop-input {
