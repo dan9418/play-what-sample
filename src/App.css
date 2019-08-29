@@ -55,3 +55,15 @@ h1, h2 {
     color: brown;
 }
 
+
+.constant {
+    border: 1px solid #AAA;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.constant .name {
+    font-weight: bold;
+    margin: 5px;
+}

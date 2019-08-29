@@ -335,25 +335,55 @@ export class App extends React.Component<any, any> {
                     ]}
                 />
 
-                <h2>Reference</h2>
+                <h2>API and Music Theory Reference</h2>
 
                 <h3>Constants</h3>
 
-                {/* Name, Description, Values */}
+                <p>Play What provides some constants and enums to make custom configuration simple and readable. </p>
 
-                <h4>Degree</h4>
+                <div className='constant'>
+                    <div className='name'>DEGREE</div>
+                    <div className='description'>Aphabet letter given to the first ('tonic') note of a musical key</div>
+                    <div className='usage'>
+                        <FormattedPre imports={['DEGREE']}>
+                            <div>{`let degree = DEGREE.C;`}</div>
+                            <div>{`// C = 1, D = 2, E = 3, F = 4, G = 5, A = 6, B = 7`}</div>
+                        </FormattedPre>
+                    </div>
+                </div>
 
-                <h4>Accidental</h4>
+                <div className='constant'>
+                    <div className='name'>ACCIDENTAL</div>
+                    <div className='description'>Offsets the note represented by a degree by one semitone by appending a symbol to the letter</div>
+                    <div className='usage'>
+                        <FormattedPre imports={['ACCIDENTAL']}>
+                            <div>{`let highNote = ACCIDENTAL.Sharp; // One semitone higher (#)`}</div>
+                            <div>{`let regularNote = ACCIDENTAL.Natural; // Do not offset note`}</div>
+                            <div>{`let lowNote = ACCIDENTAL.Flat; // One semitone lower (b)`}</div>
+                        </FormattedPre>
+                    </div>
+                </div>
 
-                <h4>Note Label</h4>
+                <div className='constant'>
+                    <div className='name'>NOTE_LABEL</div>
+                    <div className='description'>The text to display on each note</div>
+                    <div className='usage'>
+                        <FormattedPre imports={['NOTE_LABEL']}>
+                            <div>{`let label = NOTE_LABEL.None; // No label`}</div>
+                            <div>{`let label = NOTE_LABEL.Name; // The symbol of the note's degree and accidental e.g. A#, Gb...`}</div>
+                        </FormattedPre>
+                    </div>
+                </div>
 
                 <h3>Keyboard</h3>
 
+                <table>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+
                 <h3>Fretboard</h3>
-
-                <h3>Theory Engine</h3>
-
-                <h2>Music Theory Appendix</h2>
 
                 <h2>Create Your Own Component</h2>
 
