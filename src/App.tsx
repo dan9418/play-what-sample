@@ -48,11 +48,10 @@ export const VIEWER_PROPS: { [id: string]: PropertyDefinition } = {
     },
     chordInversion: {
         id: 'chordInversion',
-        component: NumericInput
-    },
-    melodicInversion: {
-        id: 'melodicInversion',
-        component: BooleanInput
+        component: NumericInput,
+        props: {
+            min: 0
+        }
     },
     noteLabel: {
         id: 'noteLabel',
@@ -141,7 +140,7 @@ function FormattedTable(props: FormattedTableProps) {
                 {props.rows.map((row, index) => {
                     return (
                         <tr key={index}>
-                            {row.map((cell, index) => { return <td>{cell}</td>; })}
+                            {row.map((cell, index) => { return <td key={index}>{cell}</td>; })}
                         </tr>
                     );
                 })}
@@ -161,6 +160,29 @@ export class App extends React.Component<any, any> {
     render() {
         return (
             <div className='sample-container'>
+
+                <Demo
+                    viewers={[
+                        {
+                            id: 'keyboard',
+                            name: 'Keyboard',
+                            component: Keyboard,
+                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
+                                intervals: CHORD.Maj.intervals
+                            }),
+                            inputs: [
+                                VIEWER_PROPS.tonic,
+                                VIEWER_PROPS.accidental,
+                                VIEWER_PROPS.octave,
+                                VIEWER_PROPS.intervals,
+                                VIEWER_PROPS.chordInversion,
+                                VIEWER_PROPS.noteLabel,
+                                VIEWER_PROPS.filterOctave
+                            ]
+                        }
+                    ]}
+                />
+
 
                 <h1>Play What?</h1>
 
@@ -280,7 +302,7 @@ export class App extends React.Component<any, any> {
 
                 <h4>Inversions</h4>
 
-                <p>There is also support for chordal and melodic inversions.</p>
+                <p>There is also support for chordal inversions.</p>
 
                 <Demo
                     viewers={[
@@ -290,13 +312,10 @@ export class App extends React.Component<any, any> {
                             component: Keyboard,
                             defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
                                 intervals: CHORD.Maj.intervals,
-                                tonic: TONIC.F,
-                                accidental: ACCIDENTAL.Sharp,
-                                octave: 4
+                                octave: 5
                             }),
                             inputs: [
-                                VIEWER_PROPS.chordInversion,
-                                VIEWER_PROPS.melodicInversion
+                                VIEWER_PROPS.chordInversion
                             ]
                         },
                         {
@@ -305,8 +324,7 @@ export class App extends React.Component<any, any> {
                             component: Fretboard,
                             defaultProps: DEFAULT_FRETBOARD_PROPS,
                             inputs: [
-                                VIEWER_PROPS.chordInversion,
-                                VIEWER_PROPS.melodicInversion
+                                VIEWER_PROPS.chordInversion
                             ]
                         }
                     ]}
@@ -325,9 +343,6 @@ export class App extends React.Component<any, any> {
                             component: Keyboard,
                             defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
                                 intervals: CHORD.Maj.intervals,
-                                tonic: TONIC.F,
-                                accidental: ACCIDENTAL.Sharp,
-                                octave: 4
                             }),
                             inputs: [
                                 VIEWER_PROPS.noteLabel,
@@ -360,9 +375,6 @@ export class App extends React.Component<any, any> {
                             component: Keyboard,
                             defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
                                 intervals: CHORD.Maj.intervals,
-                                tonic: TONIC.F,
-                                accidental: ACCIDENTAL.Sharp,
-                                octave: 4
                             }),
                             inputs: [
                                 VIEWER_PROPS.keyLow,
@@ -488,7 +500,6 @@ export class App extends React.Component<any, any> {
                         ['octave', 'number', '4', 'Octave of tonic'],
                         ['intervals', 'INTERVAL[]', '[]', 'Intervals to derive notes from'],
                         ['chordInversion', 'number', '0', 'Chord inversion'],
-                        ['melodicInverstion', 'boolean', 'false', 'Whether of apply melodic inversion'],
                         ['filterOctave', 'boolean', 'true', 'Whether to show note in all octaves'],
                         ['noteLabel', 'NOTE_LABEL', 'NOTE_LABEL.Name', 'Text overlayed on each note']
                     ]}

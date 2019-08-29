@@ -18,7 +18,7 @@ export class FretboardStringProperties extends React.Component<InputProps | Fret
 
     getStringTuner = (stringConfig: FretboardStringConfig, stringIndex: number) => {
         return (
-            <div>
+            <div key={stringIndex}>
                 <span className=''>{'{ tuning={'}</span>
                 <NumericInput value={stringConfig.tuning} setValue={(value) => { this.setValue(stringIndex, 'tuning', value); }} />
                 <span className=''>{'} },'}</span>
