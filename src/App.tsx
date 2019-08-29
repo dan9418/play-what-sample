@@ -92,6 +92,26 @@ export type ViewerDefinition = {
     inputs: PropertyDefinition[];
 }
 
+/* Pre */
+
+function FormattedPre(props) {
+    return (
+        <pre className='formatted-pre'>
+            {props.imports &&
+                <div className='imports'>
+                    <span className='keyword'>import</span>
+                    <span className='bracket'>{' { '}</span>
+                    {props.imports.join(', ')}
+                    <span className='bracket'>{' } '}</span>
+                    <span className='keyword'>from </span>
+                    <span className='string'>'play-what'</span>
+                </div>
+            }
+            {props.children}
+        </pre>
+    );
+}
+
 /* Sample */
 
 export class App extends React.Component<any, any> {
@@ -118,7 +138,7 @@ export class App extends React.Component<any, any> {
 
                 <p>Play What is available as an npm package and can be installed via the command-line:</p>
 
-                <div className='command-line'>npm install play-what</div>
+                <FormattedPre>npm install play-what</FormattedPre>
 
                 <h3>Include Component</h3>
 
@@ -126,6 +146,7 @@ export class App extends React.Component<any, any> {
                     Play What currently provides two viewer components out-of-the-box, 'Keyboard' and 'Fretboard'.
                     Each component will render with default configuration if no props are provided.</p>
 
+                <FormattedPre imports={['Keyboard', 'Fretboard']}></FormattedPre>
                 <Demo
                     comment='Select viewer here'
                     viewers={[
@@ -317,6 +338,8 @@ export class App extends React.Component<any, any> {
                 <h2>Reference</h2>
 
                 <h3>Constants</h3>
+
+                {/* Name, Description, Values */}
 
                 <h4>Degree</h4>
 
