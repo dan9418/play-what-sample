@@ -363,6 +363,51 @@ export class App extends React.Component<any, any> {
 
                 <h3>Constants</h3>
 
+                <h4>INTERVAL</h4>
+
+                <FormattedTable
+                    headers={['Value', 'Description', 'Degree', 'Semitones']}
+                    rows={[
+                        ['PU', 'Perfect Unison', '1', '0']
+                    ]}
+                />
+
+                <h4>CHORD</h4>
+
+                <FormattedTable
+                    headers={['Value', 'Description', 'Intervals']}
+                    rows={[
+                        ['Maj', 'Major Triad', 'PU, M3, P5']
+                    ]}
+                />
+
+                <h4>SCALE</h4>
+
+                <FormattedTable
+                    headers={['Value', 'Description', 'Intervals']}
+                    rows={[
+                        ['Major', 'Major', 'PU, M2, M3, P4, P5, M6, M7']
+                    ]}
+                />
+
+                <h4>MODE</h4>
+
+                <FormattedTable
+                    headers={['Value', 'Description', 'Intervals']}
+                    rows={[
+                        ['Ionian', 'Ionian', 'PU, M2, M3, P4, P5, M6, M7']
+                    ]}
+                />
+
+                <h4>ROMAN_NUMERAL</h4>
+
+                <FormattedTable
+                    headers={['Value', 'Description', 'Chord']}
+                    rows={[
+                        ['I', 'Major 1', 'Maj']
+                    ]}
+                />
+
                 <h4>DEGREE</h4>
 
                 <FormattedTable
