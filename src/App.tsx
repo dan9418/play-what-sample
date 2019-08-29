@@ -2,10 +2,9 @@ import "./App.css"
 import ReactDOM = require("react-dom");
 import React = require("react");
 
-import { Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
+import { Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 
 import { Demo } from './Demo/Demo';
-import { KeyCenterInput } from './Inputs/KeyCenterProperties/KeyCenterProperties';
 import { PresetIntervalsInput } from './Inputs/PresetIntervalsInput/PresetIntervalsInput';
 import { EnumDropdownInput } from './Inputs/DropdownInput/EnumDropdownInput';
 import { BooleanInput } from './Inputs/BooleanInput/BooleanInput';
@@ -23,10 +22,25 @@ export interface PropertyDefinition {
 }
 
 export const VIEWER_PROPS: { [id: string]: PropertyDefinition } = {
-    keyCenter: {
-        id: 'keyCenter',
-        nested: true,
-        component: KeyCenterInput,
+    tonic: {
+        id: 'tonic',
+        component: EnumDropdownInput,
+        props: {
+            label: 'TONIC',
+            enum: TONIC
+        }
+    },
+    accidental: {
+        id: 'accidental',
+        component: EnumDropdownInput,
+        props: {
+            label: 'ACCIDENTAL',
+            enum: ACCIDENTAL
+        }
+    },
+    octave: {
+        id: 'octave',
+        component: NumericInput
     },
     intervals: {
         id: 'intervals',
@@ -238,10 +252,14 @@ export class App extends React.Component<any, any> {
                             component: Keyboard,
                             defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
                                 intervals: CHORD.Maj.intervals,
-                                keyCenter: { degree: DEGREE.F, accidental: ACCIDENTAL.Sharp, octave: 4 }
+                                tonic: TONIC.F,
+                                accidental: ACCIDENTAL.Sharp,
+                                octave: 4
                             }),
                             inputs: [
-                                VIEWER_PROPS.keyCenter,
+                                VIEWER_PROPS.tonic,
+                                VIEWER_PROPS.accidental,
+                                VIEWER_PROPS.octave,
                                 VIEWER_PROPS.intervals
                             ]
                         },
@@ -251,7 +269,9 @@ export class App extends React.Component<any, any> {
                             component: Fretboard,
                             defaultProps: DEFAULT_FRETBOARD_PROPS,
                             inputs: [
-                                VIEWER_PROPS.keyCenter,
+                                VIEWER_PROPS.tonic,
+                                VIEWER_PROPS.accidental,
+                                VIEWER_PROPS.octave,
                                 VIEWER_PROPS.intervals
                             ]
                         }
@@ -270,7 +290,9 @@ export class App extends React.Component<any, any> {
                             component: Keyboard,
                             defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
                                 intervals: CHORD.Maj.intervals,
-                                keyCenter: { degree: DEGREE.F, accidental: ACCIDENTAL.Sharp, octave: 4 }
+                                tonic: TONIC.F,
+                                accidental: ACCIDENTAL.Sharp,
+                                octave: 4
                             }),
                             inputs: [
                                 VIEWER_PROPS.chordInversion,
@@ -303,7 +325,9 @@ export class App extends React.Component<any, any> {
                             component: Keyboard,
                             defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
                                 intervals: CHORD.Maj.intervals,
-                                keyCenter: { degree: DEGREE.F, accidental: ACCIDENTAL.Sharp, octave: 4 }
+                                tonic: TONIC.F,
+                                accidental: ACCIDENTAL.Sharp,
+                                octave: 4
                             }),
                             inputs: [
                                 VIEWER_PROPS.noteLabel,
@@ -336,7 +360,9 @@ export class App extends React.Component<any, any> {
                             component: Keyboard,
                             defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
                                 intervals: CHORD.Maj.intervals,
-                                keyCenter: { degree: DEGREE.F, accidental: ACCIDENTAL.Sharp, octave: 4 }
+                                tonic: TONIC.F,
+                                accidental: ACCIDENTAL.Sharp,
+                                octave: 4
                             }),
                             inputs: [
                                 VIEWER_PROPS.keyLow,
@@ -457,9 +483,9 @@ export class App extends React.Component<any, any> {
                 <FormattedTable
                     headers={['Prop', 'Value', 'Default', 'Effect']}
                     rows={[
-                        ['keyCenter.degree', 'DEGREE', 'DEGREE.C', 'Tonic of the key'],
-                        ['keyCenter.accidental', 'ACCIDENTAL', 'ACCIDENTAL.Natural', 'Accidental of tonic'],
-                        ['keyCenter.octave', 'number', '4', 'Octave of tonic'],
+                        ['tonic', 'TONIC', 'TONIC.C', 'Tonic of the key'],
+                        ['accidental', 'ACCIDENTAL', 'ACCIDENTAL.Natural', 'Accidental of tonic'],
+                        ['octave', 'number', '4', 'Octave of tonic'],
                         ['intervals', 'INTERVAL[]', '[]', 'Intervals to derive notes from'],
                         ['chordInversion', 'number', '0', 'Chord inversion'],
                         ['melodicInverstion', 'boolean', 'false', 'Whether of apply melodic inversion'],
