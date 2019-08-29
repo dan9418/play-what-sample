@@ -1,8 +1,8 @@
 import * as React from "react";
-import { InputProps } from "../../Inputs/Input.config";
-import { EnumDropdownInput } from "../../Inputs/EnumDropdownInput/EnumDropdownInput";
+import { InputProps } from "../Input.config";
+import { EnumDropdownInput } from "../DropdownInput/EnumDropdownInput";
 import { ROMAN_NUMERAL, INTERVAL_PAIR, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
-import { DropdownInput } from "../../Inputs/DropdownInput/DropdownInput";
+import { DropdownInput } from "../DropdownInput/DropdownInput";
 
 const INTERVAL_PRESETS = [
     {
@@ -39,15 +39,6 @@ export class PresetIntervalsInput extends React.Component<InputProps, any> {
         this.state = {
             conceptIndex: 0
         }
-    }
-
-    getConceptOptions = () => {
-        let options = [];
-        for (let i = 0; i < INTERVAL_PRESETS.length; i++) {
-            let datum = INTERVAL_PRESETS[i];
-            options.push(<option key={datum.id} value={datum.id}>{datum.name}</option>);
-        }
-        return options;
     }
 
     render = () => {

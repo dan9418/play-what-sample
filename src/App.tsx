@@ -1,13 +1,16 @@
-import './Sample.css';
+import "./App.css"
+import ReactDOM = require("react-dom");
+import React = require("react");
+
 import { Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
-import React = require('react');
-import { Demo } from './PropertyDemo/Demo/Demo';
-import { KeyCenterInput } from './PropertyDemo/KeyCenterProperties/KeyCenterProperties';
-import { PresetIntervalsInput } from './PropertyDemo/PresetIntervalsInput/PresetIntervalsInput';
-import { EnumDropdownInput } from './Inputs/EnumDropdownInput/EnumDropdownInput';
+
+import { Demo } from './Demo/Demo';
+import { KeyCenterInput } from './Inputs/KeyCenterProperties/KeyCenterProperties';
+import { PresetIntervalsInput } from './Inputs/PresetIntervalsInput/PresetIntervalsInput';
+import { EnumDropdownInput } from './Inputs/DropdownInput/EnumDropdownInput';
 import { BooleanInput } from './Inputs/BooleanInput/BooleanInput';
 import { NumericInput } from './Inputs/NumericInput/NumericInput';
-import { FretboardStringProperties } from './PropertyDemo/FretboardStringProperties/FretboardStringProperties';
+import { FretboardStringProperties } from './Inputs/FretboardStringProperties/FretboardStringProperties';
 
 /* General */
 
@@ -91,7 +94,7 @@ export type ViewerDefinition = {
 
 /* Sample */
 
-export class Sample extends React.Component<any, any> {
+export class App extends React.Component<any, any> {
 
     constructor(props) {
         super(props);
@@ -337,3 +340,5 @@ export class Sample extends React.Component<any, any> {
         )
     }
 }
+
+ReactDOM.render(<App />, document.querySelector("#app"));

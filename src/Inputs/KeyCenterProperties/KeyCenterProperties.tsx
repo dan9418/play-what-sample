@@ -1,9 +1,9 @@
 import * as React from "react";
-import { InputProps } from "../../Inputs/Input.config";
-import { EnumDropdownInput } from "../../Inputs/EnumDropdownInput/EnumDropdownInput";
+import { InputProps } from "../Input.config";
+import { EnumDropdownInput } from "../DropdownInput/EnumDropdownInput";
 import { KeyCenter, DEGREE, ACCIDENTAL } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
-import { NumericInput } from "../../Inputs/NumericInput/NumericInput";
-import { Property } from "../Property/Property";
+import { NumericInput } from "../NumericInput/NumericInput";
+import { Property } from "../../Property/Property";
 
 function setKeyCenter(setValue: (value) => void, keyCenter: KeyCenter, property: string, value: any) {
     let keyCopy = {...keyCenter};

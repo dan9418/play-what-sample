@@ -1,9 +1,0 @@
-.enum-dropdown-input {
-    height: 20px;
-    display: inline-block;
-}
-
-.enum-dropdown-input select {
-    height: 100%;
-    vertical-align: top;
-}

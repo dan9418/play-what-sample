@@ -1,6 +1,6 @@
 import * as React from "react";
-import { InputProps } from "../../Inputs/Input.config";
-import { NumericInput } from "../../Inputs/NumericInput/NumericInput";
+import { InputProps } from "../Input.config";
+import { NumericInput } from "../NumericInput/NumericInput";
 import { FretboardStringConfig, FretboardProps } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
 import "./FretboardStringProperties.css";
 

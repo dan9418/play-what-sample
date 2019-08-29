@@ -2,8 +2,8 @@ import './Demo.css';
 import { Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS, NOTE_LABEL } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 import React = require('react');
 import { Property } from '../Property/Property';
-import { ViewerDefinition, PropertyDefinition } from '../../Sample';
-import { DropdownInput } from '../../Inputs/DropdownInput/DropdownInput';
+import { ViewerDefinition, PropertyDefinition } from '../App';
+import { DropdownInput } from '../Inputs/DropdownInput/DropdownInput';
 
 type DemoProps = {
     comment?: string;

@@ -1,7 +1,6 @@
 import * as React from "react";
-import "./EnumDropdownInput.css";
 import { InputProps } from "../Input.config";
-import { DropdownInput } from "../DropdownInput/DropdownInput";
+import { DropdownInput } from "./DropdownInput";
 
 interface EnumDropdownInputProps extends InputProps {
     label: string;

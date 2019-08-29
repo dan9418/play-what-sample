@@ -1,7 +1,7 @@
 var path = require('path');
 var config = {
   mode: 'development',
-  entry: ['./src/index.tsx'],
+  entry: ['./src/App.tsx'],
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'play-what-sample.js'
