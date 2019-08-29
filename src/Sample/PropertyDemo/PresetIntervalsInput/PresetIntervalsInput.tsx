@@ -2,9 +2,7 @@ import * as React from "react";
 import { InputProps } from "../../Inputs/Input.config";
 import { EnumDropdownInput } from "../../Inputs/EnumDropdownInput/EnumDropdownInput";
 import { ROMAN_NUMERAL, INTERVAL_PAIR, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
-import { NumericInput } from "../../Inputs/NumericInput/NumericInput";
-import { BooleanInput } from "../../Inputs/BooleanInput/BooleanInput";
-import { Property } from "../Property/Property";
+import { DropdownInput } from "../../Inputs/DropdownInput/DropdownInput";
 
 const INTERVAL_PRESETS = [
     {
@@ -34,7 +32,7 @@ const INTERVAL_PRESETS = [
     }
 ];
 
-export class IntervalsInput extends React.Component<InputProps, any> {
+export class PresetIntervalsInput extends React.Component<InputProps, any> {
 
     constructor(props) {
         super(props);
@@ -55,11 +53,11 @@ export class IntervalsInput extends React.Component<InputProps, any> {
     render = () => {
         return (
             <div className='concept-input'>
-                <select
-                    defaultValue={INTERVAL_PRESETS[this.state.conceptIndex].id}
-                    onChange={(event) => { this.setState({ conceptIndex: event.target.selectedIndex }); }}>
-                    {this.getConceptOptions()}
-                </select>
+                <DropdownInput
+                    data={INTERVAL_PRESETS}
+                    value={INTERVAL_PRESETS[this.state.conceptIndex]}
+                    setValue={(value, index) => { this.setState({ conceptIndex: index }); }}
+                />
                 <EnumDropdownInput
                     label=''
                     enum={INTERVAL_PRESETS[this.state.conceptIndex].presets}

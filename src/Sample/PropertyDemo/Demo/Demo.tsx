@@ -3,17 +3,17 @@ import { Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, Fretboard, FretboardPr
 import React = require('react');
 import { Property } from '../Property/Property';
 import { ViewerDefinition, PropertyDefinition } from '../../Sample';
+import { DropdownInput } from '../../Inputs/DropdownInput/DropdownInput';
 
 type DemoProps = {
-    comment?: string;
-    viewers: ViewerDefinition[];
+    viewer: ViewerDefinition;
 }
 
 export class Demo extends React.Component<DemoProps, KeyboardProps> {
 
     constructor(props) {
         super(props);
-        this.state = Object.assign({ viewerIndex: 0 }, this.props.viewers[0].defaultProps);
+        this.state = this.props.viewer.defaultProps;
     }
 
     setValue = (property: string, value: any) => {
@@ -43,18 +43,31 @@ export class Demo extends React.Component<DemoProps, KeyboardProps> {
         return inputs;
     }
 
-    changeViewer = (index: number) => {
-        let update = Object.assign({ viewerIndex: index }, this.props.viewers[index].defaultProps)
-        this.setState(update);
+    render() {
+        let Viewer = this.props.viewer.component;
+        return (
+            <>
+                {this.getInputs(this.props.viewer.inputs)}
+            </>
+        )
     }
+}
 
-    getViewerOptions = () => {
-        let options = [];
-        for (let i = 0; i < this.props.viewers.length; i++) {
-            let datum = this.props.viewers[i];
-            options.push(<option key={datum.id} value={datum.id}>{datum.name}</option>);
-        }
-        return options;
+
+type DemoSelectorProps = {
+    comment?: string;
+    viewers: ViewerDefinition[];
+}
+
+type DemoSelectorState = {
+    viewerIndex: number;
+}
+
+export class DemoSelector extends React.Component<DemoSelectorProps, DemoSelectorState> {
+
+    constructor(props) {
+        super(props);
+        this.state = { viewerIndex: 0 };
     }
 
     render() {
@@ -65,13 +78,12 @@ export class Demo extends React.Component<DemoProps, KeyboardProps> {
                 <div className='demo-pre'>
                     {this.props.comment && <div className='demo-comment'>{'//' + this.props.comment}</div>}
                     <div className='demo-angle-bracket'>{'<'}</div>
-                    <select
-                        className='demo-component'
-                        defaultValue={this.props.viewers[this.state.viewerIndex].id}
-                        onChange={(event) => { this.changeViewer(event.target.selectedIndex) }}>
-                        {this.getViewerOptions()}
-                    </select>
-                    {this.getInputs(viewer.inputs)}
+                    <DropdownInput
+                        data={this.props.viewers}
+                        value={this.props.viewers[this.state.viewerIndex]}
+                        setValue={(value, index) => this.setState({ viewerIndex: index })}
+                    />
+                    <Demo key={viewer.id} viewer={viewer} />
                     <div className='demo-angle-bracket'>{'/>'}</div>
                 </div>
                 <Viewer {...this.state} />
