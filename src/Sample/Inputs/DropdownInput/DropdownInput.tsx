@@ -2,9 +2,15 @@ import * as React from "react";
 import "./DropdownInput.css";
 import { InputProps } from "../Input.config";
 
+interface DropdownInputItem {
+    id: string;
+    name: string;
+    [property: string]: any;
+}
+
 interface DropdownInputProps extends InputProps {
-    setValue: (value: any, index?: number) => void;
-    data: any[];
+    setValue: (value: DropdownInputItem, index?: number) => void;
+    data: DropdownInputItem[];
 }
 
 export class DropdownInput extends React.Component<DropdownInputProps> {
@@ -27,7 +33,9 @@ export class DropdownInput extends React.Component<DropdownInputProps> {
             <div className='dropdown-input'>
                 <select
                     defaultValue={this.props.value && this.props.value.id}
-                    onChange={(event) => { this.props.setValue(this.props.data[event.target.selectedIndex], event.target.selectedIndex); }}>
+                    onChange={(event) => {
+                        this.props.setValue(this.props.data[event.target.selectedIndex], event.target.selectedIndex);
+                    }}>
                     {this.getOptions()}
                 </select>
             </div>)

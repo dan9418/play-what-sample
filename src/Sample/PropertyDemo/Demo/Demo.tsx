@@ -6,14 +6,15 @@ import { ViewerDefinition, PropertyDefinition } from '../../Sample';
 import { DropdownInput } from '../../Inputs/DropdownInput/DropdownInput';
 
 type DemoProps = {
-    viewer: ViewerDefinition;
+    comment?: string;
+    viewers: ViewerDefinition[];
 }
 
 export class Demo extends React.Component<DemoProps, KeyboardProps> {
 
     constructor(props) {
         super(props);
-        this.state = this.props.viewer.defaultProps;
+        this.state = Object.assign({ viewerIndex: 0 }, this.props.viewers[0].defaultProps);
     }
 
     setValue = (property: string, value: any) => {
@@ -43,31 +44,18 @@ export class Demo extends React.Component<DemoProps, KeyboardProps> {
         return inputs;
     }
 
-    render() {
-        let Viewer = this.props.viewer.component;
-        return (
-            <>
-                {this.getInputs(this.props.viewer.inputs)}
-            </>
-        )
+    changeViewer = (index: number) => {
+        let update = Object.assign({ viewerIndex: index }, this.props.viewers[index].defaultProps)
+        this.setState(update);
     }
-}
 
-
-type DemoSelectorProps = {
-    comment?: string;
-    viewers: ViewerDefinition[];
-}
-
-type DemoSelectorState = {
-    viewerIndex: number;
-}
-
-export class DemoSelector extends React.Component<DemoSelectorProps, DemoSelectorState> {
-
-    constructor(props) {
-        super(props);
-        this.state = { viewerIndex: 0 };
+    getViewerOptions = () => {
+        let options = [];
+        for (let i = 0; i < this.props.viewers.length; i++) {
+            let datum = this.props.viewers[i];
+            options.push(<option key={datum.id} value={datum.id}>{datum.name}</option>);
+        }
+        return options;
     }
 
     render() {
@@ -81,9 +69,9 @@ export class DemoSelector extends React.Component<DemoSelectorProps, DemoSelecto
                     <DropdownInput
                         data={this.props.viewers}
                         value={this.props.viewers[this.state.viewerIndex]}
-                        setValue={(value, index) => this.setState({ viewerIndex: index })}
+                        setValue={(value, index) => this.changeViewer(index)}
                     />
-                    <Demo key={viewer.id} viewer={viewer} />
+                    {this.getInputs(viewer.inputs)}
                     <div className='demo-angle-bracket'>{'/>'}</div>
                 </div>
                 <Viewer {...this.state} />

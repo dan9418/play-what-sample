@@ -1,7 +1,7 @@
 import './Sample.css';
 import { Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, DEGREE, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 import React = require('react');
-import { DemoSelector } from './PropertyDemo/Demo/Demo';
+import { Demo } from './PropertyDemo/Demo/Demo';
 import { KeyCenterInput } from './PropertyDemo/KeyCenterProperties/KeyCenterProperties';
 import { PresetIntervalsInput } from './PropertyDemo/PresetIntervalsInput/PresetIntervalsInput';
 import { EnumDropdownInput } from './Inputs/EnumDropdownInput/EnumDropdownInput';
@@ -123,7 +123,7 @@ export class Sample extends React.Component<any, any> {
                     Play What currently provides two viewer components out-of-the-box, 'Keyboard' and 'Fretboard'.
                     Each component will render with default configuration if no props are provided.</p>
 
-                <DemoSelector
+                <Demo
                     comment='Select viewer here'
                     viewers={[
                         {
@@ -152,7 +152,7 @@ export class Sample extends React.Component<any, any> {
                     A complete list can be found in the <a href=''>reference section</a>.
                     By default, notes are labeled with their respective interval and colored by degree.</p>
 
-                <DemoSelector
+                <Demo
                     viewers={[
                         {
                             id: 'keyboard',
@@ -182,7 +182,7 @@ export class Sample extends React.Component<any, any> {
                 <p>By default, intervals are relative to the <a href=''>key</a> of C in the octave of <a href=''>Middle C</a>.
                 To change the key, provide a value for the keyCenter prop.</p>
 
-                <DemoSelector
+                <Demo
                     viewers={[
                         {
                             id: 'keyboard',
@@ -214,7 +214,7 @@ export class Sample extends React.Component<any, any> {
 
                 <p>There is also support for chordal and melodic inversions.</p>
 
-                <DemoSelector
+                <Demo
                     viewers={[
                         {
                             id: 'keyboard',
@@ -247,7 +247,7 @@ export class Sample extends React.Component<any, any> {
                 <p>Components also accept props to specify how to display the provided notes.
                     For example, notes can be labeled or shown idependent of the provided octave.</p>
 
-                <DemoSelector
+                <Demo
                     viewers={[
                         {
                             id: 'keyboard',
@@ -280,7 +280,7 @@ export class Sample extends React.Component<any, any> {
                 <p>Each viewer also its own API for modifying the viewer itself.
                     See the <a href=''>reference section</a> for a complete list.</p>
 
-                <DemoSelector
+                <Demo
                     viewers={[
                         {
                             id: 'keyboard',

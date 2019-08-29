@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./EnumDropdownInput.css";
 import { InputProps } from "../Input.config";
+import { DropdownInput } from "../DropdownInput/DropdownInput";
 
 interface EnumDropdownInputProps extends InputProps {
     label: string;
@@ -13,25 +14,17 @@ export class EnumDropdownInput extends React.Component<EnumDropdownInputProps> {
         super(props);
     }
 
-    getOptions = (data: string[]) => {
-        let options = [];
-        for (let i = 0; i < data.length; i++) {
-            let datum = data[i];
-            options.push(<option key={datum} value={datum} className={'enum-dropdown-option'}>{datum}</option>);
-        }
-        return options;
-    }
-
     render = () => {
-        let data = Object.keys(this.props.enum).filter((x) => Number.isNaN(parseInt(x, 10)));
-        return (
-            <div className='enum-dropdown-input'>
-                {this.props.label}.
-                <select
-                    defaultValue={this.props.value}
-                    onChange={(event) => { this.props.setValue(this.props.enum[data[event.target.selectedIndex]]); }}>
-                    {this.getOptions(data)}
-                </select>
-            </div>)
+        let data = Object.keys(this.props.enum)
+            .filter((x) => Number.isNaN(parseInt(x, 10)))
+            .map((value) => { return { id: value, name: value }; });
+        return (<>
+            <span>{this.props.label}{'.'}</span>
+            <DropdownInput
+                data={data}
+                value={this.props.value}
+                setValue={(value) => this.props.setValue(this.props.enum[value.id])}
+            />
+        </>)
     };
 }
