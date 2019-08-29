@@ -112,6 +112,30 @@ function FormattedPre(props) {
     );
 }
 
+type FormattedTableProps = {
+    headers: string[];
+    rows: string[][];
+}
+
+function FormattedTable(props: FormattedTableProps) {
+    return (
+        <table className='prop-table'>
+            <tbody>
+                <tr>
+                    {props.headers.map((header, index) => { return <th key={index}>{header}</th> })}
+                </tr>
+                {props.rows.map((row, index) => {
+                    return (
+                        <tr key={index}>
+                            {row.map((cell, index) => { return <td>{cell}</td>; })}
+                        </tr>
+                    );
+                })}
+            </tbody>
+        </table>
+    );
+}
+
 /* Sample */
 
 export class App extends React.Component<any, any> {
@@ -339,54 +363,90 @@ export class App extends React.Component<any, any> {
 
                 <h3>Constants</h3>
 
-                <p>Play What provides some constants and enums to make custom configuration simple and readable. </p>
+                <h4>DEGREE</h4>
 
-                <div className='constant'>
-                    <div className='name'>DEGREE</div>
-                    <div className='description'>Aphabet letter given to the first ('tonic') note of a musical key</div>
-                    <div className='usage'>
-                        <FormattedPre imports={['DEGREE']}>
-                            <div>{`let degree = DEGREE.C;`}</div>
-                            <div>{`// C = 1, D = 2, E = 3, F = 4, G = 5, A = 6, B = 7`}</div>
-                        </FormattedPre>
-                    </div>
-                </div>
+                <FormattedTable
+                    headers={['Value', 'Description']}
+                    rows={[
+                        ['C', 'Sets the 7 degrees as C D E F G A B, respectively'],
+                        ['D', 'Sets the 7 degrees as D E F G A B C, respectively'],
+                        ['E', 'Sets the 7 degrees as E F G A B C D, respectively'],
+                        ['F', 'Sets the 7 degrees as F G A B C D E, respectively'],
+                        ['G', 'Sets the 7 degrees as G A B C D E F, respectively'],
+                        ['A', 'Sets the 7 degrees as A B C D E F G, respectively'],
+                        ['B', 'Sets the 7 degrees as B C D E F G A, respectively']
+                    ]}
+                />
 
-                <div className='constant'>
-                    <div className='name'>ACCIDENTAL</div>
-                    <div className='description'>Offsets the note represented by a degree by one semitone by appending a symbol to the letter</div>
-                    <div className='usage'>
-                        <FormattedPre imports={['ACCIDENTAL']}>
-                            <div>{`let highNote = ACCIDENTAL.Sharp; // One semitone higher (#)`}</div>
-                            <div>{`let regularNote = ACCIDENTAL.Natural; // Do not offset note`}</div>
-                            <div>{`let lowNote = ACCIDENTAL.Flat; // One semitone lower (b)`}</div>
-                        </FormattedPre>
-                    </div>
-                </div>
+                <h4>ACCIDENTAL</h4>
 
-                <div className='constant'>
-                    <div className='name'>NOTE_LABEL</div>
-                    <div className='description'>The text to display on each note</div>
-                    <div className='usage'>
-                        <FormattedPre imports={['NOTE_LABEL']}>
-                            <div>{`let label = NOTE_LABEL.None; // No label`}</div>
-                            <div>{`let label = NOTE_LABEL.Name; // The symbol of the note's degree and accidental e.g. A#, Gb...`}</div>
-                        </FormattedPre>
-                    </div>
-                </div>
+                <FormattedTable
+                    headers={['Value', 'Description']}
+                    rows={[
+                        ['Natural', 'Does not alter the key tonic'],
+                        ['Flat', 'Lowers the key tonic by one semitone'],
+                        ['Sharp', 'Raises the key tonic by one semitone']
+                    ]}
+                />
 
-                <h3>Keyboard</h3>
+                <h4>NOTE_LABEL</h4>
 
-                <table>
-                    <tbody>
-                        
-                    </tbody>
-                </table>
+                <FormattedTable
+                    headers={['Value', 'Description']}
+                    rows={[
+                        ['None', 'No label'],
+                        ['Name', 'The symbol of the notes degree and accidental e.g. A#, Gb...'],
+                        ['Interval', 'The interval of the note relative to the key tonic'],
+                        ['PitchClass', 'The number of semitones from the last key tonic'],
+                        ['NoteIndex', 'The number of semitones from Middle C'],
+                        ['RelativeDegree', 'The diatonic degree of the note'],
+                        ['Octave', 'The octave that the note belongs to'],
+                        ['Frequency', 'The pitch of the note in Hz']
+                    ]}
+                />
 
-                <h3>Fretboard</h3>
+                <h3>Viewer Props</h3>
 
-                <h2>Create Your Own Component</h2>
+                <h4>Common</h4>
 
+                <FormattedTable
+                    headers={['Prop', 'Value', 'Default', 'Effect']}
+                    rows={[
+                        ['keyCenter.degree', 'DEGREE', 'DEGREE.C', 'Tonic of the key'],
+                        ['keyCenter.accidental', 'ACCIDENTAL', 'ACCIDENTAL.Natural', 'Accidental of tonic'],
+                        ['keyCenter.octave', 'number', '4', 'Octave of tonic'],
+                        ['intervals', 'INTERVAL[]', '[]', 'Intervals to derive notes from'],
+                        ['chordInversion', 'number', '0', 'Chord inversion'],
+                        ['melodicInverstion', 'boolean', 'false', 'Whether of apply melodic inversion'],
+                        ['filterOctave', 'boolean', 'true', 'Whether to show note in all octaves'],
+                        ['noteLabel', 'NOTE_LABEL', 'NOTE_LABEL.Name', 'Text overlayed on each note']
+                    ]}
+                />
+
+                <h4>Keyboard</h4>
+
+                <FormattedTable
+                    headers={['Prop', 'Value', 'Default', 'Effect']}
+                    rows={[
+                        ['keyLow', 'noteIndex', '0', 'The note index of the first keyboard key'],
+                        ['keyHigh', 'noteIndex', '25', 'The note index of the last keyboard key']
+                    ]}
+                />
+
+                <h4>Fretboard</h4>
+
+                <FormattedTable
+                    headers={['Prop', 'Value', 'Default', 'Effect']}
+                    rows={[
+                        ['fretLow', 'noteIndex', '0', 'The number of the first fretboard fret'],
+                        ['fretHigh', 'noteIndex', '12', 'The number of the last fretboard fret'],
+                        ['showDots', 'boolean', 'true', 'Indicates whether to show the helper dots commonly found on fretboards'],
+                        ['showFretNumbers', 'boolean', 'true', 'Indicates whether to show fret numbers above each fret'],
+                        ['strings', 'stringConfig[]', '(standard guitar)', 'An array of config ojects specifiying fretboard strings'],
+                        ['strings[n].tuning', 'noteIndex', '0', 'The node index of the strings open note'],
+                        ['strings[n].unfilteredIntervals', 'INTERVAL[]', 'undefined', 'If defined, specifies allowable intervals on the string']
+                    ]}
+                />
                 <h2>Examples</h2>
 
             </div >
