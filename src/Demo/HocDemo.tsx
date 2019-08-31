@@ -80,12 +80,14 @@ export function Imports(props: any) {
     });
     return (
         <div className='imports'>
-            <span className='keyword'>import</span>
+            <span className='keyword'>{'import'}</span>
             <span className='operator'>{' { '}</span>
             {vars}
             <span className='operator'>{' } '}</span>
-            <span className='keyword'>from </span>
-            <span className='string'>'{props.source};'</span>
+            <span className='keyword'>{'from '}</span>
+            <span className='operator'>{'\''}</span>
+            <span className='string'>{props.source}</span>
+            <span className='operator'>{'\';'}</span>
         </div>
     );
 }

@@ -11,11 +11,9 @@
 
 .demo pre, .demo pre * {
     font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
-    font-weight: bold;
 }
 
 .demo pre .operator {
-    font-weight: normal;
     color: #555;
 }
 
@@ -25,18 +23,22 @@
 
 .demo pre .keyword {
     color: purple;
+    font-weight: bold;
 }
 
 .demo pre .string {
     color: brown;
+    font-weight: bold;
 }
 
 .demo pre .function {
     color: turquoise;
+    font-weight: bold;
 }
 
 .demo pre .var {
     color: orangered;
+    font-weight: bold;
 }
 
 .demo pre .object, .demo pre .tag, .demo pre .imports {
@@ -49,8 +51,10 @@
 
 .object-prop-name {
     color: lightslategray;
+    font-weight: bold;
 }
 
 .demo pre .component {
     color: lightcoral;
+    font-weight: bold;
 }

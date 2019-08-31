@@ -1,25 +1,25 @@
 .boolean-input {
   display: inline-block;
   height: 20px;
+}
+
+.button {
+  display: inline-block;
   cursor: pointer;
 }
 
-.true, .false {
+.separator {
   display: inline-block;
+  font-weight: normal;
+  cursor: auto;
 }
 
-.boolean-input.true .true {
-  font-weight: bold;
-}
+/* States */
 
-.boolean-input.true .false {
+.boolean-input .inactive {
   font-weight: normal;
 }
 
-.boolean-input.false .true {
-  font-weight: normal;
-}
-
-.boolean-input.false .false {
+.boolean-input .active {
   font-weight: bold;
 }
