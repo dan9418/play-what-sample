@@ -3,11 +3,11 @@ import { Interval, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, D
 import { PresetIntervalsInput } from "./Inputs/PresetIntervalsInput/PresetIntervalsInput";
 
 function getHeaders() {
-    let headers = [<th className='degree'>{'#'}</th>];
+    let headers = [<th className='degree' key='degree'>{'#'}</th>];
     for (let i = 0; i < 12; i++) {
         headers.push(<th key={i}>{i}</th>)
     }
-    return <tr>{...headers}</tr>
+    return <tr key='header'>{...headers}</tr>
 }
 
 function getIntervalBySemitones(intervals: Interval[], semitones: number) {
@@ -15,7 +15,7 @@ function getIntervalBySemitones(intervals: Interval[], semitones: number) {
 }
 
 function getCells(rowIndex: number, intervals: Interval[]) {
-    let cells = [<td className='degree'>{rowIndex}</td>];
+    let cells = [<td key='degree' className='degree'>{rowIndex}</td>];
     for (let i = 0; i < 12; i++) {
         let interval = intervals.find((interval) => { return interval.semitones === i });
         let exists = typeof interval !== 'undefined';

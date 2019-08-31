@@ -4,7 +4,6 @@ import React = require("react");
 
 import { withNotes, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 
-import { Demo } from './Demo/Demo';
 import { IntervalTable } from "./IntervalTable";
 import { HocDemo } from "./Demo/HocDemo";
 import { PropertyDefinition, KEY_CENTER_INPUTS, CONCEPT_INPUTS, KEYBOARD_INPUTS, FRETBOARD_INPUTS } from "./Inputs/Input.config";
@@ -17,26 +16,6 @@ export type ViewerDefinition = {
     component: any;
     defaultProps: any;
     inputs: PropertyDefinition[];
-}
-
-/* Pre */
-
-function FormattedPre(props) {
-    return (
-        <pre className='formatted-pre'>
-            {props.imports &&
-                <div className='imports'>
-                    <span className='keyword'>import</span>
-                    <span className='bracket'>{' { '}</span>
-                    {props.imports.join(', ')}
-                    <span className='bracket'>{' } '}</span>
-                    <span className='keyword'>from </span>
-                    <span className='string'>'play-what'</span>
-                </div>
-            }
-            {props.children}
-        </pre>
-    );
 }
 
 type FormattedTableProps = {
@@ -90,7 +69,7 @@ export class App extends React.Component<any, any> {
 
                 <p>Play What is available as an npm package and can be installed via the command-line:</p>
 
-                <FormattedPre>npm install play-what</FormattedPre>
+                <div>npm install play-what</div>
 
                 <h3>Include Component</h3>
 
@@ -98,8 +77,8 @@ export class App extends React.Component<any, any> {
                     Play What currently provides two viewer components out-of-the-box, 'Keyboard' and 'Fretboard'.
                     Each component will render with default configuration if no props are provided.</p>
 
-                <FormattedPre imports={['Keyboard', 'Fretboard']}></FormattedPre>
                 <HocDemo
+                    imports={['withNotes', 'Keyboard', 'Fretboard']}
                     defaultKeyCenter={{
                         tonic: TONIC.C,
                         accidental: ACCIDENTAL.Natural,

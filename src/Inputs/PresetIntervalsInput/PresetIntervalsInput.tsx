@@ -43,7 +43,7 @@ export class PresetIntervalsInput extends React.Component<InputProps, any> {
 
     render = () => {
         return (
-            <div className='concept-input'>
+            <>
                 <DropdownInput
                     data={INTERVAL_PRESETS}
                     value={INTERVAL_PRESETS[this.state.conceptIndex]}
@@ -56,7 +56,7 @@ export class PresetIntervalsInput extends React.Component<InputProps, any> {
                     setValue={(value) => this.props.setValue(value.intervals)}
                 />
                 .intervals
-            </div>
+            </>
         );
     }
 }

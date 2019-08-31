@@ -1,12 +1,97 @@
 import './Demo.css';
 import { withNotes, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS, NOTE_LABEL } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 import React = require('react');
-import { Property } from '../Property/Property';
 import { ViewerDefinition } from '../App';
 import { DropdownInput } from '../Inputs/DropdownInput/DropdownInput';
 import { PropertyDefinition } from '../Inputs/Input.config';
 
+
+export function ObjectDeclaration(props: any) {
+    let objectProps = props.inputs.map((input) => {
+        let Input = input.component;
+        return (
+            <ObjectProp key={input.id} label={input.id} nested={input.nested} array={input.array}>
+                <Input
+                    {...input.props}
+                    value={props.value[input.id]}
+                    setValue={(value: any) => props.setValue(props.name, input.id, value)}
+                />
+            </ObjectProp>
+        );
+    });
+    return (
+        <div className='object'>
+            <div>
+                <span className='keyword'>{'const '}</span>
+                <span className='var'>{props.name}</span>
+                <span className='operator'>{' = '}</span>
+                <span className='operator'>{'{'}</span>
+            </div>
+            {objectProps}
+            <div className='operator'>{'};'}</div>
+        </div>
+    );
+}
+
+export function ObjectProp(props: any) {
+    return (
+        <div className='object-prop'>
+            <span className='object-prop-name'>{props.label}</span>
+            <span className='operator'>{': '}</span>
+            {props.array && <div className='operator'>[</div>}
+            <span className='prop-input'>{props.children}</span>
+            {props.array && <div className='operator'>]</div>}
+        </div>
+    );
+}
+
+export function ComponentTag(props: any) {
+    return (
+        <div className='tag'>
+            <span className='bracket'>{'<'}</span>
+            <span className='component'>{props.name}</span>
+            <span className='bracket'>{' />'}</span>
+        </div>
+    );
+}
+
+export function HocDeclaration(props: any) {
+    return (
+        <div className='object'>
+            <span className='keyword'>{'const '}</span>
+            <span className='var'>{props.varName}</span>
+            <span className='operator'>{' = '}</span>
+            <span className='function'>{props.hocName}</span>
+            <span className='operator'>{'('}</span>
+            {props.children}
+            <span className='operator'>{');'}</span>
+        </div>
+    );
+}
+
+export function Imports(props: any) {
+    let vars = props.vars.map((v, i) => {
+        return (
+            <React.Fragment key={v}>
+                <span className='var'>{v}</span>
+                {i < props.vars.length - 1 && <span className='operator'>{', '}</span>}
+            </React.Fragment>
+        );
+    });
+    return (
+        <div className='imports'>
+            <span className='keyword'>import</span>
+            <span className='operator'>{' { '}</span>
+            {vars}
+            <span className='operator'>{' } '}</span>
+            <span className='keyword'>from </span>
+            <span className='string'>'{props.source};'</span>
+        </div>
+    );
+}
+
 type HocDemoProps = {
+    imports: string[];
     defaultConcept: any;
     conceptInputs: PropertyDefinition[];
     defaultKeyCenter: any;
@@ -26,37 +111,14 @@ export class HocDemo extends React.Component<HocDemoProps, any> {
         };
     }
 
+    /* State Management */
+
     setValue = (parentId: string, property: string, value: any) => {
         this.setState((oldState) => {
             let update = oldState[parentId];
             update[property] = value;
             return update;
         });
-    }
-
-    getInput = (parentId: string, input: PropertyDefinition) => {
-        let Input = input.component;
-        return (
-            <Property key={input.id} label={input.id} nested={input.nested} array={input.array}>
-                <Input
-                    {...input.props}
-                    value={this.state[parentId][input.id]}
-                    setValue={(value: any) => this.setValue(parentId, input.id, value)}
-                />
-            </Property>
-        );
-    }
-
-    getInputs = (parentId: string, inputDefs: PropertyDefinition[]) => {
-        let inputs = [];
-        for (let i = 0; i < inputDefs.length; i++) {
-            inputs.push(this.getInput(parentId, inputDefs[i]));
-        }
-        return <div>
-            <div>{'const ' + parentId + ' = {'}</div>
-            <div>{[...inputs]}</div>
-            <div>{'};'}</div>
-        </div>;
     }
 
     changeViewer = (index: number) => {
@@ -67,38 +129,29 @@ export class HocDemo extends React.Component<HocDemoProps, any> {
         this.setState(update);
     }
 
-    getViewerOptions = () => {
-        let options = [];
-        for (let i = 0; i < this.props.viewers.length; i++) {
-            let datum = this.props.viewers[i];
-            options.push(<option key={datum.id} value={datum.id}>{datum.name}</option>);
-        }
-        return options;
-    }
+    /* Component Rendering */
 
     render() {
         let viewer = this.props.viewers[this.state.viewerIndex];
         let Viewer = withNotes(viewer.component, this.state.concept, this.state.keyCenter)
         return (
             <div className='demo'>
-                <div className='demo-pre'>
-                    {/* Concept */}
-                    {this.getInputs('concept', this.props.conceptInputs)}
-                    {/* Key Center */}
-                    {this.getInputs('keyCenter', this.props.keyCenterInputs)}
-                    {/* HOC */}
-                    <span>{'const ' + viewer.name + 'WithNotes = withNotes('}</span>
-                    <DropdownInput
-                        data={this.props.viewers}
-                        value={viewer}
-                        setValue={(value, index) => this.changeViewer(index)}
-                    />
-                    <span>{');'}</span>
-                    {/* Viewer Props */}
-                    {this.getInputs('viewerProps', viewer.inputs)}
-                    {/* Viewer */}
-                    <div>{'<' + viewer.name + 'WithNotes />'}</div>
-                </div>
+                <pre>
+                    {this.props.imports && <Imports vars={this.props.imports} source='play-what' />}
+                    <ObjectDeclaration name='concept' inputs={this.props.conceptInputs} value={this.state.concept} setValue={this.setValue} />
+                    <ObjectDeclaration name='keyCenter' inputs={this.props.keyCenterInputs} value={this.state.keyCenter} setValue={this.setValue} />
+                    <HocDeclaration varName={viewer.name + 'WithNotes'} hocName='withNotes'>
+                        <DropdownInput data={this.props.viewers} value={viewer} setValue={(value, index) => this.changeViewer(index)} />
+                        {this.props.conceptInputs && this.props.conceptInputs.length && <span>
+                            <span className='operator'>{', '}</span><span className='var'>{'concept'}</span>
+                        </span>}
+                        {this.props.keyCenterInputs && this.props.keyCenterInputs.length && <span>
+                            <span className='operator'>{', '}</span><span className='var'>{'keyCenter'}</span>
+                        </span>}
+                    </HocDeclaration>
+                    <ObjectDeclaration name='viewerProps' inputs={viewer.inputs} value={this.state.viewerProps} setValue={this.setValue} />
+                    <ComponentTag name={viewer.name + 'WithNotes'} />
+                </pre>
                 <Viewer {...this.state.viewerProps} />
             </div>
         )

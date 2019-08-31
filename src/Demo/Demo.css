@@ -1,7 +1,7 @@
 .demo {
 }
 
-.demo-pre {
+.demo pre {
     text-align: left;
     background-color: #f6f8fa;
     border-radius: 3px;
@@ -9,24 +9,48 @@
     padding: 16px;
 }
 
-.demo-pre, .demo-pre * {
+.demo pre, .demo pre * {
     font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
-    font-size: 16px;
-    line-height: 20px;
     font-weight: bold;
 }
 
-.demo-angle-bracket {
-    display: inline-block;
+.demo pre .operator {
     font-weight: normal;
-    margin: 0px 2px;
     color: #555;
 }
 
-.demo-comment {
+.demo pre .comment {
     color: green;
 }
 
-.demo-component {
+.demo pre .keyword {
+    color: purple;
+}
+
+.demo pre .string {
+    color: brown;
+}
+
+.demo pre .function {
+    color: turquoise;
+}
+
+.demo pre .var {
+    color: orangered;
+}
+
+.demo pre .object, .demo pre .tag, .demo pre .imports {
+    margin: 10px;
+}
+
+.demo pre .object-prop {
+    margin-left: 20px;
+}
+
+.object-prop-name {
+    color: lightslategray;
+}
+
+.demo pre .component {
     color: lightcoral;
 }
