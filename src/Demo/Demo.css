@@ -47,6 +47,8 @@
 
 .demo pre .object-prop {
     margin-left: 20px;
+    height: 20px;
+    line-height: 20px;
 }
 
 .object-prop-name {

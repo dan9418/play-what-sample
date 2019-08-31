@@ -130,17 +130,6 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/Inputs/ButtonInput/ButtonInput.css":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/Inputs/ButtonInput/ButtonInput.css ***!
-  \**************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".button-input {\\r\\n    display: inline-block;\\r\\n    line-height: 20px;\\r\\n    height: 20px;\\r\\n    width: 20px;\\r\\n    font-size: 12px;\\r\\n    vertical-align: top;\\r\\n    text-align: center;\\r\\n\\r\\n    -webkit-user-select: none; /* Safari */        \\r\\n\\t-moz-user-select: none; /* Firefox */\\r\\n\\t-ms-user-select: none; /* IE10+/Edge */\\r\\n\\tuser-select: none; /* Standard */\\r\\n}\\r\\n\\r\\n.button-input:hover {\\r\\n    cursor: pointer;\\r\\n}\\r\\n\\r\\n.button-input.active {\\r\\n}\\r\\n\\r\\n.button-input.readonly {\\r\\n\\r\\n}\\r\\n\\r\\n.button-input.disabled {\\r\\n\\r\\n}\\r\\n\\r\\n.button-input.disabled:hover {\\r\\n\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Inputs/ButtonInput/ButtonInput.css?./node_modules/css-loader/dist/cjs.js");
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Inputs/DropdownInput/DropdownInput.css":
 /*!******************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Inputs/DropdownInput/DropdownInput.css ***!
@@ -170,7 +159,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n\\r\\n.numeric-input {\\r\\n  height: 20px;\\r\\n  display: inline-block;\\r\\n  text-align: center;\\r\\n}\\r\\n\\r\\n.numeric-input .up {\\r\\n  border-radius: 0 5px 5px 0;\\r\\n}\\r\\n\\r\\n.numeric-input .down {\\r\\n  border-radius: 5px 0 0 5px;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Inputs/NumericInput/NumericInput.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n.numeric-input {\\r\\n  height: 20px;\\r\\n  display: inline-block;\\r\\n  text-align: center;\\r\\n\\r\\n  -webkit-user-select: none; /* Safari */        \\r\\n\\t-moz-user-select: none; /* Firefox */\\r\\n\\t-ms-user-select: none; /* IE10+/Edge */\\r\\n\\tuser-select: none; /* Standard */\\r\\n}\\r\\n\\r\\n.numeric-input .button, .numeric-input .value {\\r\\n  display: inline-block;\\r\\n  width: 20px;\\r\\n}\\r\\n\\r\\n.numeric-input .button {\\r\\n  cursor: pointer;\\r\\n}\\r\\n\\r\\n.numeric-input .button:hover {\\r\\n  font-weight: bold;\\r\\n}\\r\\n\\r\\n.numeric-input .up {\\r\\n  border-radius: 0 5px 5px 0;\\r\\n}\\r\\n\\r\\n.numeric-input .down {\\r\\n  border-radius: 5px 0 0 5px;\\r\\n}\\r\\n\\r\\n.numeric-input .value {\\r\\n  font-weight: bold;\\r\\n}\\r\\n\\r\\n.numeric-input .button.disabled {\\r\\n  cursor: auto;\\r\\n  color: #888;\\r\\n}\\r\\n\\r\\n.numeric-input .button.disabled:hover {\\r\\n  color:red;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Inputs/NumericInput/NumericInput.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -399,29 +388,6 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nco
 
 /***/ }),
 
-/***/ "./src/Inputs/ButtonInput/ButtonInput.css":
-/*!************************************************!*\
-  !*** ./src/Inputs/ButtonInput/ButtonInput.css ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!./ButtonInput.css */ \"./node_modules/css-loader/dist/cjs.js!./src/Inputs/ButtonInput/ButtonInput.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/Inputs/ButtonInput/ButtonInput.css?");
-
-/***/ }),
-
-/***/ "./src/Inputs/ButtonInput/ButtonInput.tsx":
-/*!************************************************!*\
-  !*** ./src/Inputs/ButtonInput/ButtonInput.tsx ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./ButtonInput.css */ \"./src/Inputs/ButtonInput/ButtonInput.css\");\r\nclass ButtonInput extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.render = () => {\r\n            let classes = ['button-input', this.props.className || ''];\r\n            if (this.props.active) {\r\n                classes.push('active');\r\n            }\r\n            else if (!this.props.action) {\r\n                classes.push('readonly');\r\n            }\r\n            if (this.props.disabled) {\r\n                classes.push('disabled');\r\n            }\r\n            return (React.createElement(\"div\", { className: classes.join(' '), onClick: this.props.action }, this.props.character));\r\n        };\r\n    }\r\n}\r\nexports.ButtonInput = ButtonInput;\r\n\n\n//# sourceURL=webpack:///./src/Inputs/ButtonInput/ButtonInput.tsx?");
-
-/***/ }),
-
 /***/ "./src/Inputs/DropdownInput/DropdownInput.css":
 /*!****************************************************!*\
   !*** ./src/Inputs/DropdownInput/DropdownInput.css ***!
@@ -511,7 +477,7 @@ eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/di
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./NumericInput.css */ \"./src/Inputs/NumericInput/NumericInput.css\");\r\nconst ButtonInput_1 = __webpack_require__(/*! ../ButtonInput/ButtonInput */ \"./src/Inputs/ButtonInput/ButtonInput.tsx\");\r\nclass NumericInput extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.canSubtract = () => {\r\n            return (typeof this.props.min === 'undefined') || (this.props.value > this.props.min);\r\n        };\r\n        this.canAdd = () => {\r\n            return (typeof this.props.max === 'undefined') || (this.props.value < this.props.max);\r\n        };\r\n        this.render = () => {\r\n            return (React.createElement(\"div\", { className: 'numeric-input' },\r\n                React.createElement(ButtonInput_1.ButtonInput, { active: false, disabled: !this.canSubtract(), action: () => { if (this.canSubtract())\r\n                        this.props.setValue(this.props.value - 1); }, className: 'down', character: '-' }),\r\n                React.createElement(ButtonInput_1.ButtonInput, { active: false, action: null, character: this.props.value }),\r\n                React.createElement(ButtonInput_1.ButtonInput, { active: false, disabled: !this.canAdd(), action: () => { if (this.canAdd())\r\n                        this.props.setValue(this.props.value + 1); }, className: 'up', character: '+' })));\r\n        };\r\n    }\r\n}\r\nexports.NumericInput = NumericInput;\r\n\n\n//# sourceURL=webpack:///./src/Inputs/NumericInput/NumericInput.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./NumericInput.css */ \"./src/Inputs/NumericInput/NumericInput.css\");\r\nfunction NumericInput(props) {\r\n    let canSubtract = typeof props.min === 'undefined' || props.value > props.min;\r\n    let canAdd = typeof props.max === 'undefined' || props.value < props.max;\r\n    let downClasses = ['button', 'down', canSubtract ? '' : 'disabled'];\r\n    let upClasses = ['button', 'up', canAdd ? '' : 'disabled'];\r\n    return (React.createElement(\"div\", { className: 'numeric-input' },\r\n        React.createElement(\"div\", { onClick: () => { if (canSubtract)\r\n                props.setValue(props.value - 1); }, className: downClasses.join(' ') }, '-'),\r\n        React.createElement(\"div\", { className: 'value' }, props.value),\r\n        React.createElement(\"div\", { onClick: () => { if (canAdd)\r\n                props.setValue(props.value + 1); }, className: upClasses.join(' ') }, '+')));\r\n}\r\nexports.NumericInput = NumericInput;\r\n\n\n//# sourceURL=webpack:///./src/Inputs/NumericInput/NumericInput.tsx?");
 
 /***/ }),
 

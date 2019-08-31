@@ -1,9 +1,26 @@
 
-
 .numeric-input {
   height: 20px;
   display: inline-block;
   text-align: center;
+
+  -webkit-user-select: none; /* Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Standard */
+}
+
+.numeric-input .button, .numeric-input .value {
+  display: inline-block;
+  width: 20px;
+}
+
+.numeric-input .button {
+  cursor: pointer;
+}
+
+.numeric-input .button:hover {
+  font-weight: bold;
 }
 
 .numeric-input .up {
@@ -12,4 +29,17 @@
 
 .numeric-input .down {
   border-radius: 5px 0 0 5px;
+}
+
+.numeric-input .value {
+  font-weight: bold;
+}
+
+.numeric-input .button.disabled {
+  cursor: auto;
+  color: #888;
+}
+
+.numeric-input .button.disabled:hover {
+  color:red;
 }

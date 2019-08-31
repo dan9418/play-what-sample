@@ -1,6 +1,5 @@
 import * as React from "react";
 import "./NumericInput.css";
-import { ButtonInput } from "../ButtonInput/ButtonInput";
 import { InputProps } from "../Input.config";
 
 interface NumericInputProps extends InputProps {
@@ -8,43 +7,28 @@ interface NumericInputProps extends InputProps {
     min?: number;
 }
 
-export class NumericInput extends React.Component<NumericInputProps, null> {
+export function NumericInput(props: NumericInputProps) {
+    let canSubtract = typeof props.min === 'undefined' || props.value > props.min;
+    let canAdd = typeof props.max === 'undefined' || props.value < props.max;
 
-    constructor(props) {
-        super(props);
-    }
+    let downClasses = ['button', 'down', canSubtract ? '' : 'disabled'];
+    let upClasses = ['button', 'up', canAdd ? '' : 'disabled'];
 
-    canSubtract = (): boolean => {
-        return (typeof this.props.min === 'undefined') || (this.props.value > this.props.min);
-    }
-
-    canAdd = (): boolean => {
-        return (typeof this.props.max === 'undefined') || (this.props.value < this.props.max);
-    }
-
-    render = () => {
-        return (
-            <div className='numeric-input'>
-                <ButtonInput
-                    active={false}
-                    disabled={!this.canSubtract()}
-                    action={() => { if (this.canSubtract()) this.props.setValue(this.props.value - 1); }}
-                    className='down'
-                    character='-'
-                />
-                <ButtonInput
-                    active={false}
-                    action={null}
-                    character={this.props.value}
-                />
-                <ButtonInput
-                    active={false}
-                    disabled={!this.canAdd()}
-                    action={() => { if (this.canAdd()) this.props.setValue(this.props.value + 1); }}
-                    className='up'
-                    character='+'
-                />
+    return (
+        <div className='numeric-input'>
+            <div
+                onClick={() => { if (canSubtract) props.setValue(props.value - 1); }}
+                className={downClasses.join(' ')}>
+                {'-'}
             </div>
-        );
-    };
+            <div className='value'>
+                {props.value}
+            </div>
+            <div
+                onClick={() => { if (canAdd) props.setValue(props.value + 1); }}
+                className={upClasses.join(' ')}>
+                {'+'}
+            </div>
+        </div>
+    );
 }
