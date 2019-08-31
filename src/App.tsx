@@ -2,100 +2,14 @@ import "./App.css"
 import ReactDOM = require("react-dom");
 import React = require("react");
 
-import { Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
+import { withNotes, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 
 import { Demo } from './Demo/Demo';
-import { PresetIntervalsInput } from './Inputs/PresetIntervalsInput/PresetIntervalsInput';
-import { EnumDropdownInput } from './Inputs/DropdownInput/EnumDropdownInput';
-import { BooleanInput } from './Inputs/BooleanInput/BooleanInput';
-import { NumericInput } from './Inputs/NumericInput/NumericInput';
-import { FretboardStringProperties } from './Inputs/FretboardStringProperties/FretboardStringProperties';
+import { IntervalTable } from "./IntervalTable";
+import { HocDemo } from "./Demo/HocDemo";
+import { PropertyDefinition, KEY_CENTER_INPUTS, CONCEPT_INPUTS, KEYBOARD_INPUTS, FRETBOARD_INPUTS } from "./Inputs/Input.config";
 
 /* General */
-
-export interface PropertyDefinition {
-    id: string;
-    nested?: boolean;
-    array?: boolean;
-    component: any;
-    props?: any;
-}
-
-export const VIEWER_PROPS: { [id: string]: PropertyDefinition } = {
-    tonic: {
-        id: 'tonic',
-        component: EnumDropdownInput,
-        props: {
-            label: 'TONIC',
-            enum: TONIC
-        }
-    },
-    accidental: {
-        id: 'accidental',
-        component: EnumDropdownInput,
-        props: {
-            label: 'ACCIDENTAL',
-            enum: ACCIDENTAL
-        }
-    },
-    octave: {
-        id: 'octave',
-        component: NumericInput
-    },
-    intervals: {
-        id: 'intervals',
-        component: PresetIntervalsInput,
-    },
-    chordInversion: {
-        id: 'chordInversion',
-        component: NumericInput,
-        props: {
-            min: 0
-        }
-    },
-    noteLabel: {
-        id: 'noteLabel',
-        component: EnumDropdownInput,
-        props: {
-            label: 'NOTE_LABEL',
-            enum: NOTE_LABEL
-        }
-    },
-    filterOctave: {
-        id: 'filterOctave',
-        component: BooleanInput
-    },
-    keyLow: {
-        id: 'keyLow',
-        component: NumericInput
-    },
-    keyHigh: {
-        id: 'keyHigh',
-        component: NumericInput
-    },
-    fretLow: {
-        id: 'fretLow',
-        component: NumericInput
-    },
-    fretHigh: {
-        id: 'fretHigh',
-        component: NumericInput
-    },
-    showDots: {
-        id: 'showDots',
-        component: BooleanInput
-    },
-    showFretNumbers: {
-        id: 'showFretNumbers',
-        component: BooleanInput
-    },
-    strings: {
-        id: 'strings',
-        component: FretboardStringProperties,
-        nested: true,
-        array: true
-    }
-};
 
 export type ViewerDefinition = {
     id: string;
@@ -158,31 +72,9 @@ export class App extends React.Component<any, any> {
     }
 
     render() {
+
         return (
             <div className='sample-container'>
-
-                <Demo
-                    viewers={[
-                        {
-                            id: 'keyboard',
-                            name: 'Keyboard',
-                            component: Keyboard,
-                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
-                                intervals: CHORD.Maj.intervals
-                            }),
-                            inputs: [
-                                VIEWER_PROPS.tonic,
-                                VIEWER_PROPS.accidental,
-                                VIEWER_PROPS.octave,
-                                VIEWER_PROPS.intervals,
-                                VIEWER_PROPS.chordInversion,
-                                VIEWER_PROPS.noteLabel,
-                                VIEWER_PROPS.filterOctave
-                            ]
-                        }
-                    ]}
-                />
-
 
                 <h1>Play What?</h1>
 
@@ -207,22 +99,52 @@ export class App extends React.Component<any, any> {
                     Each component will render with default configuration if no props are provided.</p>
 
                 <FormattedPre imports={['Keyboard', 'Fretboard']}></FormattedPre>
-                <Demo
-                    comment='Select viewer here'
+                <HocDemo
+                    defaultKeyCenter={{
+                        tonic: TONIC.C,
+                        accidental: ACCIDENTAL.Natural,
+                        octave: 4
+                    }}
+                    keyCenterInputs={[
+                        KEY_CENTER_INPUTS.tonic,
+                        KEY_CENTER_INPUTS.accidental,
+                        KEY_CENTER_INPUTS.octave
+                    ]}
+                    defaultConcept={{
+                        intervals: CHORD.Maj.intervals,
+                        chordInversion: 0
+                    }}
+                    conceptInputs={[
+                        CONCEPT_INPUTS.intervals,
+                        CONCEPT_INPUTS.chordInversion
+                    ]}
                     viewers={[
                         {
                             id: 'keyboard',
                             name: 'Keyboard',
                             component: Keyboard,
                             defaultProps: DEFAULT_KEYBOARD_PROPS,
-                            inputs: []
+                            inputs: [
+                                KEYBOARD_INPUTS.keyLabel,
+                                KEYBOARD_INPUTS.filterOctave,
+                                KEYBOARD_INPUTS.keyLow,
+                                KEYBOARD_INPUTS.keyHigh
+                            ]
                         },
                         {
                             id: 'fretboard',
                             name: 'Fretboard',
                             component: Fretboard,
                             defaultProps: DEFAULT_FRETBOARD_PROPS,
-                            inputs: []
+                            inputs: [
+                                FRETBOARD_INPUTS.fretLabel,
+                                FRETBOARD_INPUTS.filterOctave,
+                                FRETBOARD_INPUTS.fretLow,
+                                FRETBOARD_INPUTS.fretLow,
+                                FRETBOARD_INPUTS.showDots,
+                                FRETBOARD_INPUTS.showFretNumbers,
+                                FRETBOARD_INPUTS.strings
+                            ]
                         }
                     ]}
                 />
@@ -236,172 +158,39 @@ export class App extends React.Component<any, any> {
                     A complete list can be found in the <a href=''>reference section</a>.
                     By default, notes are labeled with their respective interval and colored by degree.</p>
 
-                <Demo
-                    viewers={[
-                        {
-                            id: 'keyboard',
-                            name: 'Keyboard',
-                            component: Keyboard,
-                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
-                                intervals: CHORD.Maj.intervals
-                            }),
-                            inputs: [
-                                VIEWER_PROPS.intervals
-                            ]
-                        },
-                        {
-                            id: 'fretboard',
-                            name: 'Fretboard',
-                            component: Fretboard,
-                            defaultProps: DEFAULT_FRETBOARD_PROPS,
-                            inputs: [
-                                VIEWER_PROPS.intervals
-                            ]
-                        }
-                    ]}
-                />
+
 
                 <h3>Modifying a Concept</h3>
 
                 <p>By default, intervals are relative to the <a href=''>key</a> of C in the octave of <a href=''>Middle C</a>.
                 To change the key, provide a value for the keyCenter prop.</p>
 
-                <Demo
-                    viewers={[
-                        {
-                            id: 'keyboard',
-                            name: 'Keyboard',
-                            component: Keyboard,
-                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
-                                intervals: CHORD.Maj.intervals,
-                                tonic: TONIC.F,
-                                accidental: ACCIDENTAL.Sharp,
-                                octave: 4
-                            }),
-                            inputs: [
-                                VIEWER_PROPS.tonic,
-                                VIEWER_PROPS.accidental,
-                                VIEWER_PROPS.octave,
-                                VIEWER_PROPS.intervals
-                            ]
-                        },
-                        {
-                            id: 'fretboard',
-                            name: 'Fretboard',
-                            component: Fretboard,
-                            defaultProps: DEFAULT_FRETBOARD_PROPS,
-                            inputs: [
-                                VIEWER_PROPS.tonic,
-                                VIEWER_PROPS.accidental,
-                                VIEWER_PROPS.octave,
-                                VIEWER_PROPS.intervals
-                            ]
-                        }
-                    ]}
-                />
 
                 <h4>Inversions</h4>
 
                 <p>There is also support for chordal inversions.</p>
 
-                <Demo
-                    viewers={[
-                        {
-                            id: 'keyboard',
-                            name: 'Keyboard',
-                            component: Keyboard,
-                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
-                                intervals: CHORD.Maj.intervals,
-                                octave: 5
-                            }),
-                            inputs: [
-                                VIEWER_PROPS.chordInversion
-                            ]
-                        },
-                        {
-                            id: 'fretboard',
-                            name: 'Fretboard',
-                            component: Fretboard,
-                            defaultProps: DEFAULT_FRETBOARD_PROPS,
-                            inputs: [
-                                VIEWER_PROPS.chordInversion
-                            ]
-                        }
-                    ]}
-                />
+
 
                 <h3>Configuring How Notes Are Displayed</h3>
 
                 <p>Components also accept props to specify how to display the provided notes.
                     For example, notes can be labeled or shown idependent of the provided octave.</p>
 
-                <Demo
-                    viewers={[
-                        {
-                            id: 'keyboard',
-                            name: 'Keyboard',
-                            component: Keyboard,
-                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
-                                intervals: CHORD.Maj.intervals,
-                            }),
-                            inputs: [
-                                VIEWER_PROPS.noteLabel,
-                                VIEWER_PROPS.filterOctave
-                            ]
-                        },
-                        {
-                            id: 'fretboard',
-                            name: 'Fretboard',
-                            component: Fretboard,
-                            defaultProps: DEFAULT_FRETBOARD_PROPS,
-                            inputs: [
-                                VIEWER_PROPS.noteLabel,
-                                VIEWER_PROPS.filterOctave
-                            ]
-                        }
-                    ]}
-                />
 
                 <h3>Configuring Viewers</h3>
 
                 <p>Each viewer also its own API for modifying the viewer itself.
                     See the <a href=''>reference section</a> for a complete list.</p>
 
-                <Demo
-                    viewers={[
-                        {
-                            id: 'keyboard',
-                            name: 'Keyboard',
-                            component: Keyboard,
-                            defaultProps: Object.assign({}, DEFAULT_KEYBOARD_PROPS, {
-                                intervals: CHORD.Maj.intervals,
-                            }),
-                            inputs: [
-                                VIEWER_PROPS.keyLow,
-                                VIEWER_PROPS.keyHigh
-                            ]
-                        },
-                        {
-                            id: 'fretboard',
-                            name: 'Fretboard',
-                            component: Fretboard,
-                            defaultProps: DEFAULT_FRETBOARD_PROPS,
-                            inputs: [
-                                VIEWER_PROPS.fretLow,
-                                VIEWER_PROPS.fretHigh,
-                                VIEWER_PROPS.showDots,
-                                VIEWER_PROPS.showFretNumbers,
-                                VIEWER_PROPS.strings
-                            ]
-                        }
-                    ]}
-                />
 
                 <h2>API and Music Theory Reference</h2>
 
                 <h3>Constants</h3>
 
                 <h4>INTERVAL</h4>
+
+                <IntervalTable intervals={(Object as any).values(INTERVAL)} />
 
                 <FormattedTable
                     headers={['Value', 'Description', 'Degree', 'Semitones']}
@@ -530,6 +319,8 @@ export class App extends React.Component<any, any> {
                     ]}
                 />
                 <h2>Examples</h2>
+
+                <p>Here is a "kitchen sink" example with all inputs enabled for all viewers.</p>
 
             </div >
         )

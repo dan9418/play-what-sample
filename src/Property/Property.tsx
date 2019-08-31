@@ -10,10 +10,10 @@ interface PropertyProps extends React.PropsWithChildren<any> {
 export function Property(props: PropertyProps) {
     return (
         <div className='prop'>
-            <div className='prop-label'>{props.label}</div>
-            <div className='prop-bracket'>{props.array ? '=[' : '={'}</div>
-            <div className={props.nested ? 'prop-input-nested' : 'prop-input'}>{props.children}</div>
-            <div className='prop-bracket'>{props.array ? ']' : '}'}</div>
+            <div className='prop-label'>{props.label + ' = '}</div>
+            {props.array && <div>[</div>}
+            <div className='prop-input'>{props.children}</div>
+            {props.array && <div>]</div>}
         </div>
     );
 }
