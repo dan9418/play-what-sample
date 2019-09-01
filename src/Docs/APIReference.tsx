@@ -7,14 +7,6 @@ import { FormattedTable } from "../Common/FormattedTable/FormattedTable";
 export function APIReference(props: any) {
     return (
         <div className='docs-section'>
-            <h4>INTERVAL</h4>
-
-            <FormattedTable
-                headers={['Value', 'Description', 'Degree', 'Semitones']}
-                rows={[
-                    ['PU', 'Perfect Unison', '1', '0']
-                ]}
-            />
 
             <h4>CHORD</h4>
 
@@ -105,9 +97,7 @@ export function APIReference(props: any) {
                     ['accidental', 'ACCIDENTAL', 'ACCIDENTAL.Natural', 'Accidental of tonic'],
                     ['octave', 'number', '4', 'Octave of tonic'],
                     ['intervals', 'INTERVAL[]', '[]', 'Intervals to derive notes from'],
-                    ['chordInversion', 'number', '0', 'Chord inversion'],
-                    ['filterOctave', 'boolean', 'true', 'Whether to show note in all octaves'],
-                    ['noteLabel', 'NOTE_LABEL', 'NOTE_LABEL.Name', 'Text overlayed on each note']
+                    ['chordInversion', 'number', '0', 'Chord inversion']
                 ]}
             />
 
@@ -116,6 +106,8 @@ export function APIReference(props: any) {
             <FormattedTable
                 headers={['Prop', 'Value', 'Default', 'Effect']}
                 rows={[
+                    ['filterOctave', 'boolean', 'true', 'Whether to show note in all octaves'],
+                    ['keyLabel', 'NOTE_LABEL', 'NOTE_LABEL.Name', 'Text overlayed on each key'],
                     ['keyLow', 'noteIndex', '0', 'The note index of the first keyboard key'],
                     ['keyHigh', 'noteIndex', '25', 'The note index of the last keyboard key']
                 ]}
@@ -126,6 +118,8 @@ export function APIReference(props: any) {
             <FormattedTable
                 headers={['Prop', 'Value', 'Default', 'Effect']}
                 rows={[
+                    ['filterOctave', 'boolean', 'true', 'Whether to show note in all octaves'],
+                    ['fretLabel', 'NOTE_LABEL', 'NOTE_LABEL.Name', 'Text overlayed on each fret'],
                     ['fretLow', 'noteIndex', '0', 'The number of the first fretboard fret'],
                     ['fretHigh', 'noteIndex', '12', 'The number of the last fretboard fret'],
                     ['showDots', 'boolean', 'true', 'Indicates whether to show the helper dots commonly found on fretboards'],

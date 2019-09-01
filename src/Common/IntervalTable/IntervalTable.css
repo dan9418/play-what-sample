@@ -1,3 +1,20 @@
 .interval-table {
-    margin: auto
+    margin: auto;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+}
+
+.interval-table th, .interval-table td {
+    height: 20px;
+    width: 25px;
+}
+
+.interval-table .degree-label, .interval-table .semitones-label {
+    font-weight: bold;
+    background-color: #DDD;
+}
+
+.interval-table .inactive {
+    background-color: #f2f2f2;
 }

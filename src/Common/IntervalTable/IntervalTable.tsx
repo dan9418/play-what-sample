@@ -2,25 +2,13 @@ import React = require("react");
 import { Interval, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 import './IntervalTable.css'
 
-function getHeaders() {
-    let headers = [<th className='degree' key='degree'>{'#'}</th>];
-    for (let i = 0; i < 12; i++) {
-        headers.push(<th key={i}>{i}</th>)
-    }
-    return <tr key='header'>{...headers}</tr>
-}
-
-function getIntervalBySemitones(intervals: Interval[], semitones: number) {
-    return intervals.find((interval) => { return interval.semitones === semitones });
-}
-
 function getCells(rowIndex: number, intervals: Interval[]) {
-    let cells = [<td key='degree' className='degree'>{rowIndex}</td>];
+    let cells = [<td key='d' className='degree-label'>{rowIndex}</td>];
     for (let i = 0; i < 12; i++) {
         let interval = intervals.find((interval) => { return interval.semitones === i });
         let exists = typeof interval !== 'undefined';
         let label = exists ? interval.id : '';
-        cells.push(<td className={exists ? 'degree-' + interval.degree : ''} key={i}>{label}</td>)
+        cells.push(<td className={exists ? 'degree-' + interval.degree : 'inactive'} key={i}>{label}</td>)
     }
     return <tr key={rowIndex}>{...cells}</tr>
 }
@@ -31,6 +19,14 @@ function getRows(intervals: Interval[]) {
         rows.push(getCells(i, intervals.filter((interval) => { return interval.degree === i })))
     }
     return [...rows]
+}
+
+function getHeaders() {
+    let headers = [<th key='s' />];
+    for (let i = 0; i < 12; i++) {
+        headers.push(<th className='semitones-label' key={i}>{i}</th>)
+    }
+    return <tr key='header'>{...headers}</tr>
 }
 
 export function IntervalTable(props: any) {
