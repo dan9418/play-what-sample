@@ -47,7 +47,7 @@
 
 .demo pre .object-prop {
     margin-left: 20px;
-    height: 20px;
+    min-height: 20px;
     line-height: 20px;
 }
 
@@ -59,4 +59,12 @@
 .demo pre .component {
     color: lightcoral;
     font-weight: bold;
+}
+
+.prop-input {
+
+}
+
+.array-items {
+    margin-left: 20px;
 }

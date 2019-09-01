@@ -38,10 +38,20 @@ export function ObjectProp(props: any) {
         <div className='object-prop'>
             <span className='object-prop-name'>{props.label}</span>
             <span className='operator'>{': '}</span>
-            {props.array && <div className='operator'>[</div>}
-            <span className='prop-input'>{props.children}</span>
-            {props.array && <div className='operator'>]</div>}
+            {props.array ?
+                <ObjectPropArray>{props.children}</ObjectPropArray> :
+                <span className='prop-input'>{props.children}</span>}
         </div>
+    );
+}
+
+export function ObjectPropArray(props: any) {
+    return (
+        <span className='array'>
+            <span className='operator'>[</span>
+            <div className='array-items'>{props.children}</div>
+            <div className='operator'>]</div>
+        </span>
     );
 }
 
@@ -92,7 +102,7 @@ export function Imports(props: any) {
     );
 }
 
-type HocDemoProps = {
+type DemoProps = {
     imports: string[];
     defaultConcept: any;
     conceptInputs: PropertyDefinition[];
@@ -101,7 +111,7 @@ type HocDemoProps = {
     viewers: ViewerDefinition[];
 }
 
-export class HocDemo extends React.Component<HocDemoProps, any> {
+export class Demo extends React.Component<DemoProps, any> {
 
     constructor(props) {
         super(props);

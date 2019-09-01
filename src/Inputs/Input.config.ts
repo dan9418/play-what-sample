@@ -2,13 +2,12 @@ import { EnumDropdownInput } from "./DropdownInput/EnumDropdownInput";
 
 import { NumericInput } from "./NumericInput/NumericInput";
 
-import { PresetIntervalsInput } from "./PresetIntervalsInput/PresetIntervalsInput";
+import { IntervalPresetInput } from "../CompositeInputs/IntervalPresetInput";
 
 import { BooleanInput } from "./BooleanInput/BooleanInput";
 
-import { FretboardStringProperties } from "./FretboardStringProperties/FretboardStringProperties";
-
 import { withNotes, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
+import { FretboardStringInput } from "../CompositeInputs/FretboardStringInput";
 
 
 export interface InputProps {
@@ -50,7 +49,7 @@ export const KEY_CENTER_INPUTS: { [id: string]: PropertyDefinition } = {
 export const CONCEPT_INPUTS: { [id: string]: PropertyDefinition } = {
     intervals: {
         id: 'intervals',
-        component: PresetIntervalsInput,
+        component: IntervalPresetInput,
     },
     chordInversion: {
         id: 'chordInversion',
@@ -115,7 +114,7 @@ export const FRETBOARD_INPUTS: { [id: string]: PropertyDefinition } = {
     },
     strings: {
         id: 'strings',
-        component: FretboardStringProperties,
+        component: FretboardStringInput,
         nested: true,
         array: true
     }

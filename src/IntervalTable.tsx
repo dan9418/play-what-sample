@@ -1,6 +1,6 @@
 import React = require("react");
 import { Interval, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
-import { PresetIntervalsInput } from "./Inputs/PresetIntervalsInput/PresetIntervalsInput";
+import { IntervalPresetInput } from "./CompositeInputs/IntervalPresetInput";
 
 function getHeaders() {
     let headers = [<th className='degree' key='degree'>{'#'}</th>];

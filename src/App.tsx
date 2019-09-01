@@ -5,7 +5,7 @@ import React = require("react");
 import { withNotes, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 
 import { IntervalTable } from "./IntervalTable";
-import { HocDemo } from "./Demo/HocDemo";
+import { Demo } from "./Demo/Demo";
 import { PropertyDefinition, KEY_CENTER_INPUTS, CONCEPT_INPUTS, KEYBOARD_INPUTS, FRETBOARD_INPUTS } from "./Inputs/Input.config";
 
 /* General */
@@ -77,7 +77,7 @@ export class App extends React.Component<any, any> {
                     Play What currently provides two viewer components out-of-the-box, 'Keyboard' and 'Fretboard'.
                     Each component will render with default configuration if no props are provided.</p>
 
-                <HocDemo
+                <Demo
                     imports={['withNotes', 'Keyboard', 'Fretboard']}
                     defaultKeyCenter={{
                         tonic: TONIC.C,
