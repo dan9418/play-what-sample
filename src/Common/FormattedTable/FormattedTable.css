@@ -1,0 +1,19 @@
+.formatted-table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.formatted-table th {
+    background-color: #DDD;
+    text-align: center;
+    padding: 2px;
+}
+
+.formatted-table td {
+    padding: 2px;
+}
+
+.formatted-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

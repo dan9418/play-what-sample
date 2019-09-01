@@ -1,4 +1,5 @@
 import React = require("react");
+import "./FormattedTable.css";
 
 type FormattedTableProps = {
     headers: string[];
@@ -7,7 +8,7 @@ type FormattedTableProps = {
 
 export function FormattedTable(props: FormattedTableProps) {
     return (
-        <table className='prop-table'>
+        <table className='formatted-table'>
             <tbody>
                 <tr>
                     {props.headers.map((header, index) => { return <th key={index}>{header}</th> })}

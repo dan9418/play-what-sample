@@ -3,7 +3,7 @@ import { withNotes, DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, Keyboard, KeyboardProps
 import React = require('react');
 import { DropdownInput } from '../Inputs/DropdownInput/DropdownInput';
 import { PropertyDefinition } from '../Inputs/Input.config';
-import { Imports, ObjectDeclaration, HocDeclaration, ComponentTag } from './Syntax';
+import { Imports, ObjectDeclaration, HocDeclaration, ComponentTag } from '../Common/Syntax/Syntax';
 
 export type ViewerDefinition = {
     id: string;

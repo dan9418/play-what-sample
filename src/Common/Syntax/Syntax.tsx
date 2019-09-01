@@ -1,4 +1,4 @@
-import './Demo.css';
+import './Syntax.css';
 import { withNotes, DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS, NOTE_LABEL } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 import React = require('react');
 
