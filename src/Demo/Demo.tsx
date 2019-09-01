@@ -1,10 +1,17 @@
 import './Demo.css';
 import { withNotes, DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS, NOTE_LABEL } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 import React = require('react');
-import { ViewerDefinition } from '../App';
 import { DropdownInput } from '../Inputs/DropdownInput/DropdownInput';
 import { PropertyDefinition } from '../Inputs/Input.config';
 import { Imports, ObjectDeclaration, HocDeclaration, ComponentTag } from './Syntax';
+
+export type ViewerDefinition = {
+    id: string;
+    name: string;
+    component: any;
+    defaultProps: any;
+    inputs?: PropertyDefinition[];
+}
 
 type DemoProps = {
     imports?: string[];
