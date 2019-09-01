@@ -1,6 +1,6 @@
 import "./App.css"
-import ReactDOM = require("react-dom");
-import React = require("react");
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
 import { GettingStarted } from "./Docs/GettingStarted";
 import { ConfiguringComponents } from "./Docs/ConfiguringComponents";

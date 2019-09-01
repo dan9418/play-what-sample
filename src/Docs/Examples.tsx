@@ -1,4 +1,4 @@
-import React = require("react");
+import * as React from "react";
 import { Demo } from "../Demo/Demo";
 import { KEY_CENTER_INPUTS, CONCEPT_INPUTS, KEYBOARD_INPUTS, FRETBOARD_INPUTS } from "../Inputs/Input.config";
 
