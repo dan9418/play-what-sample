@@ -1,7 +1,4 @@
-.demo {
-}
-
-.demo pre {
+pre.syntax {
     text-align: left;
     background-color: #f6f8fa;
     border-radius: 3px;
@@ -9,43 +6,43 @@
     padding: 16px;
 }
 
-.demo pre, .demo pre * {
+pre.syntax, pre.syntax * {
     font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
 }
 
-.demo pre .operator {
+pre.syntax .operator {
     color: #555;
 }
 
-.demo pre .comment {
+pre.syntax .comment {
     color: green;
 }
 
-.demo pre .keyword {
+pre.syntax .keyword {
     color: purple;
     font-weight: bold;
 }
 
-.demo pre .string {
+pre.syntax .string {
     color: brown;
     font-weight: bold;
 }
 
-.demo pre .function {
+pre.syntax .function {
     color: turquoise;
     font-weight: bold;
 }
 
-.demo pre .var {
+pre.syntax .var {
     color: orangered;
     font-weight: bold;
 }
 
-.demo pre .object, .demo pre .tag, .demo pre .imports {
+pre.syntax .object, pre.syntax .tag, pre.syntax .imports {
     margin: 10px;
 }
 
-.demo pre .object-prop {
+pre.syntax .object-prop {
     margin-left: 20px;
     min-height: 20px;
     line-height: 20px;
@@ -56,7 +53,7 @@
     font-weight: bold;
 }
 
-.demo pre .component {
+pre.syntax .component {
     color: lightcoral;
     font-weight: bold;
 }
