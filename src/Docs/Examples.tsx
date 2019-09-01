@@ -52,7 +52,7 @@ export function Examples(props: any) {
                             FRETBOARD_INPUTS.fretLabel,
                             FRETBOARD_INPUTS.filterOctave,
                             FRETBOARD_INPUTS.fretLow,
-                            FRETBOARD_INPUTS.fretLow,
+                            FRETBOARD_INPUTS.fretHigh,
                             FRETBOARD_INPUTS.showDots,
                             FRETBOARD_INPUTS.showFretNumbers,
                             FRETBOARD_INPUTS.strings

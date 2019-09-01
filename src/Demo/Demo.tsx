@@ -89,7 +89,7 @@ export class Demo extends React.Component<DemoProps, any> {
                         <ObjectDeclaration name='viewerProps' inputs={viewer.inputs} value={this.state.viewerProps} setValue={this.setValue} />
                     }
 
-                    <ComponentTag name={viewer.name + 'WithNotes'} />
+                    <ComponentTag name={viewer.name + 'WithNotes'} spreadProp='viewerProps'/>
                 </pre>
                 <Viewer {...this.state.viewerProps} />
             </div>

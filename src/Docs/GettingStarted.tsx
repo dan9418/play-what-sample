@@ -11,7 +11,7 @@ export function GettingStarted(props: any) {
 
             <h3>Installation</h3>
 
-            <p>Play What is available as an npm package and can be installed via the command-line:</p>
+            <p>Play What is available as an npm package and can be installed via the command-line</p>
 
             <pre className='syntax'>
                 <span className='keyword'>npm </span>
@@ -20,9 +20,20 @@ export function GettingStarted(props: any) {
 
             <h3>Include Component</h3>
 
-            <p>Import a component from 'play-what' to use it in your project.
-                Play What currently provides two viewer components out-of-the-box, 'Keyboard' and 'Fretboard'.
-                Each component will render with default configuration if no props are provided.</p>
+            <p>
+                Import a component from 'play-what' to use it in your project.
+                Play What currently provides two viewer components out-of-the-box, 'Keyboard' and 'Fretboard'
+            </p>
+
+            <p>
+                Viewers are intended to be used with the Higher-Order Component 'withNotes,'
+                which supplies the viewer with information on the musical notes.
+            </p>
+
+            <p>
+                To use a viewer component with the default configuration, simply pass the component reference as the first argument to 'withNotes.'
+                The returned component is ready to be rendered.
+            </p>
 
             <Demo
                 imports={['withNotes', 'Keyboard', 'Fretboard']}
@@ -41,6 +52,11 @@ export function GettingStarted(props: any) {
                     }
                 ]}
             />
+
+            <p>
+                We will learn how to add musical notes in the next section.
+            </p>
+
         </div>
     );
 }

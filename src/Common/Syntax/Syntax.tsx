@@ -56,6 +56,13 @@ export function ComponentTag(props: any) {
         <div className='tag'>
             <span className='bracket'>{'<'}</span>
             <span className='component'>{props.name}</span>
+            {props.spreadProp &&
+                <span>
+                    <span className='operator'>{' {...'}</span>
+                    <span className='var'>{props.spreadProp}</span>
+                    <span className='operator'>{'}'}</span>
+                </span>
+            }
             <span className='bracket'>{' />'}</span>
         </div>
     );
