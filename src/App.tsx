@@ -7,6 +7,7 @@ import { withNotes, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, 
 import { IntervalTable } from "./IntervalTable";
 import { Demo } from "./Demo/Demo";
 import { PropertyDefinition, KEY_CENTER_INPUTS, CONCEPT_INPUTS, KEYBOARD_INPUTS, FRETBOARD_INPUTS } from "./Inputs/Input.config";
+import { GettingStarted } from "./Docs/GettingStarted";
 
 /* General */
 
@@ -15,7 +16,7 @@ export type ViewerDefinition = {
     name: string;
     component: any;
     defaultProps: any;
-    inputs: PropertyDefinition[];
+    inputs?: PropertyDefinition[];
 }
 
 type FormattedTableProps = {
@@ -55,29 +56,7 @@ export class App extends React.Component<any, any> {
         return (
             <div className='sample-container'>
 
-                <h1>Play What?</h1>
-
-                <p>Play What is a configurable, extensible music theory visualization tool and React component library.</p>
-
-                <p>It provides a simple API for visualizing virtually any harmonic music theory concept.
-                    Just provide the key, concept, and (optional) configuration to one of the built-in viewer components and
-                    Play What will generate the properties of the respective notes and display them however they've been configured.</p>
-
-                <h2>Getting started</h2>
-
-                <h3>Installation</h3>
-
-                <p>Play What is available as an npm package and can be installed via the command-line:</p>
-
-                <div>npm install play-what</div>
-
-                <h3>Include Component</h3>
-
-                <p>Import a component from 'play-what' to use it in your project.
-                    Play What currently provides two viewer components out-of-the-box, 'Keyboard' and 'Fretboard'.
-                    Each component will render with default configuration if no props are provided.</p>
-
-                <Demo
+                {/*<Demo
                     imports={['withNotes', 'Keyboard', 'Fretboard']}
                     defaultKeyCenter={{
                         tonic: TONIC.C,
@@ -126,7 +105,20 @@ export class App extends React.Component<any, any> {
                             ]
                         }
                     ]}
-                />
+                />*/}
+
+
+
+                <h1>Play What?</h1>
+
+                <p>Play What is a configurable, extensible music theory visualization tool and React component library.</p>
+
+                <p>It provides a simple API for visualizing virtually any harmonic music theory concept.
+                    Just provide the key, concept, and (optional) configuration to one of the built-in viewer components and
+                    Play What will generate the properties of the respective notes and display them however they've been configured.</p>
+
+
+                <GettingStarted/>
 
                 <h2>Configuring Components</h2>
 

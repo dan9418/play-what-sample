@@ -1,5 +1,5 @@
 import './Demo.css';
-import { withNotes, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS, NOTE_LABEL } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
+import { withNotes, DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS, NOTE_LABEL } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 import React = require('react');
 import { ViewerDefinition } from '../App';
 import { DropdownInput } from '../Inputs/DropdownInput/DropdownInput';
@@ -103,11 +103,11 @@ export function Imports(props: any) {
 }
 
 type DemoProps = {
-    imports: string[];
-    defaultConcept: any;
-    conceptInputs: PropertyDefinition[];
-    defaultKeyCenter: any;
-    keyCenterInputs: PropertyDefinition[];
+    imports?: string[];
+    defaultConcept?: any;
+    conceptInputs?: PropertyDefinition[];
+    defaultKeyCenter?: any;
+    keyCenterInputs?: PropertyDefinition[];
     viewers: ViewerDefinition[];
 }
 
@@ -118,8 +118,8 @@ export class Demo extends React.Component<DemoProps, any> {
         this.state = {
             viewerIndex: 0,
             viewerProps: Object.assign({}, this.props.viewers[0].defaultProps),
-            concept: Object.assign({}, this.props.defaultConcept),
-            keyCenter: Object.assign({}, this.props.defaultKeyCenter)
+            concept: Object.assign({}, DEFAULT_CONCEPT, this.props.defaultConcept),
+            keyCenter: Object.assign({}, DEFAULT_KEY_CENTER, this.props.defaultKeyCenter)
         };
     }
 
@@ -146,22 +146,38 @@ export class Demo extends React.Component<DemoProps, any> {
     render() {
         let viewer = this.props.viewers[this.state.viewerIndex];
         let Viewer = withNotes(viewer.component, this.state.concept, this.state.keyCenter)
+
+        let enableConcept = this.props.conceptInputs && this.props.conceptInputs.length;
+        let enableKeyCenter = this.props.keyCenterInputs && this.props.keyCenterInputs.length;
+        let enableViewerProps = viewer.inputs && viewer.inputs.length;
+
         return (
             <div className='demo'>
                 <pre>
-                    {this.props.imports && <Imports vars={this.props.imports} source='play-what' />}
-                    <ObjectDeclaration name='concept' inputs={this.props.conceptInputs} value={this.state.concept} setValue={this.setValue} />
-                    <ObjectDeclaration name='keyCenter' inputs={this.props.keyCenterInputs} value={this.state.keyCenter} setValue={this.setValue} />
+                    {this.props.imports && this.props.imports.length && <Imports vars={this.props.imports} source='play-what' />}
+
+                    {enableConcept &&
+                        <ObjectDeclaration name='concept' inputs={this.props.conceptInputs} value={this.state.concept} setValue={this.setValue} />
+                    }
+
+                    {enableKeyCenter &&
+                        <ObjectDeclaration name='keyCenter' inputs={this.props.keyCenterInputs} value={this.state.keyCenter} setValue={this.setValue} />
+                    }
+
                     <HocDeclaration varName={viewer.name + 'WithNotes'} hocName='withNotes'>
                         <DropdownInput data={this.props.viewers} value={viewer} setValue={(value, index) => this.changeViewer(index)} />
-                        {this.props.conceptInputs && this.props.conceptInputs.length && <span>
+                        {enableConcept && <span>
                             <span className='operator'>{', '}</span><span className='var'>{'concept'}</span>
                         </span>}
-                        {this.props.keyCenterInputs && this.props.keyCenterInputs.length && <span>
+                        {enableKeyCenter && <span>
                             <span className='operator'>{', '}</span><span className='var'>{'keyCenter'}</span>
                         </span>}
                     </HocDeclaration>
-                    <ObjectDeclaration name='viewerProps' inputs={viewer.inputs} value={this.state.viewerProps} setValue={this.setValue} />
+
+                    {enableViewerProps &&
+                        <ObjectDeclaration name='viewerProps' inputs={viewer.inputs} value={this.state.viewerProps} setValue={this.setValue} />
+                    }
+
                     <ComponentTag name={viewer.name + 'WithNotes'} />
                 </pre>
                 <Viewer {...this.state.viewerProps} />
