@@ -21,6 +21,10 @@ export function ConfiguringComponents(props: any) {
                     CONCEPT_INPUTS.intervals,
                     CONCEPT_INPUTS.chordInversion
                 ]}
+                defaultConcept={{
+                    intervals: CHORD.Maj.intervals,
+                    chordInversion: 0
+                }}
                 viewers={[
                     {
                         id: 'keyboard',
@@ -67,6 +71,10 @@ export function ConfiguringComponents(props: any) {
                     CONCEPT_INPUTS.intervals,
                     CONCEPT_INPUTS.chordInversion
                 ]}
+                defaultConcept={{
+                    intervals: CHORD.Maj.intervals,
+                    chordInversion: 0
+                }}
                 keyCenterInputs={[
                     KEY_CENTER_INPUTS.tonic,
                     KEY_CENTER_INPUTS.accidental,
