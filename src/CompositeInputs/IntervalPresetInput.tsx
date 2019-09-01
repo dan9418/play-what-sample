@@ -1,8 +1,16 @@
 import * as React from "react";
 import { InputProps } from "../Inputs/Input.config";
 import { EnumDropdownInput } from "../Inputs/DropdownInput/EnumDropdownInput";
-import { ROMAN_NUMERAL, INTERVAL_PAIR, CHORD, SCALE, MODE } from "C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha";
 import { DropdownInput } from "../Inputs/DropdownInput/DropdownInput";
+
+import {
+    Tonic, Accidental, Interval, ConceptPreset, PhysicalNote, FunctionalNote, CompleteNote,
+    NOTE_LABEL, INTERVAL, MAJOR_SCALE, CALIBRATION_NOTE, TONIC, ACCIDENTAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL,
+    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
+    FretboardStringConfig,
+    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
+    withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
+} from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 
 const INTERVAL_PRESETS = [
     {

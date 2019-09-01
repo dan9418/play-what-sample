@@ -1,8 +1,16 @@
 import React = require("react");
-import { ConceptDefinition, Interval, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 import './ConceptTable.css'
 
-function getBodyRow(rowIndex: number, concept: ConceptDefinition) {
+import {
+    Tonic, Accidental, Interval, ConceptPreset, PhysicalNote, FunctionalNote, CompleteNote,
+    NOTE_LABEL, INTERVAL, MAJOR_SCALE, CALIBRATION_NOTE, TONIC, ACCIDENTAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL,
+    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
+    FretboardStringConfig,
+    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
+    withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
+} from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
+
+function getBodyRow(rowIndex: number, concept: Concept) {
     return (
         <tr key={rowIndex}>
             <td>{concept.id}</td>
@@ -15,7 +23,7 @@ function getBodyRow(rowIndex: number, concept: ConceptDefinition) {
     );
 }
 
-function getBodyRows(concepts: ConceptDefinition[]) {
+function getBodyRows(concepts: Concept[]) {
     let rows = [];
     for (let i = 0; i < concepts.length; i++) {
         rows.push(getBodyRow(i, concepts[i]))
@@ -34,7 +42,7 @@ function getHeaderRow() {
 }
 
 type ConceptTableProps = {
-    concepts: ConceptDefinition[];
+    concepts: Concept[];
 }
 
 export function ConceptTable(props: ConceptTableProps) {

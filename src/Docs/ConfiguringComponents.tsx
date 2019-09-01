@@ -1,7 +1,15 @@
 import React = require("react");
 import { Demo } from "../Demo/Demo";
 import { KEY_CENTER_INPUTS, CONCEPT_INPUTS, KEYBOARD_INPUTS, FRETBOARD_INPUTS } from "../Inputs/Input.config";
-import { withNotes, DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
+
+import {
+    Tonic, Accidental, Interval, ConceptPreset, PhysicalNote, FunctionalNote, CompleteNote,
+    NOTE_LABEL, INTERVAL, MAJOR_SCALE, CALIBRATION_NOTE, TONIC, ACCIDENTAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL,
+    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
+    FretboardStringConfig,
+    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
+    withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
+} from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 
 export function ConfiguringComponents(props: any) {
     return (

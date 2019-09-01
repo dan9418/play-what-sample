@@ -2,14 +2,20 @@ import "./App.css"
 import ReactDOM = require("react-dom");
 import React = require("react");
 
-import { withNotes, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
-
-import { PropertyDefinition, KEY_CENTER_INPUTS, CONCEPT_INPUTS, KEYBOARD_INPUTS, FRETBOARD_INPUTS } from "./Inputs/Input.config";
 import { GettingStarted } from "./Docs/GettingStarted";
 import { ConfiguringComponents } from "./Docs/ConfiguringComponents";
 import { MusicTheoryGlossary } from "./Docs/MusicTheoryGlossary";
 import { APIReference } from "./Docs/APIReference";
 import { Examples } from "./Docs/Examples";
+
+import {
+    Tonic, Accidental, Interval, ConceptPreset, PhysicalNote, FunctionalNote, CompleteNote,
+    NOTE_LABEL, INTERVAL, MAJOR_SCALE, CALIBRATION_NOTE, TONIC, ACCIDENTAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL,
+    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
+    FretboardStringConfig,
+    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
+    withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
+} from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 
 export class App extends React.Component<any, any> {
 
@@ -30,15 +36,15 @@ export class App extends React.Component<any, any> {
                     Just provide the key, concept, and (optional) configuration to one of the built-in viewer components and
                     Play What will generate the properties of the respective notes and display them however they've been configured.</p>
 
-                <GettingStarted/>
-                
-                <ConfiguringComponents/>
+                <GettingStarted />
 
-                <MusicTheoryGlossary/>
+                <ConfiguringComponents />
 
-                <APIReference/>
+                <MusicTheoryGlossary />
 
-                <Examples/>
+                <APIReference />
+
+                <Examples />
 
             </div >
         )
