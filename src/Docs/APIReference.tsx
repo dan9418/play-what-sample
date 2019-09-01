@@ -1,8 +1,9 @@
 import React = require("react");
 import { Demo } from "../Demo/Demo";
 import { KEY_CENTER_INPUTS, CONCEPT_INPUTS, KEYBOARD_INPUTS, FRETBOARD_INPUTS } from "../Inputs/Input.config";
-import { withNotes, DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
+import { withNotes, DEFAULT_KEY_CENTER, DEFAULT_CONCEPT, Fretboard, Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS, DEFAULT_FRETBOARD_PROPS, TONIC, ACCIDENTAL, NOTE_LABEL, TheoryEngine, INTERVAL_PAIR, INTERVAL, CHORD, SCALE, MODE, ROMAN_NUMERAL } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
 import { FormattedTable } from "../Common/FormattedTable/FormattedTable";
+import { ConceptTable } from "../Common/ConceptTable/ConceptTable";
 
 export function APIReference(props: any) {
     return (
@@ -10,39 +11,23 @@ export function APIReference(props: any) {
 
             <h4>CHORD</h4>
 
-            <FormattedTable
-                headers={['Value', 'Description', 'Intervals']}
-                rows={[
-                    ['Maj', 'Major Triad', 'PU, M3, P5']
-                ]}
-            />
+            <ConceptTable concepts={(Object as any).values(CHORD)} />
 
             <h4>SCALE</h4>
 
-            <FormattedTable
-                headers={['Value', 'Description', 'Intervals']}
-                rows={[
-                    ['Major', 'Major', 'PU, M2, M3, P4, P5, M6, M7']
-                ]}
-            />
+            <ConceptTable concepts={(Object as any).values(SCALE)} />
 
             <h4>MODE</h4>
 
-            <FormattedTable
-                headers={['Value', 'Description', 'Intervals']}
-                rows={[
-                    ['Ionian', 'Ionian', 'PU, M2, M3, P4, P5, M6, M7']
-                ]}
-            />
+            <ConceptTable concepts={(Object as any).values(MODE)} />
 
             <h4>ROMAN_NUMERAL</h4>
 
-            <FormattedTable
-                headers={['Value', 'Description', 'Chord']}
-                rows={[
-                    ['I', 'Major 1', 'Maj']
-                ]}
-            />
+            <ConceptTable concepts={(Object as any).values(ROMAN_NUMERAL)} />
+
+            <h4>INTERVAL_PAIR</h4>
+
+            <ConceptTable concepts={(Object as any).values(INTERVAL_PAIR)} />
 
             <h4>DEGREE</h4>
 
