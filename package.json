@@ -1,13 +1,15 @@
 {
   "name": "play-what-sample",
   "version": "1.0.0",
-  "description": "",
+  "description": "Interactive documentation for Play What",
   "private": true,
+  "homepage": "https://dan9418.github.io/play-what-sample",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d build"
   },
-  "author": "",
+  "author": "Dan Bednarczyk",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -25,6 +27,7 @@
     "@types/react-dom": "^16.9.0",
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^9.0.1",
+    "gh-pages": "^2.1.1",
     "play-what-beta": "^1.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
