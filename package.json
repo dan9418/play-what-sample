@@ -25,6 +25,7 @@
     "@types/react-dom": "^16.9.0",
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^9.0.1",
+    "play-what-beta": "^1.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "ts-loader": "^6.0.4"
