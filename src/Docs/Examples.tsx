@@ -19,7 +19,7 @@ export function Examples(props: any) {
             <p>Here is a "kitchen sink" example with all inputs enabled for all viewers.</p>
 
             <Demo
-                imports={['withNotes', 'Keyboard', 'Fretboard']}
+                imports={[['withNotes', 'Keyboard', 'Fretboard']]}
                 defaultKeyCenter={{
                     tonic: TONIC.C,
                     accidental: ACCIDENTAL.Natural,

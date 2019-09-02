@@ -38,8 +38,8 @@ pre.syntax .var {
     font-weight: bold;
 }
 
-pre.syntax .object, pre.syntax .tag, pre.syntax .imports {
-    margin: 10px;
+pre.syntax .object, pre.syntax .tag, pre.syntax {
+    margin-top: 10px;
 }
 
 pre.syntax .object-prop {

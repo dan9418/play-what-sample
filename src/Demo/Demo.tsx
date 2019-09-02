@@ -22,7 +22,7 @@ export type ViewerDefinition = {
 }
 
 type DemoProps = {
-    imports?: string[];
+    imports?: string[][];
     defaultConcept?: any;
     conceptInputs?: PropertyDefinition[];
     defaultKeyCenter?: any;
@@ -73,7 +73,7 @@ export class Demo extends React.Component<DemoProps, any> {
         return (
             <div>
                 <pre className='syntax'>
-                    {this.props.imports && this.props.imports.length && <Imports vars={this.props.imports} source='play-what' />}
+                    {this.props.imports && this.props.imports.map((i) => { return <Imports vars={i} source='play-what' />; })}
 
                     {enableConcept &&
                         <ObjectDeclaration name='concept' inputs={this.props.conceptInputs} value={this.state.concept} setValue={this.setValue} />
@@ -97,7 +97,7 @@ export class Demo extends React.Component<DemoProps, any> {
                         <ObjectDeclaration name='viewerProps' inputs={viewer.inputs} value={this.state.viewerProps} setValue={this.setValue} />
                     }
 
-                    <ComponentTag name={viewer.name + 'WithNotes'} spreadProp='viewerProps'/>
+                    <ComponentTag name={viewer.name + 'WithNotes'} spreadProp='viewerProps' />
                 </pre>
                 <Viewer {...this.state.viewerProps} />
             </div>

@@ -29,21 +29,21 @@ export function GettingStarted(props: any) {
 
             <p>
                 Import a component from 'play-what' to use it in your project.
-                Play What currently provides two viewer components out-of-the-box, 'Keyboard' and 'Fretboard'
+                Play What currently provides two viewer components out-of-the-box, Keyboard and Fretboard
             </p>
 
             <p>
-                Viewers are intended to be used with the Higher-Order Component 'withNotes,'
-                which supplies the viewer with information on the musical notes.
+                Viewers are intended for use with the Higher-Order Component 'withNotes,'
+                which supplies the viewer with props for musical notes.
             </p>
 
             <p>
-                To use a viewer component with the default configuration, simply pass the component reference as the first argument to 'withNotes.'
-                The returned component is ready to be rendered.
+                To use a viewer component with the default configuration, simply pass it as the first argument to 'withNotes.'
+                The returned component is ready to be rendered as-is.
             </p>
 
             <Demo
-                imports={['withNotes', 'Keyboard', 'Fretboard']}
+                imports={[['withNotes', 'Keyboard', 'Fretboard']]}
                 viewers={[
                     {
                         id: 'keyboard',

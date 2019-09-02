@@ -20,11 +20,14 @@ export function ConfiguringComponents(props: any) {
             <h3>Apply a Concept</h3>
 
             <p>
-                To apply a music theory concept to a viewer, provide a 'concept' object as the second argument to 'withNotes' as follows
+                To apply a music theory concept to a viewer, provide a 'concept' object as the second argument to 'withNotes.'
+                A breakdown of the concept object properties is available in the reference section.
+                Each property is optional and will be replaced by a default value if omitted.
             </p>
 
             <Demo
-                imports={['withNotes', 'Keyboard', 'Fretboard']}
+                imports={[['withNotes', 'Keyboard', 'Fretboard'],
+                ['CHORD', 'SCALE', 'MODE', 'ROMAN_NUMERAL', 'INTERVAL_PAIR']]}
                 conceptInputs={[
                     CONCEPT_INPUTS.intervals,
                     CONCEPT_INPUTS.chordInversion
@@ -50,7 +53,6 @@ export function ConfiguringComponents(props: any) {
             />
 
             <p>
-                Every argument is optional and will be replaced by a default value if omitted.
                 Play What interprets all concepts as an array of musical intervals.
                 By default, notes are labeled with their respective interval and colored by degree.
                 For an explanation of musical intervals, degrees, or chord inversions, please see the reference section.
@@ -74,7 +76,7 @@ export function ConfiguringComponents(props: any) {
             </p>
 
             <Demo
-                imports={['withNotes', 'Keyboard', 'Fretboard']}
+                imports={[['withNotes', 'Keyboard', 'Fretboard']]}
                 conceptInputs={[
                     CONCEPT_INPUTS.intervals,
                     CONCEPT_INPUTS.chordInversion
@@ -113,7 +115,7 @@ export function ConfiguringComponents(props: any) {
             </p>
 
             <Demo
-                imports={['withNotes', 'Keyboard', 'Fretboard']}
+                imports={[['withNotes', 'Keyboard', 'Fretboard']]}
                 defaultKeyCenter={{
                     tonic: TONIC.C,
                     accidental: ACCIDENTAL.Natural,
