@@ -1,8 +1,6 @@
 .interval-table {
     margin: auto;
-    font-size: 16px;
-    line-height: 20px;
-    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+    font-size: 14px;
 }
 
 .interval-table th, .interval-table td {

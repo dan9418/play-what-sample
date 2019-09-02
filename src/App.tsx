@@ -4,7 +4,6 @@ import * as ReactDOM from "react-dom";
 
 import { GettingStarted } from "./Docs/GettingStarted";
 import { ConfiguringComponents } from "./Docs/ConfiguringComponents";
-import { MusicTheoryGlossary } from "./Docs/MusicTheoryGlossary";
 import { APIReference } from "./Docs/APIReference";
 import { Examples } from "./Docs/Examples";
 
@@ -16,6 +15,7 @@ import {
     Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
     withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
 } from 'C://Users/dan94/Desktop/play-what-alpha/build/play-what-alpha';
+import { ConstantsReference } from "./Docs/ConstantsReference";
 
 export class App extends React.Component<any, any> {
 
@@ -40,9 +40,9 @@ export class App extends React.Component<any, any> {
 
                 <ConfiguringComponents />
 
-                <MusicTheoryGlossary />
-
                 <APIReference />
+
+                <ConstantsReference />
 
                 <Examples />
 
