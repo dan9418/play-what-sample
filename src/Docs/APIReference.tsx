@@ -23,8 +23,7 @@ export function APIReference(props: any) {
             <h4>Tonic</h4>
 
             <p>
-                The <a href='https://en.wikipedia.org/wiki/Tonic_(music)' target='_blank'>tonic </a>
-                is the note from which all other notes are referenced. It is always assigned the diatonic degree of 1
+                The tonic is the note from which all other notes are referenced. It is always assigned the diatonic degree of 1
                 and a letter name from A-G.
             </p>
 
@@ -153,7 +152,7 @@ export function APIReference(props: any) {
 
             <p>
                 Viewer components aren't limited to the built-in presets.
-                Any component, including your own, can be passed to the Viewer argument and withNotes will return that component with one new prop (notes: Note[]).
+                Any component, including your own, can be passed to the <span className='italic'>Viewer</span> argument and <span className='italic'>withNotes</span> will return that component with one new prop <span className='italic'>(notes: Note[])</span>.
             </p>
 
             <h3>Viewer Props</h3>
@@ -182,7 +181,7 @@ export function APIReference(props: any) {
                     ['showDots', 'boolean', 'true', 'Indicates whether to show the helper dots commonly found on fretboards'],
                     ['showFretNumbers', 'boolean', 'true', 'Indicates whether to show fret numbers above each fret'],
                     ['strings', 'stringConfig[]', '(standard guitar)', 'An array of config ojects specifiying fretboard strings'],
-                    ['strings[n].tuning', 'number', '0', 'The node index of the strings open note'],
+                    ['strings[n].tuning', 'number', '0', 'The note index of the strings open note'],
                     ['strings[n].unfilteredIntervals', 'INTERVAL[]', 'undefined', 'If defined, specifies allowable intervals on the string']
                 ]}
             />

@@ -33,12 +33,12 @@ export function GettingStarted(props: any) {
             </p>
 
             <p>
-                Viewers are intended for use with the Higher-Order Component 'withNotes,'
+                Viewers are intended for use with the Higher-Order Component <span className='italic'>withNotes</span>,
                 which supplies the viewer with props for musical notes.
             </p>
 
             <p>
-                To use a viewer component with the default configuration, simply pass it as the first argument to 'withNotes.'
+                To use a viewer component with the default configuration, simply pass it as the first argument to <span className='italic'>withNotes</span>.
                 The returned component is ready to be rendered as-is.
             </p>
 

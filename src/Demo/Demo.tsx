@@ -1,4 +1,3 @@
-import './Demo.css';
 import React = require('react');
 import { DropdownInput } from '../Inputs/DropdownInput/DropdownInput';
 import { PropertyDefinition } from '../Inputs/Input.config';

@@ -24,3 +24,7 @@ h1, h2 {
     margin-bottom: 16px;
     margin-top: 24px;
 }
+
+.italic {
+    font-style: italic;
+}

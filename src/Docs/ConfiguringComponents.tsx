@@ -20,7 +20,7 @@ export function ConfiguringComponents(props: any) {
             <h3>Apply a Concept</h3>
 
             <p>
-                To apply a music theory concept to a viewer, provide a 'concept' object as the second argument to 'withNotes.'
+                To apply a music theory concept to a viewer, provide a <span className='italic'>concept</span> object as the second argument to <span className='italic'>withNotes</span>.
                 A breakdown of the concept object properties is available in the API reference.
                 Each property is optional and will be replaced by a default value if omitted.
             </p>

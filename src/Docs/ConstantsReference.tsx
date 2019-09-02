@@ -18,7 +18,11 @@ export function ConstantsReference(props: any) {
 
             <h2>Constants Reference</h2>
 
+            <p>The following constants are available to import to make configuration easy and readable.</p>
+
             <h3>INTERVAL</h3>
+
+            <h4>Degree vs. Semitones</h4>
 
             <IntervalTable intervals={(Object as any).values(INTERVAL)} />
 
@@ -39,6 +43,8 @@ export function ConstantsReference(props: any) {
             <ConceptTable concepts={(Object as any).values(ROMAN_NUMERAL)} />
 
             <h3>INTERVAL_PAIR</h3>
+
+            <p><span className='italic'>*Not to be confused with INTERVAL, which specifies a single interval</span></p>
 
             <ConceptTable concepts={(Object as any).values(INTERVAL_PAIR)} />
 
