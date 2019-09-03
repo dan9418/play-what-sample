@@ -1,15 +1,7 @@
 import * as React from "react";
 import { FormattedTable } from "../Common/FormattedTable/FormattedTable";
 import { ConceptTable } from "../Common/ConceptTable/ConceptTable";
-
-import {
-    Tonic, Accidental, Interval, ConceptPreset, PhysicalNote, FunctionalNote, CompleteNote,
-    NOTE_LABEL, INTERVAL, MAJOR_SCALE, CALIBRATION_NOTE, TONIC, ACCIDENTAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL,
-    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
-    FretboardStringConfig,
-    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
-    withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
-} from 'play-what-beta';
+import { INTERVAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL } from 'play-what-beta';
 import { IntervalTable } from "../Common/IntervalTable/IntervalTable";
 
 export function ConstantsReference(props: any) {
@@ -26,29 +18,7 @@ export function ConstantsReference(props: any) {
 
             <IntervalTable intervals={(Object as any).values(INTERVAL)} />
 
-            <h3>CHORD</h3>
-
-            <ConceptTable concepts={(Object as any).values(CHORD)} />
-
-            <h3>SCALE</h3>
-
-            <ConceptTable concepts={(Object as any).values(SCALE)} />
-
-            <h3>MODE</h3>
-
-            <ConceptTable concepts={(Object as any).values(MODE)} />
-
-            <h3>ROMAN_NUMERAL</h3>
-
-            <ConceptTable concepts={(Object as any).values(ROMAN_NUMERAL)} />
-
-            <h3>INTERVAL_PAIR</h3>
-
-            <p><span className='italic'>*Not to be confused with INTERVAL, which specifies a single interval</span></p>
-
-            <ConceptTable concepts={(Object as any).values(INTERVAL_PAIR)} />
-
-            <h3>DEGREE</h3>
+            <h3>TONIC</h3>
 
             <FormattedTable
                 headers={['Value', 'Description']}
@@ -89,6 +59,32 @@ export function ConstantsReference(props: any) {
                     ['Frequency', 'The pitch of the note in Hz']
                 ]}
             />
+
+            <h3>Concept Presets</h3>
+
+            <p>The following constants are presets for common musical concepts. Each one contains an 'intervals' property.</p>
+
+            <h3>CHORD</h3>
+
+            <ConceptTable concepts={(Object as any).values(CHORD)} />
+
+            <h3>SCALE</h3>
+
+            <ConceptTable concepts={(Object as any).values(SCALE)} />
+
+            <h3>MODE</h3>
+
+            <ConceptTable concepts={(Object as any).values(MODE)} />
+
+            <h3>ROMAN_NUMERAL</h3>
+
+            <ConceptTable concepts={(Object as any).values(ROMAN_NUMERAL)} />
+
+            <h3>INTERVAL_PAIR</h3>
+
+            <p><span className='italic'>*Not to be confused with INTERVAL, which specifies a single interval</span></p>
+
+            <ConceptTable concepts={(Object as any).values(INTERVAL_PAIR)} />
 
         </div>
     );

@@ -4,14 +4,7 @@ import { IntervalPresetInput } from "../CompositeInputs/IntervalPresetInput";
 import { BooleanInput } from "./BooleanInput/BooleanInput";
 import { FretboardStringInput } from "../CompositeInputs/FretboardStringInput";
 
-import {
-    Tonic, Accidental, Interval, ConceptPreset, PhysicalNote, FunctionalNote, CompleteNote,
-    NOTE_LABEL, INTERVAL, MAJOR_SCALE, CALIBRATION_NOTE, TONIC, ACCIDENTAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL,
-    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
-    FretboardStringConfig,
-    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
-    withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
-} from 'play-what-beta';
+import { NOTE_LABEL, TONIC, ACCIDENTAL } from 'play-what-beta';
 
 export interface InputProps {
     value: any;

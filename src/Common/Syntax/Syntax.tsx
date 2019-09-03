@@ -1,15 +1,6 @@
 import './Syntax.css';
 import React = require('react');
 
-import {
-    Tonic, Accidental, Interval, ConceptPreset, PhysicalNote, FunctionalNote, CompleteNote,
-    NOTE_LABEL, INTERVAL, MAJOR_SCALE, CALIBRATION_NOTE, TONIC, ACCIDENTAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL,
-    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
-    FretboardStringConfig,
-    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
-    withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
-} from 'play-what-beta';
-
 export function ObjectDeclaration(props: any) {
     let objectProps = props.inputs.map((input) => {
         let Input = input.component;

@@ -2,15 +2,7 @@ import React = require('react');
 import { DropdownInput } from '../Inputs/DropdownInput/DropdownInput';
 import { PropertyDefinition } from '../Inputs/Input.config';
 import { Imports, ObjectDeclaration, HocDeclaration, ComponentTag } from '../Common/Syntax/Syntax';
-
-import {
-    Tonic, Accidental, Interval, ConceptPreset, PhysicalNote, FunctionalNote, CompleteNote,
-    NOTE_LABEL, INTERVAL, MAJOR_SCALE, CALIBRATION_NOTE, TONIC, ACCIDENTAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL,
-    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
-    FretboardStringConfig,
-    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
-    withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
-} from 'play-what-beta';
+import { withNotes, DEFAULT_KEY_CENTER, DEFAULT_CONCEPT } from 'play-what-beta';
 
 export type ViewerDefinition = {
     id: string;

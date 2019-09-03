@@ -1,16 +1,5 @@
 import * as React from "react";
 import { FormattedTable } from "../Common/FormattedTable/FormattedTable";
-import { ConceptTable } from "../Common/ConceptTable/ConceptTable";
-
-import {
-    Tonic, Accidental, Interval, ConceptPreset, PhysicalNote, FunctionalNote, CompleteNote,
-    NOTE_LABEL, INTERVAL, MAJOR_SCALE, CALIBRATION_NOTE, TONIC, ACCIDENTAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL,
-    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
-    FretboardStringConfig,
-    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
-    withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
-} from 'play-what-beta';
-import { IntervalTable } from "../Common/IntervalTable/IntervalTable";
 
 export function APIReference(props: any) {
     return (
@@ -32,8 +21,8 @@ export function APIReference(props: any) {
                 rows={[
                     ['id', 'string', 'Unique identifier'],
                     ['name', 'string', 'Display name'],
-                    ['value', 'number', 'Degree in the key of C Major'],
-                    ['index', 'number', 'Pitch class in the key of C Major']
+                    ['degreeInC', 'number', 'Degree in the key of C Major'],
+                    ['pitchClass', 'number', 'Pitch class in the key of C Major']
                 ]}
             />
 
@@ -100,21 +89,21 @@ export function APIReference(props: any) {
                 ]}
             />
 
-            <h4>CompleteNote</h4>
+            <h4>Note</h4>
 
             <p>
-                In Play What, Intervals are interpretted from their KeyCenter and converted to CompleteteNote objects.
+                In Play What, Intervals are interpretted from their KeyCenter and converted to Note objects.
             </p>
 
             <FormattedTable
                 headers={['Prop', 'Type', 'Description']}
                 rows={[
                     ['name', 'string', 'Spelling of the note plus the accidental symbol'],
+                    ['interval', 'Interval', 'Interval relative to the key center'],
                     ['noteIndex', 'number', 'Distance from Middle C in semitones'],
                     ['pitchClass', 'number', 'Distance from the last C in semitones'],
                     ['noteOctave', 'number', 'Octave of the note (not the key center)'],
-                    ['frequency', 'number', 'Freqency in Hz'],
-                    ['interval', 'Interval', 'Interval relative to the key center']
+                    ['frequency', 'number', 'Freqency in Hz']
                 ]}
             />
 

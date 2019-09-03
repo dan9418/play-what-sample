@@ -6,15 +6,6 @@ import { GettingStarted } from "./Docs/GettingStarted";
 import { ConfiguringComponents } from "./Docs/ConfiguringComponents";
 import { APIReference } from "./Docs/APIReference";
 import { Examples } from "./Docs/Examples";
-
-import {
-    Tonic, Accidental, Interval, ConceptPreset, PhysicalNote, FunctionalNote, CompleteNote,
-    NOTE_LABEL, INTERVAL, MAJOR_SCALE, CALIBRATION_NOTE, TONIC, ACCIDENTAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL,
-    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
-    FretboardStringConfig,
-    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
-    withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
-} from 'play-what-beta';
 import { ConstantsReference } from "./Docs/ConstantsReference";
 
 export class App extends React.Component<any, any> {

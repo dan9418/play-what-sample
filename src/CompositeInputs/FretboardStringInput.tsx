@@ -1,17 +1,9 @@
 import * as React from "react";
 import { InputProps } from "../Inputs/Input.config";
 import { NumericInput } from "../Inputs/NumericInput/NumericInput";
+import { FretboardStringConfig } from 'play-what-beta';
 
 const DEFAULT_STRING_CONFIG = { tuning: 0 };
-
-import {
-    Tonic, Accidental, Interval, ConceptPreset, PhysicalNote, FunctionalNote, CompleteNote,
-    NOTE_LABEL, INTERVAL, MAJOR_SCALE, CALIBRATION_NOTE, TONIC, ACCIDENTAL, INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL,
-    Fretboard, FretboardProps, DEFAULT_FRETBOARD_PROPS,
-    FretboardStringConfig,
-    Keyboard, KeyboardProps, DEFAULT_KEYBOARD_PROPS,
-    withNotes, ViewerProps, KeyCenter, DEFAULT_KEY_CENTER, Concept, DEFAULT_CONCEPT
-} from 'play-what-beta';
 
 function setFretboardStrings(setValue: (value: FretboardStringConfig[]) => void, strings: FretboardStringConfig[], stringIndex: number, property: string, value: FretboardStringConfig) {
     let mergedStrings = [...strings];
