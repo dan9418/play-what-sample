@@ -8,13 +8,17 @@ export function GettingStarted(props: any) {
 
             <h2>Getting started</h2>
 
+            <h3>Prerequisites</h3>
+
+            <p>Your project should be configured for a Node.js environment and have React as a dependency</p>
+
             <h3>Installation</h3>
 
             <p>Play What is available as an npm package and can be installed via the command-line</p>
 
             <pre className='syntax'>
                 <span className='keyword'>npm </span>
-                <span className=''>install play-what</span>
+                <span className=''>install play-what-beta</span>
             </pre>
 
             <h3>Include Component</h3>
