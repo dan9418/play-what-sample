@@ -8,9 +8,9 @@ function getBodyRow(rowIndex: number, concept: Concept) {
         <tr key={rowIndex}>
             <td>{concept.id}</td>
             <td>{concept.name}</td>
-            <td>{concept.intervals.map((interval) => {
+            <td>{concept.intervals.map((interval, i) => {
                 let classes = ['interval-id', 'degree-' + interval.degree];
-                return <div className={classes.join(' ')}>{interval.id}</div>
+                return <div key={i} className={classes.join(' ')}>{interval.id}</div>
             })}</td>
         </tr>
     );

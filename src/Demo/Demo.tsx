@@ -64,7 +64,7 @@ export class Demo extends React.Component<DemoProps, any> {
         return (
             <div>
                 <pre className='syntax'>
-                    {this.props.imports && this.props.imports.map((i) => { return <Imports vars={i} source='play-what' />; })}
+                    {this.props.imports && this.props.imports.map((im, i) => { return <Imports key={i} vars={im} source='play-what' />; })}
 
                     {enableConcept &&
                         <ObjectDeclaration name='concept' inputs={this.props.conceptInputs} value={this.state.concept} setValue={this.setValue} />

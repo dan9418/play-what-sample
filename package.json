@@ -29,7 +29,7 @@
     "webpack-cli": "^3.3.7"
   },
   "dependencies": {
-    "play-what-beta": "^1.0.3",
+    "play-what-beta": "^1.0.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
