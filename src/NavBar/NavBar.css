@@ -1,0 +1,29 @@
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background: #333;
+    color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav-button {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.nav-button.active {
+    border-bottom: 2px solid orange;
+}
+
+.nav-button:hover {
+    background-color: #555;
+    cursor: pointer;
+}

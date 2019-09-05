@@ -1,18 +1,20 @@
 html, body {
     margin: 0;
-    padding: 5px;
-    background-color: #f6f8fa;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    padding: 0;
+    background-color: white;
+    font-family: Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 }
 
 .sample-container {
+    
+}
+
+.app-body {
+    padding: 32px;
     text-align: center;
     max-width: 800px;
     margin: auto;
-    border: 1px solid #d1d5da;
-    border-radius: 3px;
     background-color: #FFF;
-    padding: 32px;
     font-size: 16px
 }
 

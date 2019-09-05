@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"html, body {\\r\\n    margin: 0;\\r\\n    padding: 5px;\\r\\n    background-color: #f6f8fa;\\r\\n    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;\\r\\n}\\r\\n\\r\\n.sample-container {\\r\\n    text-align: center;\\r\\n    max-width: 800px;\\r\\n    margin: auto;\\r\\n    border: 1px solid #d1d5da;\\r\\n    border-radius: 3px;\\r\\n    background-color: #FFF;\\r\\n    padding: 32px;\\r\\n    font-size: 16px\\r\\n}\\r\\n\\r\\nh1, h2 {\\r\\n    border-bottom: 1px solid #eaecef;\\r\\n    padding-bottom: .3em;\\r\\n    font-weight: 600;\\r\\n    line-height: 1.25;\\r\\n    margin-bottom: 16px;\\r\\n    margin-top: 24px;\\r\\n}\\r\\n\\r\\n.italic {\\r\\n    font-style: italic;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/App.css?./node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"html, body {\\r\\n    margin: 0;\\r\\n    padding: 0;\\r\\n    background-color: white;\\r\\n    font-family: Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;\\r\\n}\\r\\n\\r\\n.sample-container {\\r\\n    \\r\\n}\\r\\n\\r\\n.app-body {\\r\\n    padding: 32px;\\r\\n    text-align: center;\\r\\n    max-width: 800px;\\r\\n    margin: auto;\\r\\n    background-color: #FFF;\\r\\n    font-size: 16px\\r\\n}\\r\\n\\r\\nh1, h2 {\\r\\n    border-bottom: 1px solid #eaecef;\\r\\n    padding-bottom: .3em;\\r\\n    font-weight: 600;\\r\\n    line-height: 1.25;\\r\\n    margin-bottom: 16px;\\r\\n    margin-top: 24px;\\r\\n}\\r\\n\\r\\n.italic {\\r\\n    font-style: italic;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/App.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -171,6 +171,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\\r\\n.numeric-input {\\r\\n  height: 20px;\\r\\n  display: inline-block;\\r\\n  text-align: center;\\r\\n\\r\\n  -webkit-user-select: none; /* Safari */        \\r\\n\\t-moz-user-select: none; /* Firefox */\\r\\n\\t-ms-user-select: none; /* IE10+/Edge */\\r\\n\\tuser-select: none; /* Standard */\\r\\n}\\r\\n\\r\\n.numeric-input .button, .numeric-input .value {\\r\\n  display: inline-block;\\r\\n  width: 20px;\\r\\n}\\r\\n\\r\\n.numeric-input .button {\\r\\n  cursor: pointer;\\r\\n}\\r\\n\\r\\n.numeric-input .button:hover {\\r\\n  font-weight: bold;\\r\\n}\\r\\n\\r\\n.numeric-input .up {\\r\\n  border-radius: 0 5px 5px 0;\\r\\n}\\r\\n\\r\\n.numeric-input .down {\\r\\n  border-radius: 5px 0 0 5px;\\r\\n}\\r\\n\\r\\n.numeric-input .value {\\r\\n  font-weight: bold;\\r\\n}\\r\\n\\r\\n.numeric-input .button.disabled {\\r\\n  cursor: auto;\\r\\n  color: #888;\\r\\n}\\r\\n\\r\\n.numeric-input .button.disabled:hover {\\r\\n  color:red;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/Inputs/NumericInput/NumericInput.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/NavBar/NavBar.css":
+/*!*********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/NavBar/NavBar.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".nav-bar {\\r\\n    display: flex;\\r\\n    flex-direction: row;\\r\\n    flex-wrap: nowrap;\\r\\n    justify-content: center;\\r\\n    align-items: center;\\r\\n    background: #333;\\r\\n    color: white;\\r\\n    position: fixed;\\r\\n    width: 100%;\\r\\n    z-index: 100;\\r\\n}\\r\\n\\r\\n.nav-button {\\r\\n    height: 40px;\\r\\n    line-height: 40px;\\r\\n    text-align: center;\\r\\n    padding-left: 15px;\\r\\n    padding-right: 15px;\\r\\n}\\r\\n\\r\\n.nav-button.active {\\r\\n    border-bottom: 2px solid orange;\\r\\n}\\r\\n\\r\\n.nav-button:hover {\\r\\n    background-color: #555;\\r\\n    cursor: pointer;\\r\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/NavBar/NavBar.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -360,7 +371,7 @@ eval("var content = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__webpack_require__(/*! ./App.css */ \"./src/App.css\");\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nconst ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\r\nconst GettingStarted_1 = __webpack_require__(/*! ./Docs/GettingStarted */ \"./src/Docs/GettingStarted.tsx\");\r\nconst ConfiguringComponents_1 = __webpack_require__(/*! ./Docs/ConfiguringComponents */ \"./src/Docs/ConfiguringComponents.tsx\");\r\nconst APIReference_1 = __webpack_require__(/*! ./Docs/APIReference */ \"./src/Docs/APIReference.tsx\");\r\nconst Examples_1 = __webpack_require__(/*! ./Docs/Examples */ \"./src/Docs/Examples.tsx\");\r\nconst ConstantsReference_1 = __webpack_require__(/*! ./Docs/ConstantsReference */ \"./src/Docs/ConstantsReference.tsx\");\r\nclass App extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n    }\r\n    render() {\r\n        return (React.createElement(\"div\", { className: 'sample-container' },\r\n            React.createElement(\"h1\", null, \"Play What?\"),\r\n            React.createElement(\"p\", null, \"Play What is a configurable, extensible music theory visualization tool and React component library.\"),\r\n            React.createElement(\"p\", null, \"It provides a simple API for visualizing virtually any harmonic music theory concept. Just provide the key, concept, and (optional) configuration to one of the built-in viewer components and Play What will generate the properties of the respective notes and display them however they've been configured.\"),\r\n            React.createElement(GettingStarted_1.GettingStarted, null),\r\n            React.createElement(ConfiguringComponents_1.ConfiguringComponents, null),\r\n            React.createElement(APIReference_1.APIReference, null),\r\n            React.createElement(ConstantsReference_1.ConstantsReference, null),\r\n            React.createElement(Examples_1.Examples, null)));\r\n    }\r\n}\r\nexports.App = App;\r\nReactDOM.render(React.createElement(App, null), document.querySelector(\"#app\"));\r\n\n\n//# sourceURL=webpack:///./src/App.tsx?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__webpack_require__(/*! ./App.css */ \"./src/App.css\");\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\nconst ReactDOM = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\r\nconst GettingStarted_1 = __webpack_require__(/*! ./Docs/GettingStarted */ \"./src/Docs/GettingStarted.tsx\");\r\nconst ConfiguringComponents_1 = __webpack_require__(/*! ./Docs/ConfiguringComponents */ \"./src/Docs/ConfiguringComponents.tsx\");\r\nconst APIReference_1 = __webpack_require__(/*! ./Docs/APIReference */ \"./src/Docs/APIReference.tsx\");\r\nconst Examples_1 = __webpack_require__(/*! ./Docs/Examples */ \"./src/Docs/Examples.tsx\");\r\nconst ConstantsReference_1 = __webpack_require__(/*! ./Docs/ConstantsReference */ \"./src/Docs/ConstantsReference.tsx\");\r\nconst NarBar_1 = __webpack_require__(/*! ./NavBar/NarBar */ \"./src/NavBar/NarBar.tsx\");\r\nclass App extends React.Component {\r\n    constructor(props) {\r\n        super(props);\r\n    }\r\n    render() {\r\n        return (React.createElement(\"div\", { className: 'sample-container' },\r\n            React.createElement(NarBar_1.NavBar, null),\r\n            React.createElement(\"div\", { className: 'app-body' },\r\n                React.createElement(\"h1\", null, \"Play What?\"),\r\n                React.createElement(\"p\", null, \"Play What is a configurable, extensible music theory visualization tool and React component library.\"),\r\n                React.createElement(\"p\", null, \"It provides a simple API for visualizing virtually any harmonic music theory concept. Just provide the key, concept, and (optional) configuration to one of the built-in viewer components and Play What will generate the properties of the respective notes and display them however they've been configured.\"),\r\n                React.createElement(GettingStarted_1.GettingStarted, null),\r\n                React.createElement(ConfiguringComponents_1.ConfiguringComponents, null),\r\n                React.createElement(APIReference_1.APIReference, null),\r\n                React.createElement(ConstantsReference_1.ConstantsReference, null),\r\n                React.createElement(Examples_1.Examples, null))));\r\n    }\r\n}\r\nexports.App = App;\r\nReactDOM.render(React.createElement(App, null), document.querySelector(\"#app\"));\r\n\n\n//# sourceURL=webpack:///./src/App.tsx?");
 
 /***/ }),
 
@@ -642,6 +653,29 @@ eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/di
 
 "use strict";
 eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./NumericInput.css */ \"./src/Inputs/NumericInput/NumericInput.css\");\r\nfunction NumericInput(props) {\r\n    let canSubtract = typeof props.min === 'undefined' || props.value > props.min;\r\n    let canAdd = typeof props.max === 'undefined' || props.value < props.max;\r\n    let downClasses = ['button', 'down', canSubtract ? '' : 'disabled'];\r\n    let upClasses = ['button', 'up', canAdd ? '' : 'disabled'];\r\n    return (React.createElement(\"div\", { className: 'numeric-input' },\r\n        React.createElement(\"div\", { onClick: () => { if (canSubtract)\r\n                props.setValue(props.value - 1); }, className: downClasses.join(' ') }, '-'),\r\n        React.createElement(\"div\", { className: 'value' }, props.value),\r\n        React.createElement(\"div\", { onClick: () => { if (canAdd)\r\n                props.setValue(props.value + 1); }, className: upClasses.join(' ') }, '+')));\r\n}\r\nexports.NumericInput = NumericInput;\r\n\n\n//# sourceURL=webpack:///./src/Inputs/NumericInput/NumericInput.tsx?");
+
+/***/ }),
+
+/***/ "./src/NavBar/NarBar.tsx":
+/*!*******************************!*\
+  !*** ./src/NavBar/NarBar.tsx ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\r\n__webpack_require__(/*! ./NavBar.css */ \"./src/NavBar/NavBar.css\");\r\nfunction NavBar(props) {\r\n    return (React.createElement(\"header\", { className: 'nav-bar' },\r\n        React.createElement(\"div\", { className: 'nav-button active' }, \"Overview\"),\r\n        React.createElement(\"div\", { className: 'nav-button' }, \"API\"),\r\n        React.createElement(\"div\", { className: 'nav-button' }, \"Tutorial\")));\r\n}\r\nexports.NavBar = NavBar;\r\n\n\n//# sourceURL=webpack:///./src/NavBar/NarBar.tsx?");
+
+/***/ }),
+
+/***/ "./src/NavBar/NavBar.css":
+/*!*******************************!*\
+  !*** ./src/NavBar/NavBar.css ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./NavBar.css */ \"./node_modules/css-loader/dist/cjs.js!./src/NavBar/NavBar.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/NavBar/NavBar.css?");
 
 /***/ }),
 

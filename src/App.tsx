@@ -7,6 +7,7 @@ import { ConfiguringComponents } from "./Docs/ConfiguringComponents";
 import { APIReference } from "./Docs/APIReference";
 import { Examples } from "./Docs/Examples";
 import { ConstantsReference } from "./Docs/ConstantsReference";
+import { NavBar } from "./NavBar/NarBar";
 
 export class App extends React.Component<any, any> {
 
@@ -19,23 +20,28 @@ export class App extends React.Component<any, any> {
         return (
             <div className='sample-container'>
 
-                <h1>Play What?</h1>
+                <NavBar></NavBar>
 
-                <p>Play What is a configurable, extensible music theory visualization tool and React component library.</p>
+                <div className='app-body'>
+                    <h1>Play What?</h1>
 
-                <p>It provides a simple API for visualizing virtually any harmonic music theory concept.
-                    Just provide the key, concept, and (optional) configuration to one of the built-in viewer components and
+                    <p>Play What is a configurable, extensible music theory visualization tool and React component library.</p>
+
+                    <p>It provides a simple API for visualizing virtually any harmonic music theory concept.
+                        Just provide the key, concept, and (optional) configuration to one of the built-in viewer components and
                     Play What will generate the properties of the respective notes and display them however they've been configured.</p>
 
-                <GettingStarted />
+                    <GettingStarted />
 
-                <ConfiguringComponents />
+                    <ConfiguringComponents />
 
-                <APIReference />
+                    <APIReference />
 
-                <ConstantsReference />
+                    <ConstantsReference />
 
-                <Examples />
+                    <Examples />
+
+                </div>
 
             </div >
         )
