@@ -7,43 +7,56 @@ import { ConfiguringComponents } from "./Docs/ConfiguringComponents";
 import { APIReference } from "./Docs/APIReference";
 import { Examples } from "./Docs/Examples";
 import { ConstantsReference } from "./Docs/ConstantsReference";
-import { NavBar } from "./NavBar/NarBar";
+import { NavBar } from "./NavBar/NavBar";
+import { Overview } from "./Pages/Overview";
+import { Tutorial } from "./Pages/Tutorial";
+import { Reference } from "./Pages/Reference";
 
 export class App extends React.Component<any, any> {
 
+    pages = [
+        {
+            name: 'Overview',
+            component: Overview
+        },
+        {
+            name: 'Tutorial',
+            component: Tutorial
+        },
+        {
+            name: 'Reference',
+            component: Reference
+        }
+    ];
+
     constructor(props) {
         super(props);
+
+        this.state = {
+            pageIndex: 0
+        }
+    }
+
+    setPage = (index: number) => {
+        this.setState({
+            pageIndex: index
+        });
     }
 
     render() {
 
+        let Page = this.pages[this.state.pageIndex].component;
+
         return (
             <div className='sample-container'>
 
-                <NavBar></NavBar>
+                <NavBar pages={this.pages} pageIndex={this.state.pageIndex} setPage={this.setPage}></NavBar>
 
                 <div className='app-body'>
-                    <h1>Play What?</h1>
-
-                    <p>Play What is a configurable, extensible music theory visualization tool and React component library.</p>
-
-                    <p>It provides a simple API for visualizing virtually any harmonic music theory concept.
-                        Just provide the key, concept, and (optional) configuration to one of the built-in viewer components and
-                    Play What will generate the properties of the respective notes and display them however they've been configured.</p>
-
-                    <GettingStarted />
-
-                    <ConfiguringComponents />
-
-                    <APIReference />
-
-                    <ConstantsReference />
-
-                    <Examples />
-
+                    <Page></Page>
                 </div>
 
-            </div >
+            </div>
         )
     }
 }
