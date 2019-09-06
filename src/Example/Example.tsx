@@ -13,3 +13,27 @@ export function Example(props: any) {
         </div>
     );
 }
+
+
+export class ExampleBox extends React.Component<any, any> {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            index: 0,
+        };
+    }
+
+    render = () => {
+        let child = this.props.children[this.state.index];
+        return (
+            <div className='example-box'>
+                <div className='example-box-nav last'
+                onClick={() => this.setState((oldState) => { return { index: oldState.index - 1} })}>{'<'}</div>
+                {child}
+                <div className='example-box-nav next'
+                onClick={() => this.setState((oldState) => { return { index: oldState.index + 1} })}>{'>'}</div>
+            </div >
+        );
+    }
+}

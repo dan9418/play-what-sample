@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Demo } from "../Demo/Demo";
-import { withNotes, CHORD, TONIC, Fretboard, DEFAULT_FRETBOARD_PROPS, Keyboard, DEFAULT_KEYBOARD_PROPS } from 'play-what-beta';
-import { Example } from "../Example/Example";
+import { withNotes, ROMAN_NUMERAL, CHORD, TONIC, Fretboard, DEFAULT_FRETBOARD_PROPS, Keyboard, DEFAULT_KEYBOARD_PROPS } from 'play-what-beta';
+import { Example, ExampleBox } from "../Example/Example";
 
 export function Overview(props: any) {
     return (
@@ -24,7 +24,17 @@ export function Overview(props: any) {
                 <li>A simple API for creating custom viewers</li>
             </ul>
 
-            <h2>Examples</h2>
+            <h2>Applications</h2>
+
+            <h3>Create chord progressions</h3>
+
+            <ExampleBox>
+                <Example viewer={Keyboard} concept={{ intervals: ROMAN_NUMERAL.ii.intervals }} label='ii' />
+
+                <Example viewer={Keyboard} concept={{ intervals: ROMAN_NUMERAL.V.intervals }} label='V' />
+
+                <Example viewer={Keyboard} concept={{ intervals: ROMAN_NUMERAL.I.intervals }} label='I' />
+            </ExampleBox>
 
             <h3>Compare concepts between instruments</h3>
 
@@ -32,7 +42,7 @@ export function Overview(props: any) {
 
             <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} label='Guitar' />
 
-            <h3>Tune and restring instruments</h3>
+            <h3>Create different string arrangements and tunings</h3>
 
             <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.E, octave: 3 }} label='Guitar' />
 
@@ -44,8 +54,6 @@ export function Overview(props: any) {
                     { tuning: -20 }    // E
                 ]
             }} label='Bass' />
-
-            <h3>Create chord progressions</h3>
 
             <h3>Control viewers ryhtymically</h3>
 

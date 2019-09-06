@@ -1,3 +1,11 @@
 .example {
     display: inline-block;
 }
+
+.example-box {
+    display: inline-block;
+}
+
+.example-box-nav {
+    display: inline-block;
+}
