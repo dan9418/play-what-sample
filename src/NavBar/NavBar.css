@@ -1,4 +1,8 @@
 .nav-bar {
+    
+}
+
+.nav-buttons {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -12,6 +16,7 @@
     top: 0;
     left: 0;
     right: 0;
+    overflow-x: auto;
 }
 
 .nav-button {
@@ -29,4 +34,32 @@
 .nav-button:hover {
     background-color: #555;
     cursor: pointer;
+}
+
+.fade {
+    width: 50px;
+    height: 40px;
+    z-index: 1000;
+    display: none;
+}
+
+.right {
+    position: absolute;
+    right: 0;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1));
+}
+
+.left {
+    position: absolute;
+    left: 0;
+    background-image: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,1));
+}
+
+@media screen and (max-width: 480px) {
+    .nav-buttons {
+        justify-content: space-between;
+    }
+    .fade {
+        display: block;
+    }
 }

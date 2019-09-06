@@ -2,11 +2,6 @@ import "./App.css"
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { GettingStarted } from "./Docs/GettingStarted";
-import { ConfiguringComponents } from "./Docs/ConfiguringComponents";
-import { APIReference } from "./Docs/APIReference";
-import { Examples } from "./Docs/Examples";
-import { ConstantsReference } from "./Docs/ConstantsReference";
 import { NavBar } from "./NavBar/NavBar";
 import { Overview } from "./Pages/Overview";
 import { Tutorial } from "./Pages/Tutorial";

@@ -47,7 +47,7 @@ export class IntervalPresetInput extends React.Component<InputProps, any> {
                 <DropdownInput
                     data={INTERVAL_PRESETS}
                     value={INTERVAL_PRESETS[this.state.conceptIndex]}
-                    setValue={(value, index) => { this.setState({ conceptIndex: index }); }}
+                    setValue={(value, index) => {this.setState({ conceptIndex: index }); }}
                 />
                 <EnumDropdownInput
                     label=''

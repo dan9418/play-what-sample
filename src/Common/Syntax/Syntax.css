@@ -1,3 +1,10 @@
+.inline-pre {
+    display: inline-block;
+    font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+}
+
 pre.syntax {
     text-align: left;
     background-color: #f6f8fa;

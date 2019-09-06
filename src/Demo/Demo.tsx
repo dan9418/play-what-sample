@@ -1,4 +1,5 @@
 import React = require('react');
+import "./Demo.css";
 import { DropdownInput } from '../Inputs/DropdownInput/DropdownInput';
 import { PropertyDefinition } from '../Inputs/Input.config';
 import { Imports, ObjectDeclaration, HocDeclaration, ComponentTag } from '../Common/Syntax/Syntax';
@@ -63,6 +64,9 @@ export class Demo extends React.Component<DemoProps, any> {
 
         return (
             <div>
+
+                <div className='demo-header'>Try it:</div>
+
                 <pre className='syntax'>
                     {this.props.imports && this.props.imports.map((im, i) => { return <Imports key={i} vars={im} source='play-what' />; })}
 

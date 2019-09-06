@@ -13,6 +13,6 @@
     padding: 2px;
 }
 
-.formatted-table tr:nth-child(even) {
+.formatted-table tr:nth-child(odd) {
     background-color: #f2f2f2;
 }

@@ -9,16 +9,29 @@ export function Reference(props: any) {
     return (
         <div className='docs-section'>
 
-            <h2>API Reference</h2>
+            <h1>Music Theory Constants</h1>
 
-            <h3>Object Types</h3>
+            <p>The following constants are available to import to make configuration easy and readable.</p>
 
-            <h4>Tonic</h4>
+            <h2>TONIC</h2>
 
             <p>
                 The tonic is the note from which all other notes are referenced. It is always assigned the diatonic degree of 1
                 and a letter name from A-G.
             </p>
+
+            <FormattedTable
+                headers={['Value', 'Description']}
+                rows={[
+                    ['C', 'Sets the 7 degrees as C D E F G A B, respectively'],
+                    ['D', 'Sets the 7 degrees as D E F G A B C, respectively'],
+                    ['E', 'Sets the 7 degrees as E F G A B C D, respectively'],
+                    ['F', 'Sets the 7 degrees as F G A B C D E, respectively'],
+                    ['G', 'Sets the 7 degrees as G A B C D E F, respectively'],
+                    ['A', 'Sets the 7 degrees as A B C D E F G, respectively'],
+                    ['B', 'Sets the 7 degrees as B C D E F G A, respectively']
+                ]}
+            />
 
             <FormattedTable
                 headers={['Prop', 'Type', 'Description']}
@@ -30,11 +43,20 @@ export function Reference(props: any) {
                 ]}
             />
 
-            <h4>Accidental</h4>
+            <h2>ACCIDENTAL</h2>
 
             <p>
                 An accidental offsets the pitch of a note. It is represented by a symbol (b or #) appended to the note's letter name.
             </p>
+
+            <FormattedTable
+                headers={['Value', 'Description']}
+                rows={[
+                    ['Natural', 'Does not alter the key tonic'],
+                    ['Flat', 'Lowers the key tonic by one semitone'],
+                    ['Sharp', 'Raises the key tonic by one semitone']
+                ]}
+            />
 
             <FormattedTable
                 headers={['Prop', 'Type', 'Description']}
@@ -45,7 +67,7 @@ export function Reference(props: any) {
                 ]}
             />
 
-            <h4>Interval</h4>
+            <h2>INTERVAL</h2>
 
             <p>
                 A musical interval represents the distance between two notes.
@@ -53,6 +75,10 @@ export function Reference(props: any) {
                 Degree represents the difference in letter names (e.g. A to B).
                 Semitones represent the difference in pitch.
             </p>
+
+            <h4>Degree vs. Semitones</h4>
+
+            <IntervalTable intervals={(Object as any).values(INTERVAL)} />
 
             <FormattedTable
                 headers={['Prop', 'Type', 'Description']}
@@ -64,91 +90,25 @@ export function Reference(props: any) {
                 ]}
             />
 
-            <h4>Concept</h4>
-
-            <p>
-                In Play What, a Concept is a collection of intervals including any instructions on how to interpret them.
-            </p>
+            <h2>NOTE_LABEL</h2>
 
             <FormattedTable
-                headers={['Prop', 'Type', 'Description']}
+                headers={['Value', 'Description']}
                 rows={[
-                    ['intervals', 'Interval', 'Intervals to derive notes from'],
-                    ['chordInversion', 'number', 'Chord inversion (applied % intervals.length)']
+                    ['None', 'No label'],
+                    ['Name', 'The symbol of the notes degree and accidental e.g. A#, Gb...'],
+                    ['Interval', 'The interval of the note relative to the key tonic'],
+                    ['PitchClass', 'The number of semitones from the last key tonic'],
+                    ['NoteIndex', 'The number of semitones from Middle C'],
+                    ['RelativeDegree', 'The diatonic degree of the note'],
+                    ['Octave', 'The octave that the note belongs to'],
+                    ['Frequency', 'The pitch of the note in Hz']
                 ]}
             />
 
-            <h4>KeyCenter</h4>
+            <h1>Viewer Props</h1>
 
-            <p>
-                In Play What, a KeyCenter specifies the exact tonic center from which to interpret the Intervals in Concepts.
-            </p>
-
-            <FormattedTable
-                headers={['Prop', 'Type', 'Description']}
-                rows={[
-                    ['tonic', 'Tonic', 'Tonic of the key'],
-                    ['accidental', 'Accidental', 'Accidental of tonic'],
-                    ['octave', 'number', 'Octave number of tonic following ISO specs']
-                ]}
-            />
-
-            <h4>Note</h4>
-
-            <p>
-                In Play What, Intervals are interpretted from their KeyCenter and converted to Note objects.
-            </p>
-
-            <FormattedTable
-                headers={['Prop', 'Type', 'Description']}
-                rows={[
-                    ['name', 'string', 'Spelling of the note plus the accidental symbol'],
-                    ['interval', 'Interval', 'Interval relative to the key center'],
-                    ['noteIndex', 'number', 'Distance from Middle C in semitones'],
-                    ['pitchClass', 'number', 'Distance from the last C in semitones'],
-                    ['noteOctave', 'number', 'Octave of the note (not the key center)'],
-                    ['frequency', 'number', 'Freqency in Hz']
-                ]}
-            />
-
-            <h3>Using The withNotes HOC</h3>
-
-            <pre className='syntax'>
-                <span className='function'>{'withNotes'}</span>
-                <span className='operator'>{'('}</span>
-                <span className=''>{'Viewer: Component'}</span>
-                <span className='operator'>{', '}</span>
-                <span className=''>{'concept?: Concept'}</span>
-                <span className='operator'>{', '}</span>
-                <span className=''>{'keyCenter?: KeyCenter'}</span>
-                <span className='operator'>{')'}</span>
-            </pre>
-
-            <h4>Defaults</h4>
-
-            <p>
-                If any property is omitted from the function call, it will be replaced with a default value.
-            </p>
-
-            <FormattedTable
-                headers={['Prop', 'Value']}
-                rows={[
-                    ['concept.intervals', '[]'],
-                    ['concept.chordInversion', '0'],
-                    ['keyCenter.tonic', 'TONIC.C'],
-                    ['keyCenter.accidental', 'ACCIDENTAL.Natural'],
-                    ['keyCenter.octave', '4']
-                ]}
-            />
-
-            <h4>Create Your Own Viewer</h4>
-
-            <p>
-                Viewer components aren't limited to the built-in presets.
-                Any component, including your own, can be passed to the <span className='italic'>Viewer</span> argument and <span className='italic'>withNotes</span> will return that component with one new prop <span className='italic'>(notes: Note[])</span>.
-            </p>
-
-            <h3>Viewer Props</h3>
+            <p>Each viewer has its own API for configuring how notes are displayed.</p>
 
             <h4>Keyboard</h4>
 
@@ -179,79 +139,29 @@ export function Reference(props: any) {
                 ]}
             />
 
-            <h2>Constants Reference</h2>
+            <h1>Concept Presets</h1>
 
-            <p>The following constants are available to import to make configuration easy and readable.</p>
+            <p>The following constants are presets for common musical concepts. Each contains an 'intervals' property.</p>
 
-            <h3>INTERVAL</h3>
-
-            <h4>Degree vs. Semitones</h4>
-
-            <IntervalTable intervals={(Object as any).values(INTERVAL)} />
-
-            <h3>TONIC</h3>
-
-            <FormattedTable
-                headers={['Value', 'Description']}
-                rows={[
-                    ['C', 'Sets the 7 degrees as C D E F G A B, respectively'],
-                    ['D', 'Sets the 7 degrees as D E F G A B C, respectively'],
-                    ['E', 'Sets the 7 degrees as E F G A B C D, respectively'],
-                    ['F', 'Sets the 7 degrees as F G A B C D E, respectively'],
-                    ['G', 'Sets the 7 degrees as G A B C D E F, respectively'],
-                    ['A', 'Sets the 7 degrees as A B C D E F G, respectively'],
-                    ['B', 'Sets the 7 degrees as B C D E F G A, respectively']
-                ]}
-            />
-
-            <h3>ACCIDENTAL</h3>
-
-            <FormattedTable
-                headers={['Value', 'Description']}
-                rows={[
-                    ['Natural', 'Does not alter the key tonic'],
-                    ['Flat', 'Lowers the key tonic by one semitone'],
-                    ['Sharp', 'Raises the key tonic by one semitone']
-                ]}
-            />
-
-            <h3>NOTE_LABEL</h3>
-
-            <FormattedTable
-                headers={['Value', 'Description']}
-                rows={[
-                    ['None', 'No label'],
-                    ['Name', 'The symbol of the notes degree and accidental e.g. A#, Gb...'],
-                    ['Interval', 'The interval of the note relative to the key tonic'],
-                    ['PitchClass', 'The number of semitones from the last key tonic'],
-                    ['NoteIndex', 'The number of semitones from Middle C'],
-                    ['RelativeDegree', 'The diatonic degree of the note'],
-                    ['Octave', 'The octave that the note belongs to'],
-                    ['Frequency', 'The pitch of the note in Hz']
-                ]}
-            />
-
-            <h3>Concept Presets</h3>
-
-            <p>The following constants are presets for common musical concepts. Each one contains an 'intervals' property.</p>
-
-            <h3>CHORD</h3>
+            <h2>CHORD</h2>
 
             <ConceptTable concepts={(Object as any).values(CHORD)} />
 
-            <h3>SCALE</h3>
+            <h2>SCALE</h2>
 
             <ConceptTable concepts={(Object as any).values(SCALE)} />
 
-            <h3>MODE</h3>
+            <h2>MODE</h2>
 
             <ConceptTable concepts={(Object as any).values(MODE)} />
 
-            <h3>ROMAN_NUMERAL</h3>
+            <h2>ROMAN_NUMERAL</h2>
+
+            <p><span className='italic'>*More roman numeral support planned for future releases</span></p>
 
             <ConceptTable concepts={(Object as any).values(ROMAN_NUMERAL)} />
 
-            <h3>INTERVAL_PAIR</h3>
+            <h2>INTERVAL_PAIR</h2>
 
             <p><span className='italic'>*Not to be confused with INTERVAL, which specifies a single interval</span></p>
 

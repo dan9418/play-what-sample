@@ -6,6 +6,19 @@ html, body {
     overflow:hidden;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
 .sample-container {
     
 }
@@ -22,7 +35,12 @@ html, body {
     right: 0;
 }
 
-h1, h2 {
+h1 {
+    font-weight: 600;
+    font-variant-caps: all-small-caps;
+}
+
+h2 {
     border-bottom: 1px solid #eaecef;
     padding-bottom: .3em;
     font-weight: 600;
@@ -35,13 +53,22 @@ h1, h2 {
     font-style: italic;
 }
 
+ul, ol {
+    text-align: left;
+}
+
 .docs-section {
     max-width: 800px;
     margin: auto;
-    height: 100%;
-    padding: 20px;
+    padding: 30px;
     background: white;
     border-left: 1px solid #d1d5da;
     border-right: 1px solid #d1d5da;
     overflow: auto;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
