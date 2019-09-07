@@ -1,6 +1,6 @@
 import * as React from "react";
-import { InputProps } from "../Inputs/Input.config";
-import { NumericInput } from "../Inputs/NumericInput/NumericInput";
+import { InputProps } from "../Input.config";
+import { NumericInput } from "../NumericInput/NumericInput";
 import { FretboardStringConfig } from 'play-what-beta';
 
 const DEFAULT_STRING_CONFIG = { tuning: 0 };

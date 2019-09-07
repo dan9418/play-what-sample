@@ -1,7 +1,7 @@
 import * as React from "react";
-import { InputProps } from "../Inputs/Input.config";
-import { EnumDropdownInput } from "../Inputs/DropdownInput/EnumDropdownInput";
-import { DropdownInput } from "../Inputs/DropdownInput/DropdownInput";
+import { InputProps } from "../Input.config";
+import { EnumDropdownInput } from "../DropdownInput/EnumDropdownInput";
+import { DropdownInput } from "../DropdownInput/DropdownInput";
 import { INTERVAL_PAIR, CHORD, SCALE, MODE, ROMAN_NUMERAL } from 'play-what-beta';
 
 const INTERVAL_PRESETS = [

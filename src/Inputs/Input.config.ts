@@ -1,8 +1,8 @@
 import { EnumDropdownInput } from "./DropdownInput/EnumDropdownInput";
 import { NumericInput } from "./NumericInput/NumericInput";
-import { IntervalPresetInput } from "../CompositeInputs/IntervalPresetInput";
+import { IntervalPresetInput } from "./CompositeInputs/IntervalPresetInput";
 import { BooleanInput } from "./BooleanInput/BooleanInput";
-import { FretboardStringInput } from "../CompositeInputs/FretboardStringInput";
+import { FretboardStringInput } from "./CompositeInputs/FretboardStringInput";
 
 import { NOTE_LABEL, TONIC, ACCIDENTAL } from 'play-what-beta';
 
