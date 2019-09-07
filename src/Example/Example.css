@@ -3,9 +3,16 @@
 }
 
 .example-box {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .example-box-nav {
     display: inline-block;
+}
+
+.example-label {
+    position: relative;
+    top: -10px;
 }
