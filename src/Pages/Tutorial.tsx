@@ -168,52 +168,21 @@ export function Tutorial(props: any) {
                 See the reference section for details.
             </p>
 
-            <h2>Change The Instrument's Note Range</h2>
+            <h2>Keyboard</h2>
 
-            <Demo
-                imports={[
-                    ['withNotes', 'Keyboard', 'Fretboard']
-                ]}
-                defaultKeyCenter={{
-                    tonic: TONIC.C,
-                    accidental: ACCIDENTAL.Natural,
-                    octave: 4
-                }}
-                defaultConcept={{
-                    intervals: CHORD.Maj.intervals,
-                    chordInversion: 0
-                }}
-                viewers={[
-                    {
-                        id: 'keyboard',
-                        name: 'Keyboard',
-                        component: Keyboard,
-                        defaultProps: DEFAULT_KEYBOARD_PROPS,
-                        inputs: [
-                            KEYBOARD_INPUTS.keyLow,
-                            KEYBOARD_INPUTS.keyHigh
-                        ]
-                    },
-                    {
-                        id: 'fretboard',
-                        name: 'Fretboard',
-                        component: Fretboard,
-                        defaultProps: DEFAULT_FRETBOARD_PROPS,
-                        inputs: [
-                            FRETBOARD_INPUTS.fretLow,
-                            FRETBOARD_INPUTS.fretHigh,
-                            FRETBOARD_INPUTS.strings
-                        ]
-                    }
+            <FormattedTable
+                headers={['Prop', 'Type', 'Default', 'Description']}
+                rows={[
+                    ['filterOctave', 'boolean', 'true', 'Indicates whether to show note in all octaves'],
+                    ['keyLabel', 'NOTE_LABEL', 'NOTE_LABEL.Name', 'Text overlayed on each key'],
+                    ['keyLow', 'number', '0', 'The note index of the first keyboard key'],
+                    ['keyHigh', 'number', '25', 'The note index of the last keyboard key']
                 ]}
             />
 
-            <h2>Change How And What Notes Are Displayed</h2>
-
             <Demo
                 imports={[
-                    ['withNotes', 'Keyboard', 'Fretboard'],
-                    ['NOTE_LABEL'],
+                    ['withNotes', 'Keyboard']
                 ]}
                 defaultKeyCenter={{
                     tonic: TONIC.C,
@@ -232,27 +201,34 @@ export function Tutorial(props: any) {
                         defaultProps: DEFAULT_KEYBOARD_PROPS,
                         inputs: [
                             KEYBOARD_INPUTS.keyLabel,
-                            KEYBOARD_INPUTS.filterOctave
-                        ]
-                    },
-                    {
-                        id: 'fretboard',
-                        name: 'Fretboard',
-                        component: Fretboard,
-                        defaultProps: DEFAULT_FRETBOARD_PROPS,
-                        inputs: [
-                            FRETBOARD_INPUTS.fretLabel,
-                            FRETBOARD_INPUTS.filterOctave
+                            KEYBOARD_INPUTS.filterOctave,
+                            KEYBOARD_INPUTS.keyLow,
+                            KEYBOARD_INPUTS.keyHigh
                         ]
                     }
                 ]}
             />
 
-            <h2>Change How The Viewer Looks</h2>
+            <h2>Fretboard</h2>
+
+            <FormattedTable
+                headers={['Prop', 'Type', 'Default', 'Description']}
+                rows={[
+                    ['filterOctave', 'boolean', 'true', 'Indicates whether to show note in all octaves'],
+                    ['fretLabel', 'NOTE_LABEL', 'NOTE_LABEL.Name', 'Text overlayed on each fret'],
+                    ['fretLow', 'number', '0', 'The number of the first fretboard fret'],
+                    ['fretHigh', 'number', '12', 'The number of the last fretboard fret'],
+                    ['showDots', 'boolean', 'true', 'Indicates whether to show the helper dots commonly found on fretboards'],
+                    ['showFretNumbers', 'boolean', 'true', 'Indicates whether to show fret numbers above each fret'],
+                    ['strings', 'stringConfig[]', '(standard guitar)', 'An array of config ojects specifiying fretboard strings'],
+                    ['strings[n].tuning', 'number', '0', 'The note index of the strings open note'],
+                    ['strings[n].unfilteredIntervals', 'INTERVAL[]', 'undefined', 'If defined, specifies allowable intervals on the string (not available in demo)']
+                ]}
+            />
 
             <Demo
                 imports={[
-                    ['withNotes', 'Keyboard', 'Fretboard']
+                    ['withNotes', 'Fretboard']
                 ]}
                 defaultKeyCenter={{
                     tonic: TONIC.C,
@@ -270,12 +246,18 @@ export function Tutorial(props: any) {
                         component: Fretboard,
                         defaultProps: DEFAULT_FRETBOARD_PROPS,
                         inputs: [
+                            FRETBOARD_INPUTS.fretLabel,
+                            FRETBOARD_INPUTS.filterOctave,
+                            FRETBOARD_INPUTS.fretLow,
+                            FRETBOARD_INPUTS.fretHigh,
+                            FRETBOARD_INPUTS.strings,
                             FRETBOARD_INPUTS.showDots,
                             FRETBOARD_INPUTS.showFretNumbers
                         ]
                     }
                 ]}
             />
+
 
             <h2>Create Your Own Viewer</h2>
 

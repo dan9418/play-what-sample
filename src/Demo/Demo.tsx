@@ -79,7 +79,9 @@ export class Demo extends React.Component<DemoProps, any> {
                     }
 
                     <HocDeclaration varName={viewer.name + 'WithNotes'} hocName='withNotes'>
-                        <DropdownInput data={this.props.viewers} value={viewer} setValue={(value, index) => this.changeViewer(index)} />
+                        {this.props.viewers && this.props.viewers.length > 1 ?
+                            <DropdownInput data={this.props.viewers} value={viewer} setValue={(value, index) => this.changeViewer(index)} />
+                            : viewer.name}
                         {enableConcept && <span>
                             <span className='operator'>{', '}</span><span className='var'>{'concept'}</span>
                         </span>}

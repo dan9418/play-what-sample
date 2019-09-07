@@ -37,7 +37,10 @@ export function FretboardStringInput(props: InputProps) {
     return (
         <div className='fretboard-string-input'>
             <div className='comment'>
-                {'// Add, remove, or tune strings here: '}
+                {'// Add, remove, or tune strings here... '}
+                </div>
+            <div className='comment'>
+                {'// Number of strings: '}
                 <NumericInput
                     value={props.value.length}
                     setValue={(value) => {
