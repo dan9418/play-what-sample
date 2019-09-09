@@ -1,9 +1,9 @@
 import React = require('react');
 import "./Demo.css";
-import { DropdownInput } from '../Inputs/DropdownInput/DropdownInput';
-import { PropertyDefinition } from '../Inputs/Input.config';
-import { Imports, ObjectDeclaration, HocDeclaration, ComponentTag } from '../Common/Syntax/Syntax';
+import { Imports, ObjectDeclaration, HocDeclaration, ComponentTag } from '../../../Common/Syntax/Syntax';
 import { withNotes, DEFAULT_KEY_CENTER, DEFAULT_CONCEPT } from 'play-what-beta';
+import { PropertyDefinition } from './Inputs/Input.config';
+import { DropdownInput } from './Inputs/DropdownInput/DropdownInput';
 
 export type ViewerDefinition = {
     id: string;

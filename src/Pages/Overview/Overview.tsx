@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NOTE_LABEL, INTERVAL, SCALE, ROMAN_NUMERAL, CHORD, TONIC, Fretboard, Keyboard } from 'play-what-beta';
-import { Example } from "../Example/Example";
+import { Example } from "./Example/Example";
 
 export function Overview(props: any) {
     return (

@@ -1,8 +1,8 @@
 import * as React from "react";
 import { INTERVAL, CHORD, SCALE, MODE, ROMAN_NUMERAL, INTERVAL_PAIR } from 'play-what-beta';
-import { FormattedTable } from "../Common/FormattedTable/FormattedTable";
-import { IntervalTable } from "../Common/IntervalTable/IntervalTable";
-import { ConceptTable } from "../Common/ConceptTable/ConceptTable";
+import { FormattedTable } from "../../Common/FormattedTable/FormattedTable";
+import { IntervalTable } from "./IntervalTable/IntervalTable";
+import { ConceptTable } from "./ConceptTable/ConceptTable";
 
 export function Reference(props: any) {
     return (

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Demo } from "../Demo/Demo";
+import { Demo } from "./Demo/Demo";
 import { TONIC, ACCIDENTAL, CHORD, Fretboard, DEFAULT_FRETBOARD_PROPS, Keyboard, DEFAULT_KEYBOARD_PROPS } from 'play-what-beta';
-import { CONCEPT_INPUTS, KEY_CENTER_INPUTS, KEYBOARD_INPUTS, FRETBOARD_INPUTS } from "../Inputs/Input.config";
-import { FormattedTable } from "../Common/FormattedTable/FormattedTable";
+import { FormattedTable } from "../../Common/FormattedTable/FormattedTable";
+import { CONCEPT_INPUTS, KEY_CENTER_INPUTS, KEYBOARD_INPUTS, FRETBOARD_INPUTS } from "./Demo/Inputs/Input.config";
 
 export function Tutorial(props: any) {
     return (

@@ -3,14 +3,17 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import { NavBar } from "./NavBar/NavBar";
-import { Overview } from "./Pages/Overview";
-import { Tutorial } from "./Pages/Tutorial";
-import { Reference } from "./Pages/Reference";
-import { HireMe } from "./Pages/HireMe";
+import { Overview } from "./Pages/Overview/Overview";
+import { Tutorial } from "./Pages/Tutorial/Tutorial";
+import { Reference } from "./Pages/Reference/Reference";
+import { HireMe } from "./Pages/HireMe/HireMe";
 
-export class App extends React.Component<any, any> {
+export type PageDef = {
+    name: string;
+    component: any;
+}
 
-    pages = [
+const PAGES: PageDef[] = [
         {
             name: 'Overview',
             component: Overview
@@ -29,6 +32,8 @@ export class App extends React.Component<any, any> {
         }
     ];
 
+export class App extends React.Component<any, any> {
+
     constructor(props) {
         super(props);
 
@@ -45,19 +50,17 @@ export class App extends React.Component<any, any> {
 
     render() {
 
-        let Page = this.pages[this.state.pageIndex].component;
+        let Page = PAGES[this.state.pageIndex].component;
 
         return (
-            <div className='sample-container'>
-
-                <NavBar pages={this.pages} pageIndex={this.state.pageIndex} setPage={this.setPage}></NavBar>
+            <div>
+                <NavBar pages={PAGES} pageIndex={this.state.pageIndex} setPage={this.setPage}/>
 
                 <div className='app-body'>
                     <Page></Page>
                 </div>
-
             </div>
-        )
+        );
     }
 }
 

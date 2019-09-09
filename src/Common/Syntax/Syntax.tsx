@@ -1,6 +1,8 @@
 import './Syntax.css';
 import React = require('react');
 
+// TODO: Create prop types
+
 export function ObjectDeclaration(props: any) {
     let objectProps = props.inputs.map((input) => {
         let Input = input.component;

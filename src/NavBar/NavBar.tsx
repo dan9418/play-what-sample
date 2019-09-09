@@ -1,7 +1,14 @@
 import * as React from "react";
 import "./NavBar.css";
+import { PageDef } from "../App";
 
-export function NavBar(props: any) {
+type NavBarProps = {
+    pages: PageDef[];
+    pageIndex: number;
+    setPage: (index: number) => void;
+}
+
+export function NavBar(props: NavBarProps) {
     return (
         <header className='nav-bar'>
             <div className='fade left'></div>
