@@ -84,10 +84,10 @@ export class Demo extends React.Component<DemoProps, any> {
                             {this.props.viewers && this.props.viewers.length > 1 ?
                                 <DropdownInput data={this.props.viewers} value={viewer} setValue={(value, index) => this.changeViewer(index)} />
                                 : viewer.name}
-                            {enableConcept && <span>
+                            {(enableConcept || this.props.defaultConcept) && <span>
                                 <span className='operator'>{', '}</span><span className='var'>{'concept'}</span>
                             </span>}
-                            {enableKeyCenter && <span>
+                            {(enableKeyCenter || this.props.defaultKeyCenter) && <span>
                                 <span className='operator'>{', '}</span><span className='var'>{'keyCenter'}</span>
                             </span>}
                         </HocDeclaration>

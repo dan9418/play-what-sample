@@ -45,7 +45,7 @@ export function FretboardStringInput(props: InputProps) {
                     value={props.value.length}
                     setValue={(value) => {
                         value > props.value.length ?
-                            props.setValue([...props.value.slice(0, value - 1), DEFAULT_STRING_CONFIG]) :
+                            props.setValue([...props.value.slice(0, value - 1), {...DEFAULT_STRING_CONFIG}]) :
                             props.setValue([...props.value.slice(0, value)])
                     }}
                 />
