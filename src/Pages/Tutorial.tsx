@@ -11,11 +11,11 @@ export function Tutorial(props: any) {
 
             <h2>Prerequisites</h2>
 
-            <p>Your project should be configured for a Node.js environment and have React as a dependency</p>
+            <p>Your project should be configured for a Node.js environment with React as a dependency.</p>
 
             <h2>Installation</h2>
 
-            <p>Play What is available as an npm package and can be installed via the command-line</p>
+            <p>Play What is available as an npm package and can be installed via the command-line.</p>
 
             <pre className='syntax'>
                 <span className='keyword'>npm </span>
@@ -51,10 +51,10 @@ export function Tutorial(props: any) {
 
             <h1>Applying Musical Concepts</h1>
 
-            <h2>Using the withNotes HOC</h2>
+            <h2>Using the <span className='italic'>withNotes</span> HOC</h2>
 
             <p>
-                To add musical notes to a viewer, we must first pass it to the higher-order component <span className='inline-pre'>withNotes</span> as follows.
+                To add musical notes to a viewer, we must first pass it to the <a href='https://reactjs.org/docs/higher-order-components.html' target='_blank'>higher-order component</a> <span className='inline-pre'>withNotes</span> as shown below.
             </p>
 
             <Demo
@@ -83,7 +83,7 @@ export function Tutorial(props: any) {
             </p>
 
             <FormattedTable
-                title='Concept'
+                title='Concept Interface'
                 headers={['Property', 'Type', 'Default', 'Description']}
                 rows={[
                     ['intervals?', 'Interval[]', '[]', 'Intervals in concept'],
@@ -92,11 +92,13 @@ export function Tutorial(props: any) {
             />
 
             <p>
-                All values are optional. The most important idea here is the <span className='inline-pre'>intervals</span> array, which <span className='italic'>Play What</span>
-                converts to musical notes. The <span className='inline-pre'>chordInversion</span> value alters the order of the intervals.
+                All values are optional.
+                The most important idea here is the <span className='inline-pre'>intervals</span> array, which <span className='italic'>Play What</span> converts to musical notes.
+                The <span className='inline-pre'>chordInversion</span> value alters the order of the intervals.
             </p>
             <p>
-                Knowledge of musical intervals is not required. Simply import a preset to get started quickly, as shown below.
+                Knowledge of musical intervals is not required.
+                Simply import a preset to get started quickly, as shown below.
                 Constants are available for common chords, scales, modes, roman numerals, and interval pairs.
                 A complete list is available in the reference section.
             </p>
@@ -145,8 +147,8 @@ export function Tutorial(props: any) {
                 title='KeyCenter Interface'
                 headers={['Property', 'Type', 'Default', 'Description']}
                 rows={[
-                    ['tonic', 'Tonic', 'TONIC.C', 'Tonic of the key'],
-                    ['accidental', 'Accidental', 'ACCIDENTAL.Natural', 'Accidental of tonic'],
+                    ['tonic', 'TONIC enum', 'C', 'Tonic of the key'],
+                    ['accidental', 'ACCIDENTAL enum', 'Natural', 'Accidental of tonic'],
                     ['octave', 'number', '4', 'ISO octave number']
                 ]}
             />
@@ -202,7 +204,7 @@ export function Tutorial(props: any) {
                 headers={['Prop', 'Type', 'Default', 'Description']}
                 rows={[
                     ['filterOctave', 'boolean', 'true', 'Indicates whether to show note in all octaves'],
-                    ['keyLabel', 'NOTE_LABEL', 'NOTE_LABEL.Name', 'Text overlayed on each key'],
+                    ['keyLabel', 'NOTE_LABEL enum', 'Name', 'Text overlayed on each key'],
                     ['keyLow', 'number', '0', 'The note index of the first keyboard key'],
                     ['keyHigh', 'number', '25', 'The note index of the last keyboard key']
                 ]}
@@ -243,8 +245,8 @@ export function Tutorial(props: any) {
                 title='Fretboard Props'
                 headers={['Prop', 'Type', 'Default', 'Description']}
                 rows={[
-                    ['filterOctave', 'boolean', 'true', 'Indicates whether to show note in all octaves'],
-                    ['fretLabel', 'NOTE_LABEL', 'NOTE_LABEL.Name', 'Text overlayed on each fret'],
+                    ['filterOctave', 'boolean', 'true', 'Indicates whether to show notes in all octaves'],
+                    ['fretLabel', 'NOTE_LABEL enum', 'Name', 'Text overlayed on each fret'],
                     ['fretLow', 'number', '0', 'The number of the first fretboard fret'],
                     ['fretHigh', 'number', '12', 'The number of the last fretboard fret'],
                     ['showDots', 'boolean', 'true', 'Indicates whether to show the helper dots commonly found on fretboards'],
@@ -309,18 +311,18 @@ export function Tutorial(props: any) {
             </pre>
 
             <p>
-                The returned component will receive one new prop, <span className='inline-pre'>notes</span>, of type <span className='inline-pre'>Note</span>.
+                The returned component will receive one new prop <span className='inline-pre'>notes</span>, of type <span className='inline-pre'>Note[]</span>
             </p>
 
             <FormattedTable
                 title='Note Interface'
                 headers={['Property', 'Type', 'Description']}
                 rows={[
-                    ['name', 'string', 'Spelling of the note plus the accidental symbol'],
+                    ['name', 'string', 'Letter name of the note plus the accidental symbol'],
                     ['interval', 'Interval', 'Interval relative to the key center'],
                     ['noteIndex', 'number', 'Distance from Middle C in semitones'],
                     ['pitchClass', 'number', 'Distance from the last C in semitones'],
-                    ['noteOctave', 'number', 'Octave of the note (not the key center)'],
+                    ['noteOctave', 'number', 'Octave of the note (not the key center octave)'],
                     ['frequency', 'number', 'Freqency in Hz']
                 ]}
             />
