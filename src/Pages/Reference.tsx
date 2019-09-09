@@ -9,18 +9,20 @@ export function Reference(props: any) {
     return (
         <div className='docs-section'>
 
-            <h1>Music Theory Constants</h1>
+            <h1>Enum Values</h1>
 
-            <p>The following constants are available to import to make configuration easy and readable.</p>
+            <p>The following enums can be imported to make configuration easy and readable.</p>
 
-            <h2>TONIC</h2>
+            <h2>Tonics</h2>
 
             <p>
-                The tonic is the note from which all other notes are referenced. It is always assigned the diatonic degree of 1
-                and a letter name from A-G.
+                The tonic is the note from which all other notes are referenced.
+                <br />
+                It always has a degree of 1 and a letter name from A-G.
             </p>
 
             <FormattedTable
+                title='TONIC'
                 headers={['Value', 'Description']}
                 rows={[
                     ['C', 'Sets the 7 degrees as C D E F G A B, respectively'],
@@ -33,7 +35,8 @@ export function Reference(props: any) {
                 ]}
             />
 
-            <FormattedTable
+            {/*<FormattedTable
+                title=''
                 headers={['Prop', 'Type', 'Description']}
                 rows={[
                     ['id', 'string', 'Unique identifier'],
@@ -41,15 +44,18 @@ export function Reference(props: any) {
                     ['degreeInC', 'number', 'Degree in the key of C Major'],
                     ['pitchClass', 'number', 'Pitch class in the key of C Major']
                 ]}
-            />
+            />*/}
 
-            <h2>ACCIDENTAL</h2>
+            <h2>Accidental</h2>
 
             <p>
-                An accidental offsets the pitch of a note. It is represented by a symbol (b or #) appended to the note's letter name.
+                An accidental offsets the pitch of a note.
+                <br />
+                It is represented by a symbol (generally b or #) appended to the note's letter name.
             </p>
 
             <FormattedTable
+                title='ACCIDENTAL'
                 headers={['Value', 'Description']}
                 rows={[
                     ['Natural', 'Does not alter the key tonic'],
@@ -58,29 +64,38 @@ export function Reference(props: any) {
                 ]}
             />
 
-            <FormattedTable
+            {/*<FormattedTable
+                title=''
                 headers={['Prop', 'Type', 'Description']}
                 rows={[
                     ['id', 'string', 'Unique identifier'],
                     ['name', 'string', 'Display name'],
                     ['offset', 'number', 'Offset applied by accidental in semitones']
                 ]}
-            />
+            />*/}
 
-            <h2>INTERVAL</h2>
+            <h2>Interval</h2>
 
             <p>
                 A musical interval represents the distance between two notes.
-                The distance is measured in two ways, degree and semitones.
+                <br />
+                The distance is measured in two ways, <span className='italic'>degree</span> and <span className='italic'>semitones</span>.
+                <br/>
                 Degree represents the difference in letter names (e.g. A to B).
+                <br />
                 Semitones represent the difference in pitch.
+                <br />
+                There are 12 semitones in an octave,
             </p>
 
-            <h4>Degree vs. Semitones</h4>
+            <p>
+                The table below shows the available <span className='inline-pre'>INTERVAL</span> enums organized by degree (y) and semitones (x).
+            </p>
 
             <IntervalTable intervals={(Object as any).values(INTERVAL)} />
 
-            <FormattedTable
+            {/*<FormattedTable
+                title=''
                 headers={['Prop', 'Type', 'Description']}
                 rows={[
                     ['id', 'string', 'Unique identifier'],
@@ -88,11 +103,16 @@ export function Reference(props: any) {
                     ['degree', 'number', 'Difference in degrees'],
                     ['semitones', 'number', 'Difference in semitones']
                 ]}
-            />
+            />*/}
 
-            <h2>NOTE_LABEL</h2>
+            <h2>Note Label</h2>
+
+            <p>
+                The following enums can be used to represent the properties exposed by a <span className='inline-pre'>Note</span> object.
+            </p>
 
             <FormattedTable
+                title='NOTE_LABEL'
                 headers={['Value', 'Description']}
                 rows={[
                     ['None', 'No label'],
@@ -106,42 +126,13 @@ export function Reference(props: any) {
                 ]}
             />
 
-            <h1>Viewer Props</h1>
-
-            <p>Each viewer has its own API for configuring how notes are displayed.</p>
-
-            <h4>Keyboard</h4>
-
-            <FormattedTable
-                headers={['Prop', 'Type', 'Default', 'Description']}
-                rows={[
-                    ['filterOctave', 'boolean', 'true', 'Indicates whether to show note in all octaves'],
-                    ['keyLabel', 'NOTE_LABEL', 'NOTE_LABEL.Name', 'Text overlayed on each key'],
-                    ['keyLow', 'number', '0', 'The note index of the first keyboard key'],
-                    ['keyHigh', 'number', '25', 'The note index of the last keyboard key']
-                ]}
-            />
-
-            <h4>Fretboard</h4>
-
-            <FormattedTable
-                headers={['Prop', 'Type', 'Default', 'Description']}
-                rows={[
-                    ['filterOctave', 'boolean', 'true', 'Indicates whether to show note in all octaves'],
-                    ['fretLabel', 'NOTE_LABEL', 'NOTE_LABEL.Name', 'Text overlayed on each fret'],
-                    ['fretLow', 'number', '0', 'The number of the first fretboard fret'],
-                    ['fretHigh', 'number', '12', 'The number of the last fretboard fret'],
-                    ['showDots', 'boolean', 'true', 'Indicates whether to show the helper dots commonly found on fretboards'],
-                    ['showFretNumbers', 'boolean', 'true', 'Indicates whether to show fret numbers above each fret'],
-                    ['strings', 'stringConfig[]', '(standard guitar)', 'An array of config ojects specifiying fretboard strings'],
-                    ['strings[n].tuning', 'number', '0', 'The note index of the strings open note'],
-                    ['strings[n].unfilteredIntervals', 'INTERVAL[]', 'undefined', 'If defined, specifies allowable intervals on the string']
-                ]}
-            />
-
             <h1>Concept Presets</h1>
 
-            <p>The following constants are presets for common musical concepts. Each contains an 'intervals' property.</p>
+            <p>
+                The following constants contain presets for common musical concepts.
+                <br />
+                Each preset has an <span className='inline-pre'>intervals</span> property that can be included in a <span className='inline-pre'>Concept</span> object.
+            </p>
 
             <h2>CHORD</h2>
 
