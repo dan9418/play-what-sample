@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Demo } from "../Demo/Demo";
-import { NOTE_LABEL, INTERVAL, MODE, SCALE, withNotes, ROMAN_NUMERAL, CHORD, TONIC, Fretboard, DEFAULT_FRETBOARD_PROPS, Keyboard, DEFAULT_KEYBOARD_PROPS } from 'play-what-beta';
-import { Example, ExampleBox } from "../Example/Example";
+import { NOTE_LABEL, INTERVAL, SCALE, ROMAN_NUMERAL, CHORD, TONIC, Fretboard, Keyboard } from 'play-what-beta';
+import { Example } from "../Example/Example";
 
 export function Overview(props: any) {
     return (
         <div className='docs-section'>
+
             <h1>Play What?</h1>
 
             <p>
@@ -16,18 +16,16 @@ export function Overview(props: any) {
             <h2>Features</h2>
 
             <ul>
-                <li>Built-in presets for Chords, Scales, Modes, and Roman Numerals</li>
-                <li>Support for chordal inversions</li>
+                <li>Presets for Chords, Scales, Modes, and Roman Numerals</li>
                 <li>Easy transposition of any concept to any key and/or octave</li>
-                <li>Highly configurable viewer components to visualize these concepts</li>
+                <li>Configurable viewer components to visualize these concepts</li>
                 <li>Built-in viewers for keyboards and fretboards</li>
                 <li>A simple API for creating custom viewers</li>
             </ul>
 
             <h2>Example Applications</h2>
 
-
-            <h3>Analyze the note properties of common musical concepts</h3>
+            <h3>Configure concepts and how they're displayed</h3>
 
             <Example viewer={Keyboard} viewerProps={{ keyHigh: 12, keyLabel: NOTE_LABEL.Name }} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.E }} label='Chords' />
 
@@ -35,21 +33,7 @@ export function Overview(props: any) {
 
             <Example viewer={Keyboard} viewerProps={{ keyLow: 2, keyHigh: 16, keyLabel: NOTE_LABEL.Degree }} concept={{ intervals: CHORD.Min.intervals, chordInversion: 1 }} keyCenter={{ tonic: TONIC.D }} label='Inversions' />
 
-
-
-            <h3>Demonstrate chord progressions</h3>
-
-            <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.ii.intervals }} label='ii' />
-
-            <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.V.intervals }} label='V' />
-
-            <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.I.intervals }} label='I' />
-
-
-
             <h3>View concepts on different instruments</h3>
-
-            <Example viewer={Keyboard} concept={{ intervals: CHORD.Maj.intervals }} label='Piano' />
 
             <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} label='Guitar' />
 
@@ -62,9 +46,9 @@ export function Overview(props: any) {
                 ]
             }} label='Bass Guitar' />
 
+            <Example viewer={Keyboard} concept={{ intervals: CHORD.Maj.intervals }} label='Piano' />
 
-
-            <h3>Experiment with different tunings and voicings</h3>
+            <h3>Customize tunings and voicings</h3>
 
             <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.D }} viewerProps={{
                 fretHigh: 3,
@@ -93,7 +77,7 @@ export function Overview(props: any) {
                 ],
                 filterOctave: false,
                 showDots: false
-            }} label='Barre' />
+            }} label='Standard (Barre)' />
 
             <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.D }} viewerProps={{
                 fretHigh: 3,
@@ -109,11 +93,21 @@ export function Overview(props: any) {
                 showDots: false
             }} label='Open D' />
 
+            <h3>Demonstrate chord progressions</h3>
+
+            <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.ii.intervals }} label='ii' />
+
+            <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.V.intervals }} label='V' />
+
+            <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.I.intervals }} label='I' />
+
+
             <h2>Contribute</h2>
 
             <p>
                 Many improvements and features are planned for <span className='italic'>Play What</span>.
             </p>
+
             <p>
                 See the <a href='https://github.com/dan9418/play-what-beta' target='_blank'>GitHub page</a> to report bugs, make a pull request, or request features.
             </p>
