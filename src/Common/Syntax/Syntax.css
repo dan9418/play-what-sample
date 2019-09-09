@@ -1,5 +1,4 @@
 .inline-pre {
-    display: inline-block;
     font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
     background-color: #f6f8fa;
     border-radius: 3px;
@@ -63,10 +62,6 @@ pre.syntax .object-prop {
 pre.syntax .component {
     color: lightcoral;
     font-weight: bold;
-}
-
-.prop-input {
-
 }
 
 .array-items {
