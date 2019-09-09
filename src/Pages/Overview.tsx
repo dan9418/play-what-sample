@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Demo } from "../Demo/Demo";
-import { NOTE_LABEL, MODE, SCALE, withNotes, ROMAN_NUMERAL, CHORD, TONIC, Fretboard, DEFAULT_FRETBOARD_PROPS, Keyboard, DEFAULT_KEYBOARD_PROPS } from 'play-what-beta';
+import { NOTE_LABEL, INTERVAL, MODE, SCALE, withNotes, ROMAN_NUMERAL, CHORD, TONIC, Fretboard, DEFAULT_FRETBOARD_PROPS, Keyboard, DEFAULT_KEYBOARD_PROPS } from 'play-what-beta';
 import { Example, ExampleBox } from "../Example/Example";
 
 export function Overview(props: any) {
@@ -27,7 +27,7 @@ export function Overview(props: any) {
             <h2>Example Applications</h2>
 
 
-            <h3>Analyze the properties of common musical concepts</h3>
+            <h3>Analyze the note properties of common musical concepts</h3>
 
             <Example viewer={Keyboard} viewerProps={{ keyHigh: 12, keyLabel: NOTE_LABEL.Name }} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.E }} label='Chords' />
 
@@ -60,7 +60,7 @@ export function Overview(props: any) {
                     { tuning: -15 },   // A
                     { tuning: -20 }    // E
                 ]
-            }} label='Bass' />
+            }} label='Bass Guitar' />
 
 
 
@@ -76,7 +76,8 @@ export function Overview(props: any) {
                     { tuning: -3, unfilteredIntervals: [] },   // A
                     { tuning: -8, unfilteredIntervals: [] }    // E
                 ],
-                filterOctave: false
+                filterOctave: false,
+                showDots: false
             }} label='Standard' />
 
             <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.D }} viewerProps={{
@@ -90,7 +91,8 @@ export function Overview(props: any) {
                     { tuning: -3 },   // A
                     { tuning: -8 }    // E
                 ],
-                filterOctave: false
+                filterOctave: false,
+                showDots: false
             }} label='Barre' />
 
             <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.D }} viewerProps={{
@@ -98,13 +100,23 @@ export function Overview(props: any) {
                 strings: [
                     { tuning: 14 },   // d
                     { tuning: 9 },   // A
-                    { tuning: 6 },    // F#
+                    { tuning: 6, unfilteredIntervals: [INTERVAL.M3] },    // F#
                     { tuning: 2 },    // D
                     { tuning: -3 },   // A
                     { tuning: -10 }    // D
                 ],
-                filterOctave: false
+                filterOctave: false,
+                showDots: false
             }} label='Open D' />
+
+            <h2>Contribute</h2>
+
+            <p>
+                Many improvements and features are planned for <span className='italic'>Play What</span>.
+            </p>
+            <p>
+                See the <a href='https://github.com/dan9418/play-what-beta' target='_blank'>GitHub page</a> to report bugs, make a pull request, or request features.
+            </p>
 
         </div>
     );

@@ -4,7 +4,8 @@
 }
 
 .formatted-table th {
-    background-color: #DDD;
+    background-color: #336699;
+    color: white;
     text-align: center;
     padding: 2px;
 }
@@ -13,12 +14,12 @@
     padding: 2px;
 }
 
-.formatted-table tr:nth-child(odd) {
-    background-color: #f2f2f2;
+.formatted-table tr:nth-child(even) {
+    background-color: #d9e5f2;
 }
 
-.formatted-table tr:nth-child(even) {
-    background-color: #f9f9f9
+.formatted-table tr:nth-child(odd) {
+    background-color: #c6d8eb
 }
 
 .formatted-table caption { 

@@ -8,7 +8,7 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    background: #333;
+    background: #22405d;
     color: white;
     position: fixed;
     width: 100%;
@@ -17,6 +17,7 @@
     left: 0;
     right: 0;
     overflow-x: auto;
+    border-bottom: 2px solid #22405d;
 }
 
 .nav-button {
@@ -25,6 +26,7 @@
     text-align: center;
     padding-left: 15px;
     padding-right: 15px;
+    color: #ecf2f8;
 }
 
 .nav-button.active {
@@ -32,8 +34,10 @@
 }
 
 .nav-button:hover {
-    background-color: #555;
+    background-color: #305b82;
+    color: white;
     cursor: pointer;
+    line-height: 36px;
 }
 
 .fade {

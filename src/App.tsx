@@ -6,6 +6,7 @@ import { NavBar } from "./NavBar/NavBar";
 import { Overview } from "./Pages/Overview";
 import { Tutorial } from "./Pages/Tutorial";
 import { Reference } from "./Pages/Reference";
+import { HireMe } from "./Pages/HireMe";
 
 export class App extends React.Component<any, any> {
 
@@ -15,12 +16,16 @@ export class App extends React.Component<any, any> {
             component: Overview
         },
         {
-            name: 'Tutorial',
+            name: 'API Tutorial',
             component: Tutorial
         },
         {
             name: 'Reference',
             component: Reference
+        },
+        {
+            name: 'Hire Me',
+            component: HireMe
         }
     ];
 

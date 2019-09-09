@@ -92,9 +92,8 @@ export function Tutorial(props: any) {
             />
 
             <p>
-                All values are optional. The most important idea here is the <span className='inline-pre'>intervals</span> array, which
-                <span className='italic'>Play What </span> converts to musical notes. The <span className='inline-pre'>chordInversion </span>
-                value alters the order of the intervals.
+                All values are optional. The most important idea here is the <span className='inline-pre'>intervals</span> array, which <span className='italic'>Play What</span>
+                converts to musical notes. The <span className='inline-pre'>chordInversion</span> value alters the order of the intervals.
             </p>
             <p>
                 Knowledge of musical intervals is not required. Simply import a preset to get started quickly, as shown below.
