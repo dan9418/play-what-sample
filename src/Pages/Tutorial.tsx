@@ -25,13 +25,36 @@ export function Tutorial(props: any) {
             <h2>Include A Component</h2>
 
             <p>
-                Import a viewer component from 'play-what-beta' to use it in your project.
-                Two built-in viewers are provided, Keyboard and Fretboard.
+                Import a viewer component from <span className='inline-pre'>'play-what-beta'</span> to use it in your project.
+                Two built-in viewers are provided, <span className='inline-pre'>Keyboard</span> and <span className='inline-pre'>Fretboard</span>.
+                Each viewer is ready to render with default configuration.
             </p>
 
+            <Demo
+                imports={[['Keyboard', 'Fretboard']]}
+                disableHoc={true}
+                viewers={[
+                    {
+                        id: 'keyboard',
+                        name: 'Keyboard',
+                        component: Keyboard,
+                        defaultProps: DEFAULT_KEYBOARD_PROPS
+                    },
+                    {
+                        id: 'fretboard',
+                        name: 'Fretboard',
+                        component: Fretboard,
+                        defaultProps: DEFAULT_FRETBOARD_PROPS
+                    }
+                ]}
+            />
+
+            <h1>Applying Musical Concepts</h1>
+
+            <h2>Using the withNotes HOC</h2>
+
             <p>
-                To use a viewer component, pass it to the higher-order component <span className='inline-pre'>withNotes</span>.
-                The returned component is ready to render with default configuration.
+                To add musical notes to a viewer, we must first pass it to the higher-order component <span className='inline-pre'>withNotes</span> as follows.
             </p>
 
             <Demo
@@ -52,15 +75,15 @@ export function Tutorial(props: any) {
                 ]}
             />
 
-            <h1>Configuring Musical Concepts</h1>
-
-            <h2>Apply a Concept</h2>
+            <h2>Adding Musical Notes</h2>
 
             <p>
-                To apply a music theory concept to a viewer, provide a <span className='inline-pre'>concept</span> object as the second argument to <span className='inline-pre'>withNotes</span>.
+                By default, the returned component does not contain any musical notes.
+                To add some, provide a <span className='inline-pre'>Concept</span> object as the second argument to <span className='inline-pre'>withNotes</span>.
             </p>
 
             <FormattedTable
+                title='Concept'
                 headers={['Property', 'Type', 'Default', 'Description']}
                 rows={[
                     ['intervals?', 'Interval[]', '[]', 'Intervals in concept'],
@@ -69,9 +92,14 @@ export function Tutorial(props: any) {
             />
 
             <p>
-                Interval presets are available for common chords, scales, modes, roman numerals, and interval pairs.
-                Simply import a constant and include its intervals in the concept object as illustrated below.
-                See the reference section for a complete list of presets.
+                All values are optional. The most important idea here is the <span className='inline-pre'>intervals</span> array, which
+                <span className='italic'>Play What </span> converts to musical notes. The <span className='inline-pre'>chordInversion </span>
+                value alters the order of the intervals.
+            </p>
+            <p>
+                Knowledge of musical intervals is not required. Simply import a preset to get started quickly, as shown below.
+                Constants are available for common chords, scales, modes, roman numerals, and interval pairs.
+                A complete list is available in the reference section.
             </p>
 
             <Demo
@@ -104,7 +132,6 @@ export function Tutorial(props: any) {
             />
 
             <p>
-                Play What converts the array of musical intervals to actual notes.
                 By default, notes are labeled with their respective name and colored by interval degree.
                 For an explanation of musical intervals or degrees, please see the reference section.
             </p>
@@ -112,21 +139,23 @@ export function Tutorial(props: any) {
             <h2>Change The Key</h2>
 
             <p>
-                To change the Key (or 'Key Center'), provide a keyCenter object as the third argument.
+                To change the Key (or 'Key Center'), provide a <span className='inline-pre'>KeyCenter</span> object as the third argument.
             </p>
 
             <FormattedTable
+                title='KeyCenter Interface'
                 headers={['Property', 'Type', 'Default', 'Description']}
                 rows={[
                     ['tonic', 'Tonic', 'TONIC.C', 'Tonic of the key'],
                     ['accidental', 'Accidental', 'ACCIDENTAL.Natural', 'Accidental of tonic'],
-                    ['octave', 'number', '4', 'Octave number of tonic following ISO specs']
+                    ['octave', 'number', '4', 'ISO octave number']
                 ]}
             />
 
             <p>
-                A musical Key provides a reference point from which intervals are interpretted.
-                For explanations of tonic, accidental, and octave, see the reference section or try the demo below.
+                A musical key provides a reference point from which intervals are interpretted.
+                Try the demo below to see how the key affects the notes.
+                For explanations of tonic, accidental, and octave, see the reference section.
             </p>
 
             <Demo
@@ -163,14 +192,14 @@ export function Tutorial(props: any) {
             <h1>Configuring Viewers</h1>
 
             <p>
-                Viewers can also accept props to specify how to display the provided notes.
-                Each viewer also its own API for modifying the viewer itself.
-                See the reference section for details.
+                Viewers can also accept props for additional configuration.
+                Each viewer has its own API.
             </p>
 
             <h2>Keyboard</h2>
 
             <FormattedTable
+                title='Keyboard Props'
                 headers={['Prop', 'Type', 'Default', 'Description']}
                 rows={[
                     ['filterOctave', 'boolean', 'true', 'Indicates whether to show note in all octaves'],
@@ -212,6 +241,7 @@ export function Tutorial(props: any) {
             <h2>Fretboard</h2>
 
             <FormattedTable
+                title='Fretboard Props'
                 headers={['Prop', 'Type', 'Default', 'Description']}
                 rows={[
                     ['filterOctave', 'boolean', 'true', 'Indicates whether to show note in all octaves'],
@@ -258,7 +288,6 @@ export function Tutorial(props: any) {
                 ]}
             />
 
-
             <h2>Create Your Own Viewer</h2>
 
             <p>
@@ -269,19 +298,23 @@ export function Tutorial(props: any) {
             <pre className='syntax'>
                 <span className='function'>{'withNotes'}</span>
                 <span className='operator'>{'('}</span>
-                <span className=''>{'Viewer: Component'}</span>
+                <span className=''>{'Viewer: '}</span>
+                <span className='var'>{'Component'}</span>
                 <span className='operator'>{', '}</span>
-                <span className=''>{'concept?: Concept'}</span>
+                <span className=''>{'concept?: '}</span>
+                <span className='var'>{'Concept'}</span>
                 <span className='operator'>{', '}</span>
-                <span className=''>{'keyCenter?: KeyCenter'}</span>
+                <span className=''>{'keyCenter?: '}</span>
+                <span className='var'>{'KeyCenter'}</span>
                 <span className='operator'>{')'}</span>
             </pre>
 
             <p>
-                The component will be returned with one new prop, <span className='inline-pre'>notes</span>, of type <span className='inline-pre'>Note</span>.
+                The returned component will receive one new prop, <span className='inline-pre'>notes</span>, of type <span className='inline-pre'>Note</span>.
             </p>
 
             <FormattedTable
+                title='Note Interface'
                 headers={['Property', 'Type', 'Description']}
                 rows={[
                     ['name', 'string', 'Spelling of the note plus the accidental symbol'],

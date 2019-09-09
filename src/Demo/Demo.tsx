@@ -15,6 +15,7 @@ export type ViewerDefinition = {
 
 type DemoProps = {
     imports?: string[][];
+    disableHoc?: boolean;
     defaultConcept?: any;
     conceptInputs?: PropertyDefinition[];
     defaultKeyCenter?: any;
@@ -78,23 +79,39 @@ export class Demo extends React.Component<DemoProps, any> {
                         <ObjectDeclaration name='keyCenter' inputs={this.props.keyCenterInputs} value={this.state.keyCenter} setValue={this.setValue} />
                     }
 
-                    <HocDeclaration varName={viewer.name + 'WithNotes'} hocName='withNotes'>
-                        {this.props.viewers && this.props.viewers.length > 1 ?
-                            <DropdownInput data={this.props.viewers} value={viewer} setValue={(value, index) => this.changeViewer(index)} />
-                            : viewer.name}
-                        {enableConcept && <span>
-                            <span className='operator'>{', '}</span><span className='var'>{'concept'}</span>
-                        </span>}
-                        {enableKeyCenter && <span>
-                            <span className='operator'>{', '}</span><span className='var'>{'keyCenter'}</span>
-                        </span>}
-                    </HocDeclaration>
+                    {!this.props.disableHoc && <>
+                        <HocDeclaration varName={viewer.name + 'WithNotes'} hocName='withNotes'>
+                            {this.props.viewers && this.props.viewers.length > 1 ?
+                                <DropdownInput data={this.props.viewers} value={viewer} setValue={(value, index) => this.changeViewer(index)} />
+                                : viewer.name}
+                            {enableConcept && <span>
+                                <span className='operator'>{', '}</span><span className='var'>{'concept'}</span>
+                            </span>}
+                            {enableKeyCenter && <span>
+                                <span className='operator'>{', '}</span><span className='var'>{'keyCenter'}</span>
+                            </span>}
+                        </HocDeclaration>
 
-                    {enableViewerProps &&
-                        <ObjectDeclaration name='viewerProps' inputs={viewer.inputs} value={this.state.viewerProps} setValue={this.setValue} />
+                        {enableViewerProps &&
+                            <ObjectDeclaration name='viewerProps' inputs={viewer.inputs} value={this.state.viewerProps} setValue={this.setValue} />
+                        }
+
+                        <ComponentTag spreadProp={enableViewerProps && 'viewerProps'}>{viewer.name + 'WithNotes'}</ComponentTag>
+                    </>
                     }
 
-                    <ComponentTag name={viewer.name + 'WithNotes'} spreadProp={enableViewerProps && 'viewerProps'} />
+                    {this.props.disableHoc && <>
+                        {enableViewerProps &&
+                            <ObjectDeclaration name='viewerProps' inputs={viewer.inputs} value={this.state.viewerProps} setValue={this.setValue} />
+                        }
+
+                        <ComponentTag name={viewer.name} spreadProp={enableViewerProps && 'viewerProps'}>
+                            {this.props.viewers && this.props.viewers.length > 1 ?
+                                <DropdownInput data={this.props.viewers} value={viewer} setValue={(value, index) => this.changeViewer(index)} />
+                                : viewer.name}
+                        </ComponentTag>
+                    </>
+                    }
                 </pre>
                 <Viewer {...this.state.viewerProps} />
             </div>

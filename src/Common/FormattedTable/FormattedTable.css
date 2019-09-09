@@ -16,3 +16,15 @@
 .formatted-table tr:nth-child(odd) {
     background-color: #f2f2f2;
 }
+
+.formatted-table tr:nth-child(even) {
+    background-color: #f9f9f9
+}
+
+.formatted-table caption { 
+    display: table-caption;
+    text-align: center;
+    font-style: italic;
+    font-size: 120%;
+    padding: 5px;
+}

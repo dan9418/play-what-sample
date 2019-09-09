@@ -54,7 +54,7 @@ export function ComponentTag(props: any) {
     return (
         <div className='tag'>
             <span className='bracket'>{'<'}</span>
-            <span className='component'>{props.name}</span>
+            <span className='component'>{props.children}</span>
             {props.spreadProp &&
                 <span>
                     <span className='operator'>{' {...'}</span>

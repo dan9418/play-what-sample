@@ -2,6 +2,7 @@ import * as React from "react";
 import "./FormattedTable.css";
 
 type FormattedTableProps = {
+    title?: string;
     headers: string[];
     rows: string[][];
 }
@@ -9,6 +10,7 @@ type FormattedTableProps = {
 export function FormattedTable(props: FormattedTableProps) {
     return (
         <table className='formatted-table'>
+            <caption>{props.title}</caption>
             <tbody>
                 <tr>
                     {props.headers.map((header, index) => { return <th key={index}>{header}</th> })}
