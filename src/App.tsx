@@ -7,6 +7,7 @@ import { Overview } from "./Pages/Overview/Overview";
 import { Tutorial } from "./Pages/Tutorial/Tutorial";
 import { Reference } from "./Pages/Reference/Reference";
 import { HireMe } from "./Pages/HireMe/HireMe";
+import { useState } from "react";
 
 export type PageDef = {
     name: string;
@@ -14,54 +15,40 @@ export type PageDef = {
 }
 
 const PAGES: PageDef[] = [
-        {
-            name: 'Overview',
-            component: Overview
-        },
-        {
-            name: 'API Tutorial',
-            component: Tutorial
-        },
-        {
-            name: 'Reference',
-            component: Reference
-        },
-        {
-            name: 'Hire Me',
-            component: HireMe
-        }
-    ];
-
-export class App extends React.Component<any, any> {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            pageIndex: 0
-        }
+    {
+        name: 'Overview',
+        component: Overview
+    },
+    {
+        name: 'API Tutorial',
+        component: Tutorial
+    },
+    {
+        name: 'Reference',
+        component: Reference
+    },
+    {
+        name: 'Hire Me',
+        component: HireMe
     }
+];
 
-    setPage = (index: number) => {
-        this.setState({
-            pageIndex: index
-        });
-    }
+function App(props) {
 
-    render() {
+    const [pageIndex, setPage] = useState(0);
 
-        let Page = PAGES[this.state.pageIndex].component;
+    let Page = PAGES[pageIndex].component;
 
-        return (
-            <div>
-                <NavBar pages={PAGES} pageIndex={this.state.pageIndex} setPage={this.setPage}/>
+    return (
+        <div>
+            <NavBar pages={PAGES} pageIndex={pageIndex} setPage={setPage} />
 
-                <div className='app-body'>
-                    <Page></Page>
-                </div>
+            <div className='app-body'>
+                <Page></Page>
             </div>
-        );
-    }
+        </div>
+    );
+
 }
 
 ReactDOM.render(<App />, document.querySelector("#app"));
