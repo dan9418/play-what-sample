@@ -9,14 +9,14 @@ export function Overview(props: any) {
             <h1>Play What?</h1>
 
             <p>
-                <span className='italic'>Play What</span> is a React component library and framework for visualizing music theory concepts.
+                <span className='italic'>Play What</span> is a React component library for visualizing music theory concepts.
                 It provides a simple API for configuring viewer components and creating your own.
             </p>
 
             <h2>Features</h2>
 
             <ul>
-                <li>Presets for Chords, Scales, Modes, and Roman Numerals</li>
+                <li>Presets for Chords, Scales, Modes, Roman Numerals, and Intervals</li>
                 <li>Easy transposition of any concept to any key and/or octave</li>
                 <li>Configurable viewer components to visualize these concepts</li>
                 <li>Built-in viewers for keyboards and fretboards</li>
