@@ -1,5 +1,8 @@
 .example {
     display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    min-width: 100px;
 }
 
 .example-box {
@@ -13,6 +16,5 @@
 }
 
 .example-label {
-    position: relative;
-    top: -10px;
+    margin: 5px;
 }

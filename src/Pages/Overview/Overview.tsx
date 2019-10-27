@@ -1,6 +1,7 @@
 import * as React from "react";
 import { NOTE_LABEL, INTERVAL, SCALE, ROMAN_NUMERAL, CHORD, TONIC, Fretboard, Keyboard } from 'play-what-beta';
 import { Example } from "./Example/Example";
+import './Overview.css';
 
 export function Overview(props: any) {
     return (
@@ -27,80 +28,87 @@ export function Overview(props: any) {
 
             <h3>Configure concepts and how they're displayed</h3>
 
-            <Example viewer={Keyboard} viewerProps={{ keyHigh: 12, keyLabel: NOTE_LABEL.Name }} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.E }} label='Chords' />
+            <div className='overview concepts'>
+                <Example viewer={Keyboard} viewerProps={{ keyHigh: 12, keyLabel: NOTE_LABEL.Name }} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.E }} label='Chords' />
 
-            <Example viewer={Keyboard} viewerProps={{ keyHigh: 12, keyLabel: NOTE_LABEL.Interval }} concept={{ intervals: SCALE.HarmonicMinor.intervals }} label='Scales and Modes' />
+                <Example viewer={Keyboard} viewerProps={{ keyHigh: 12, keyLabel: NOTE_LABEL.Interval }} concept={{ intervals: SCALE.HarmonicMinor.intervals }} label='Scales and Modes' />
 
-            <Example viewer={Keyboard} viewerProps={{ keyLow: 2, keyHigh: 16, keyLabel: NOTE_LABEL.Degree }} concept={{ intervals: CHORD.Min.intervals, chordInversion: 1 }} keyCenter={{ tonic: TONIC.D }} label='Inversions' />
+                <Example viewer={Keyboard} viewerProps={{ keyLow: 4, keyHigh: 16, keyLabel: NOTE_LABEL.Degree }} concept={{ intervals: CHORD.Min.intervals, chordInversion: 1 }} keyCenter={{ tonic: TONIC.D }} label='Inversions' />
+            </div>
 
             <h3>View concepts on different instruments</h3>
 
-            <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} label='Guitar' />
+            <div className='overview instruments'>
+                <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} label='Guitar' />
 
-            <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} viewerProps={{
-                strings: [
-                    { tuning: -5 },    // G
-                    { tuning: -10 },    // D
-                    { tuning: -15 },   // A
-                    { tuning: -20 }    // E
-                ]
-            }} label='Bass Guitar' />
+                <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} viewerProps={{
+                    strings: [
+                        { tuning: -5 },    // G
+                        { tuning: -10 },    // D
+                        { tuning: -15 },   // A
+                        { tuning: -20 }    // E
+                    ]
+                }} label='Bass Guitar' />
 
-            <Example viewer={Keyboard} concept={{ intervals: CHORD.Maj.intervals }} label='Piano' />
+                <Example viewer={Keyboard} concept={{ intervals: CHORD.Maj.intervals }} label='Piano' />
+            </div>
 
             <h3>Customize tunings and voicings</h3>
 
-            <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.D }} viewerProps={{
-                fretHigh: 3,
-                strings: [
-                    { tuning: 16 },   // e
-                    { tuning: 11 },   // B
-                    { tuning: 7 },    // G
-                    { tuning: 2 },    // D
-                    { tuning: -3, unfilteredIntervals: [] },   // A
-                    { tuning: -8, unfilteredIntervals: [] }    // E
-                ],
-                filterOctave: false,
-                showDots: false
-            }} label='Standard' />
+            <div className='overview tunings'>
+                <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.D }} viewerProps={{
+                    fretHigh: 3,
+                    strings: [
+                        { tuning: 16 },   // e
+                        { tuning: 11 },   // B
+                        { tuning: 7 },    // G
+                        { tuning: 2 },    // D
+                        { tuning: -3, unfilteredIntervals: [] },   // A
+                        { tuning: -8, unfilteredIntervals: [] }    // E
+                    ],
+                    filterOctave: false,
+                    showDots: false
+                }} label='Standard' />
 
-            <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.D }} viewerProps={{
-                fretLow: 10,
-                fretHigh: 13,
-                strings: [
-                    { tuning: 16 },   // e
-                    { tuning: 11 },   // B
-                    { tuning: 7 },    // G
-                    { tuning: 2 },    // D
-                    { tuning: -3 },   // A
-                    { tuning: -8 }    // E
-                ],
-                filterOctave: false,
-                showDots: false
-            }} label='Standard (Barre)' />
+                <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.D }} viewerProps={{
+                    fretLow: 10,
+                    fretHigh: 13,
+                    strings: [
+                        { tuning: 16 },   // e
+                        { tuning: 11 },   // B
+                        { tuning: 7 },    // G
+                        { tuning: 2 },    // D
+                        { tuning: -3 },   // A
+                        { tuning: -8 }    // E
+                    ],
+                    filterOctave: false,
+                    showDots: false
+                }} label='Standard (Barre)' />
 
-            <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.D }} viewerProps={{
-                fretHigh: 3,
-                strings: [
-                    { tuning: 14 },   // d
-                    { tuning: 9 },   // A
-                    { tuning: 6, unfilteredIntervals: [INTERVAL.M3] },    // F#
-                    { tuning: 2 },    // D
-                    { tuning: -3 },   // A
-                    { tuning: -10 }    // D
-                ],
-                filterOctave: false,
-                showDots: false
-            }} label='Open D' />
+                <Example viewer={Fretboard} concept={{ intervals: CHORD.Maj.intervals }} keyCenter={{ tonic: TONIC.D }} viewerProps={{
+                    fretHigh: 3,
+                    strings: [
+                        { tuning: 14 },   // d
+                        { tuning: 9 },   // A
+                        { tuning: 6, unfilteredIntervals: [INTERVAL.M3] },    // F#
+                        { tuning: 2 },    // D
+                        { tuning: -3 },   // A
+                        { tuning: -10 }    // D
+                    ],
+                    filterOctave: false,
+                    showDots: false
+                }} label='Open D' />
+            </div>
 
             <h3>Demonstrate chord progressions</h3>
 
-            <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.ii.intervals }} label='ii' />
+            <div className='overview chord-progressions'>
+                <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.ii.intervals }} label='ii' />
 
-            <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.V.intervals }} label='V' />
+                <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.V.intervals }} label='V' />
 
-            <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.I.intervals }} label='I' />
-
+                <Example viewer={Keyboard} viewerProps={{ keyHigh: 14 }} concept={{ intervals: ROMAN_NUMERAL.I.intervals }} label='I' />
+            </div>
 
             <h2>Contribute</h2>
 

@@ -1,0 +1,11 @@
+.overview .example {
+    width: 30%;
+}
+
+.overview.instruments .example {
+    width: 100%;
+}
+
+.overview.tunings .example {
+    width: 20%;
+}
