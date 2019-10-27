@@ -327,6 +327,14 @@ export function Tutorial(props: any) {
                 ]}
             />
 
+            <h2>Configurable Styles (Coming Soon)</h2>
+
+            <p>
+                Beta version 2.0.0 introduced several visual improvements in preparation for more configurable styles.
+                By default, viewers scale to 100% of their container width with min-width 100px and max-width 300px.
+                The next release will support more control over viewer sizing and coloring.
+            </p>
+
         </div>
     );
 }
