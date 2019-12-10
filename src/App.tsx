@@ -6,7 +6,6 @@ import { NavBar } from "./NavBar/NavBar";
 import { Overview } from "./Pages/Overview/Overview";
 import { Tutorial } from "./Pages/Tutorial/Tutorial";
 import { Reference } from "./Pages/Reference/Reference";
-import { HireMe } from "./Pages/HireMe/HireMe";
 import { useState } from "react";
 
 export type PageDef = {
@@ -26,10 +25,6 @@ const PAGES: PageDef[] = [
     {
         name: 'Reference',
         component: Reference
-    },
-    {
-        name: 'Hire Me',
-        component: HireMe
     }
 ];
 

@@ -3,7 +3,7 @@ import { NOTE_LABEL, INTERVAL, SCALE, ROMAN_NUMERAL, CHORD, TONIC, Fretboard, Ke
 import { Example } from "./Example/Example";
 import './Overview.css';
 
-export function Overview(props: any) {
+export function Overview() {
     return (
         <div className='docs-section'>
 
@@ -11,7 +11,11 @@ export function Overview(props: any) {
 
             <p>
                 <span className='italic'>Play What</span> is a React component library for visualizing music theory concepts.
-                It provides a simple API for configuring viewer components and creating your own.
+                It provides a simple API for configuring built-in viewer components and creating your own.
+            </p>
+
+            <p>
+                This beta version is subject to major changes as I finalize the architecture and features for the first major release.
             </p>
 
             <h2>Features</h2>
